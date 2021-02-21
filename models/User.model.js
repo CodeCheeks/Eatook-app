@@ -6,7 +6,7 @@ const getAuthToken = require('registry-auth-token')
 const getRegistryUrl = require('registry-auth-token/registry-url')
 const SALT_ROUNDS = 10;
 
-const UserSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
     {
         email: {
             type: String,
