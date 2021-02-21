@@ -31,12 +31,14 @@ const restaurantSchema = new mongoose.Schema(
             },
             hours: {
                 type: String,
-                required: true
+                required: false,
+                default: '13:00-17:00  20:00-24:00'
             }
         },
         cuisine:{
             type: String,
-            required: true  
+            required: false,  
+            default: 'Generic Food'
         }
     }
 )

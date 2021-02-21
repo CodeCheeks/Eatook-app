@@ -1,8 +1,6 @@
 require("../config/db.config");
 const faker = require('faker');
 
-const Celebrity = require("../models/Restaurant.model");
-
 const mongoose = require('mongoose');
 const Restaurant = require("../models/Restaurant.model");
 
