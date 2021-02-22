@@ -15,4 +15,6 @@ module.exports.signup = (req,res,next) => {
     res.render('authentication/signup_form')
 }
 
-
+module.exports.doSignup = (req,res,next) => {
+    console.log('The form data: ', req.body);
+}
