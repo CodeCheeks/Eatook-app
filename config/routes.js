@@ -14,5 +14,7 @@ router.get("/login", userController.login)
 router.get("/signup", userController.signup)
 router.post("/signup", userController.doSignup)
 
+//Activate account
+router.get('/activate/:token', userController.activate)
 
 module.exports = router;

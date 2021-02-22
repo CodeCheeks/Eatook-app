@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-
+const { uuid } = require('uuidv4');
 const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 10
 
@@ -33,6 +33,16 @@ const userSchema = new Schema(
         type: String,
         enum: ['admin','user','owner'],
         default: 'user'
+    },
+
+    active: {
+      type: Boolean,
+      default: false
+    },
+
+    activationToken: {
+      type: String,
+      default: () => uuidv4()
     }
   }
 );
