@@ -29,7 +29,7 @@ module.exports.doLogin = (req, res, next) => {
         }
         else {
           console.log('log in done')
-          res.redirect('/')
+          res.redirect('/profile')
         }
       })
     }
@@ -76,6 +76,18 @@ module.exports.doSignup = (req,res,next) => {
       })
       .catch(e =>  console.log(e))
   }
+
+  module.exports.logout = (req, res, next) => {
+    req.logout();
+    res.redirect("/login");
+  };
+
+//
+
+module.exports.userProfile = (req, res, next) => {
+  res.render("users/profile")
+}
+
 
   module.exports.activate = (req, res, next) => {
     User.findOneAndUpdate(

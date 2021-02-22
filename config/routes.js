@@ -14,6 +14,12 @@ router.post("/signup", userController.doSignup)
 router.get("/login", userController.login)
 router.post("/login", userController.doLogin)
 
+//profile 
+router.get("/profile", userController.userProfile)
+
+//logout
+
+router.post("/logout", userController.logout)
 
 
 //Activate account
