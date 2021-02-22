@@ -17,6 +17,11 @@ app.use(logger("dev"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 
+app.use((req, res, next) => {
+  req.currentUser = req.user;
+  res.locals.currentUser = req.user;
+  next()
+})
 
 app.use("/", routes);
 
