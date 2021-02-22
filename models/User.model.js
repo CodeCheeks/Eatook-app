@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { uuid } = require('uuidv4');
+const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 10
 
@@ -28,7 +28,6 @@ const userSchema = new Schema(
       match: [PASSWORD_PATTERN, 'Tu contraseña debe conteneral menos 1 número, 1 mayúscula, 1 minúscula y 8 caracteres'],
       required: [true, 'Password is required.'],
     },
-
     role: {
         type: String,
         enum: ['admin','user','owner'],

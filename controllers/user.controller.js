@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 
+const { sendActivationEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
 
-const { sendActivationEmail } = require("../config/mailer.config")
 
 // login
 module.exports.login = (req,res,next) => {
@@ -16,10 +16,11 @@ module.exports.signup = (req,res,next) => {
 }
 
 module.exports.doSignup = (req,res,next) => {
-    console.log('The form data: ', req.body)      //La información del formulario se manda con el post y se almacena en req.body
+        //La información del formulario se manda con el post y se almacena en req.body
     function renderWithErrors(errors) {
       res.status(400).render('authentication/signup_form', {
         errors: errors,
+        user: req.body
       })
     }
   
@@ -31,9 +32,10 @@ module.exports.doSignup = (req,res,next) => {
           })
         } 
         else {
+          
           User.create(req.body)
             .then((user) => {
-              //sendActivationEmail(user.email,user.activationToken)
+              sendActivationEmail(user.email,user.activationToken)
               res.redirect('/')
             })
             .catch(e => {
@@ -45,7 +47,7 @@ module.exports.doSignup = (req,res,next) => {
             })
         }
       })
-      .catch(e => next(e))
+      .catch(e =>  console.log(e))
   }
 
   module.exports.activate = (req, res, next) => {
