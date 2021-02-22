@@ -17,7 +17,7 @@ module.exports.signup = (req,res,next) => {
 }
 
 module.exports.doSignup = (req,res,next) => {
-    //console.log('The form data: ', req.body)      //La información del formulario se manda con el post y se almacena en req.body
+    console.log('The form data: ', req.body)      //La información del formulario se manda con el post y se almacena en req.body
     function renderWithErrors(errors) {
       res.status(400).render('authentication/signup_form', {
         errors: errors,
