@@ -3,9 +3,16 @@ const mongoose = require("mongoose")
 const User = require("../models/User.model")
 
 
-//user login
+// login
 module.exports.login = (req,res,next) => {
     res.render('authentication/login_form')
+}
+
+
+// signup
+
+module.exports.signup = (req,res,next) => {
+    res.render('authentication/signup_form')
 }
 
 

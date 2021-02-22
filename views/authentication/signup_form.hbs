@@ -1,11 +1,15 @@
 <div class="container d-flex justify-content-center">
     <div class="row">
         <div class="col border border-secondary">
-            <h2 class="mb-3 p-2">Log in</h2>
-            <form action="/login" method="POST">
+            <h2 class="mb-3 p-2">Sign up</h2>
+            <form action="/signup" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo electrónico</label>
                     <input type="email" name="email" value="{{user.email}}" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de usuario</label>
+                    <input type="string" name="username" value="{{user.username}}" class="form-control" id="username" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
@@ -18,9 +22,8 @@
                 {{#if message}}
                 <p class="success-message">{{message}}</p>
                 {{/if}}
-                <div class="col text-center mb-3">
-                    <button type="submit" class="btn btn-secondary ">Iniciar sesión</button>
-                    <a class="btn btn-secondary mx-4 px-4 d-inline" aria-current="page" href="/signup">Sign up</a>
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-secondary mb-3">Submit</button>
                 </div>
             </form>
         </div>
