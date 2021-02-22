@@ -5,23 +5,31 @@
             <form action="/signup" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo electrónico</label>
-                    <input type="email" name="email" class="form-control" id="email" required>
+                    <input type="email" name="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="email" required>
+                    {{#if errors.email}}
+                        <div class="invalid-feedback">
+                            {{errors.email}}
+                        </div>
+                    {{/if}}
                 </div>
                 <div class="mb-3">
                     <label for="username" class="form-label">Nombre de usuario</label>
-                    <input type="string" name="username" class="form-control" id="username" required>
+                    <input type="string" name="username" class="form-control {{#if errors.username}}is-invalid{{/if}}" id="username" required>
+                    {{#if errors.username}}
+                        <div class="invalid-feedback">
+                            {{errors.username}}
+                        </div>
+                    {{/if}}
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" name="password" class="form-control" id="password" required>
+                    <input type="password" name="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" id="password" required>
+                {{#if errors.password}}
+                    <div class="invalid-feedback">
+                        {{errors.password}}
+                    </div>
+                {{/if}}
                 </div>
-                {{#if error}}
-                <p class="error-message">{{error}}</p>
-                {{/if}}
-                
-                {{#if message}}
-                <p class="success-message">{{message}}</p>
-                {{/if}}
                 <div class="col text-center">
                     <button type="submit" class="btn btn-secondary mb-3">Submit</button>
                 </div>
