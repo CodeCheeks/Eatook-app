@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+const passport = require('passport')
 const { sendActivationEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
 
@@ -8,6 +8,33 @@ const User = require("../models/User.model")
 module.exports.login = (req,res,next) => {
     res.render('authentication/login_form')
 }
+
+// doLogin
+
+module.exports.doLogin = (req, res, next) => {
+  passport.authenticate('local-auth', (error, user, validations) => {
+    if (error) {
+      next(error);
+    } 
+    else if (!user) {
+      res.status(400).render('authentication/login_form', { 
+        user: req.body, 
+        error: validations.error 
+      });
+    } 
+    else {
+      req.login(user, loginErr => {
+        if(loginErr) {
+          next(loginErr)
+        }
+        else {
+          console.log('log in done')
+          res.redirect('/')
+        }
+      })
+    }
+  })(req, res, next);
+};
 
 // signup
 
