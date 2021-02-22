@@ -31,7 +31,8 @@
                 {{/if}}
                 </div>
                 <div class="col text-center">
-                    <button type="submit" class="btn btn-secondary mb-3">Submit</button>
+                    <button type="submit {{!-- button --}}" class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#register__modal">Submit</button>
+                     {{> modal_signup}}
                 </div>
             </form>
         </div>
