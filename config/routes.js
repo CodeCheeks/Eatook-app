@@ -14,9 +14,16 @@ router.post("/signup", userController.doSignup)
 router.get("/login", userController.login)
 router.post("/login", userController.doLogin)
 
+// logout
+//router.post("/logout", userController.logout);
 
+// profile
+router.get("/profile", userController.profile);
 
 //Activate account
 router.get('/activate/:token', userController.activate)
+
+
+
 
 module.exports = router;

@@ -10,7 +10,6 @@ module.exports.login = (req,res,next) => {
 }
 
 // doLogin
-
 module.exports.doLogin = (req, res, next) => {
   passport.authenticate('local-auth', (error, user, validations) => {
     if (error) {
@@ -36,14 +35,24 @@ module.exports.doLogin = (req, res, next) => {
   })(req, res, next);
 };
 
-// signup
+//logout
+module.exports.logout = (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+};
 
+//profile
+module.exports.profile = (req, res, next) => {
+  res.render("users/profile")
+
+};
+
+// signup
 module.exports.signup = (req,res,next) => {
     res.render('authentication/signup_form')
 }
 
 module.exports.doSignup = (req,res,next) => {
-        //La información del formulario se manda con el post y se almacena en req.body
     function renderWithErrors(errors) {
       res.status(400).render('authentication/signup_form', {
         errors: errors,
@@ -77,21 +86,22 @@ module.exports.doSignup = (req,res,next) => {
       .catch(e =>  console.log(e))
   }
 
-  module.exports.activate = (req, res, next) => {
-    User.findOneAndUpdate(
-      { activationToken: req.params.token, active: false },
-      { active: true, activationToken: "active" }
-    )
-      .then((u) => {
-        if (u) {
-          //TODO: Show message with modal
-          console.log('Your account has been activated')
-          res.render("authentication/login_form");
-        } else {
-          //TODO: Show message with modal
-          console.log('Problems activating the account')
-          res.redirect("/")
-        }
-      })
-      .catch((e) => next(e));
-  };
+
+module.exports.activate = (req, res, next) => {
+  User.findOneAndUpdate(
+    { activationToken: req.params.token, active: false },
+    { active: true, activationToken: "active" }
+  )
+    .then((u) => {
+      if (u) {
+        //TODO: Show message with modal
+        console.log('Your account has been activated')
+        res.render("authentication/login_form");
+      } else {
+        //TODO: Show message with modal
+        console.log('Problems activating the account')
+        res.redirect("/")
+      }
+    })
+    .catch((e) => next(e));
+};
