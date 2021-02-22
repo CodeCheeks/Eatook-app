@@ -10,5 +10,9 @@ router.get("/", miscController.home)
 router.get("/login", userController.login)
 //router.post("/login", userController.doLogin)
 
+//sign up
+router.get("/signup", userController.signup)
+router.post("/signup", userController.doSignup)
+
 
 module.exports = router;
