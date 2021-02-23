@@ -57,7 +57,7 @@ module.exports.doSignup = (req,res,next) => {
       .then((user) => {
         if (user) {
           renderWithErrors({
-            email: 'This email is already in use'
+            email: 'The email or username is already in use'
           })
         } 
         else {
