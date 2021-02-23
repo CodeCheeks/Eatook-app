@@ -28,23 +28,11 @@ module.exports.doLogin = (req, res, next) => {
         }
         else {
           console.log('log in done')
-          res.redirect('/')
+          res.redirect('/profile')
         }
       })
     }
   })(req, res, next);
-};
-
-//logout
-module.exports.logout = (req, res, next) => {
-  req.logout();
-  res.redirect("/");
-};
-
-//profile
-module.exports.profile = (req, res, next) => {
-  res.render("users/profile")
-
 };
 
 // signup

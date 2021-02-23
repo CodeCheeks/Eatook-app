@@ -25,13 +25,22 @@ body{
     text-transform: uppercase;
 }
 
-.signup-form,.login-form{
+.signup-form{
     background: #fff;
     padding: 40px;
     clear: both;
     width: 100%;
     box-sizing: border-box;
     height: 480px;
+}
+
+.login-form{
+    background: #fff;
+    padding: 40px;
+    clear: both;
+    width: 100%;
+    box-sizing: border-box;
+    height: 350px;
 }
 
 .input{
@@ -63,6 +72,11 @@ body{
     cursor: pointer;
 }
 
+.btn-secondary:hover {
+    color: #fff;
+    background-color:#cddc49 !important;
+    border-color: #3e3e40!important;
+}
 
 @media only screen and (max-width: 600px) {
 
