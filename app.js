@@ -3,6 +3,7 @@ const createError = require("http-errors");
 const express = require("express");
 const logger = require("morgan");
 const routes = require("./config/routes");
+const favicon      = require('serve-favicon');
 
 require("./config/db.config")
 require('./config/hbs.config')
@@ -16,6 +17,9 @@ app.use(express.static("public"));
 app.use(logger("dev"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
+
+
+app.use(favicon('public/img/favicon.ico'));
 
 app.use("/", routes);
 
