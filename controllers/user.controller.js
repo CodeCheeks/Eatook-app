@@ -32,9 +32,14 @@ module.exports.doLogin = (req, res, next) => {
         }
       })
     }
-  })(req, res, next);
+  })(req, res, next)
 };
 
+//logut
+module.exports.logout = (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+};
 // signup
 module.exports.signup = (req,res,next) => {
     res.render('authentication/signup_form')
@@ -52,7 +57,7 @@ module.exports.doSignup = (req,res,next) => {
       .then((user) => {
         if (user) {
           renderWithErrors({
-            email: 'Ya existe un usuario con este email'
+            email: 'This email is already in use'
           })
         } 
         else {
@@ -93,3 +98,9 @@ module.exports.activate = (req, res, next) => {
     })
     .catch((e) => next(e));
 };
+
+//Profile
+
+module.exports.profile = (req,res,next) => {
+  res.render("users/profile")
+}

@@ -10,9 +10,15 @@ router.get("/", miscController.home)
 router.get("/signup", userController.signup)
 router.post("/signup", userController.doSignup)
 
-// login
+//login
 router.get("/login", userController.login)
 router.post("/login", userController.doLogin)
+
+//logout
+router.post("/logout", userController.logout)
+
+// profile
+router.get("/profile", userController.profile)
 
 //Activate account
 router.get('/activate/:token', userController.activate)
