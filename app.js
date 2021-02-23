@@ -3,10 +3,16 @@ const createError = require("http-errors");
 const express = require("express");
 const logger = require("morgan");
 const routes = require("./config/routes");
-const favicon      = require('serve-favicon');
+const session = require("./config/session.config");
+const favicon = require('serve-favicon');
+
+const passport = require('passport')
+
+
 
 require("./config/db.config")
 require('./config/hbs.config')
+require("./config/passport.config")
 
 
 // Express config
@@ -15,12 +21,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(logger("dev"));
+app.use(session);
+app.use(passport.initialize());
+app.use(passport.session());
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 
 app.use((req, res, next) => {
-  req.currentUser = req.user;
-  res.locals.currentUser = req.user;
+  //++IMPORTANTE TODOS LOS REQ.CURRENTUSER SON REQ.USER EN NUESTRO PROYECTO++
+  res.locals.user = req.user;
   next()
 })
 
