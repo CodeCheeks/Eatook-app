@@ -1,27 +1,17 @@
-
-
-
-
-.general__style{
-    background-color: #ace600!important;
-    ;
-}
-
-
 *{
     margin: 0;
     padding: 0;
 }
   
 body{
-background: #e9eaea;
-font-family: roboto;
-user-select: none;
+    background: #e9eaea;
+    font-family: roboto;
+    user-select: none;
 }
 
-.container{
-width: 450px;
-margin: 30px auto;
+.container__form{
+    width: 450px;
+    margin: 30px auto;
 }
 
 .signup,.login{
@@ -56,8 +46,9 @@ margin: 30px auto;
     transform: all 0.5s ease;
 }
 
+
 .input:focus{
-    border: 2px solid #ace600;
+    border: 2px solid #ace600;     
 }
 
 .btn{
@@ -65,40 +56,19 @@ margin: 30px auto;
     background: #ace600;
     height: 60px;
     text-align: center;
-    line-height: 60px;
     text-transform: uppercase;
     color: #fff;
     font-weight: bold;
     letter-spacing: 1px;
     cursor: pointer;
-    margin-bottom: 30px;
-}
-
-span a{
-text-decoration: none;
-color: #000;
 }
 
 
+@media only screen and (max-width: 600px) {
 
-
-
-
-
-
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-color: #3e3e40;
-font-family: roboto;
+.container__form{
+    width: 320px;
+    margin: 2px auto;
 }
-::-moz-placeholder { /* Firefox 19+ */
-color: #3e3e40;
-font-family: roboto;
-}
-:-ms-input-placeholder { /* IE 10+ */
-color: #3e3e40;
-font-family: roboto;
-}
-:-moz-placeholder { /* Firefox 18- */
-color: #3e3e40;
-font-family: roboto;
+
 }
