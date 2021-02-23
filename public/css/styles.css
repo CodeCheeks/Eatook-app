@@ -1,10 +1,20 @@
+
+/*
+#222917
+#617c11
+#c2c55e
+#fedd9a
+#b08c50
+#f6f7d0
+*/
+
 *{
     margin: 0;
     padding: 0;
 }
   
 body{
-    background: #e9eaea;
+    background: #f6f7d0;
     font-family: roboto;
     user-select: none;
 }
@@ -23,6 +33,8 @@ body{
     text-align: center;
     cursor: pointer;
     text-transform: uppercase;
+    border: #c2c55e 2px solid;
+    border-radius: 25px;
 }
 
 .signup-form{
@@ -32,6 +44,8 @@ body{
     width: 100%;
     box-sizing: border-box;
     height: 480px;
+    border: #c2c55e 2px solid;
+    border-radius: 25px;
 }
 
 .login-form{
@@ -41,6 +55,9 @@ body{
     width: 100%;
     box-sizing: border-box;
     height: 350px;
+    border: #c2c55e 2px solid;
+    border-radius: 25px;
+    
 }
 
 .input{
@@ -57,12 +74,12 @@ body{
 
 
 .input:focus{
-    border: 2px solid #ace600;     
+    border: 2px solid #c2c55e;     
 }
 
 .btn{
     width: 100%;
-    background: #ace600;
+    background: #617c11;
     height: 60px;
     text-align: center;
     text-transform: uppercase;
@@ -74,7 +91,7 @@ body{
 
 .btn-secondary:hover {
     color: #fff;
-    background-color:#cddc49 !important;
+    background-color:#c2c55e !important;
     border-color: #3e3e40!important;
 }
 
