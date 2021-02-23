@@ -1,7 +1,6 @@
 <div class="container__form d-flex justify-content-center">
-    <div class="row">
-        <div class="signup">Sign Up</div>
-        <div class="login">Log In</div>
+    <div class="row justify-content-center">
+        <div class="signup mb-3">Sign Up</div>
         
         <form action="/signup" method="POST" class="signup-form">
             <input type="email" name="email" placeholder="Email Address" class="input {{#if errors.email}}is-invalid{{/if}}" id="email" required><br />
