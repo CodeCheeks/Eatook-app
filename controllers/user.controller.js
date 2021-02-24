@@ -41,6 +41,12 @@ module.exports.logout = (req, res, next) => {
   res.redirect("/");
 };
 
+
+//verify account
+module.exports.verify = (req,res,next) => {
+  res.render("authentication/verify_account");
+}
+
 // signup
 module.exports.signup = (req,res,next) => {
     res.render('authentication/signup_form')
@@ -66,7 +72,7 @@ module.exports.doSignup = (req,res,next) => {
           User.create(req.body)
             .then((user) => {
               sendActivationEmail(user.email,user.activationToken)
-              res.redirect('/')
+              res.redirect("/signup/verify-account");
             })
             .catch(e => {
               if (e instanceof mongoose.Error.ValidationError) {
@@ -88,19 +94,15 @@ module.exports.activate = (req, res, next) => {
   )
     .then((u) => {
       if (u) {
-        //TODO: Show message with modal
-        console.log('Your account has been activated')
         res.render("authentication/login_form");
       } else {
-        //TODO: Show message with modal
-        console.log('Problems activating the account')
         res.redirect("/")
       }
     })
     .catch((e) => next(e));
 };
 
-//User profile
+//Profile
 
 module.exports.profile = (req,res,next) => {
   res.render("users/profile")
