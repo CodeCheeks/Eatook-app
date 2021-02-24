@@ -1,7 +1,5 @@
 <div class="container__form d-flex justify-content-center">
     <div class="row justify-content-center">
-        <div class="login mb-3">login</div>
-        
         <form action="/login" method="POST" class="login-form">
             <input type="email" name="email" placeholder="Email Address" class="input" id="email" required><br />
             <input type="password" name="password" placeholder="Password"  class="input" id="password" required>
@@ -10,8 +8,12 @@
                 <p class="error-message">{{error}}</p>
             {{/if}}
             
+            <div class="mb-4">
+                <input type="checkbox" name="" value="">
+                <label for="cookieTime" >Remember me</label>
+            </div>
 
-            <button type="submit" class="btn btn-secondary">LOG IN</button>
+            <button type="submit" class="btn btn-secondary mt-4">LOG IN</button>
             <div class="text-center w-100">
                 <p class="text-muted font-weight-bold mt-2">Don't have an account  <a href="/signup" class="text-primary ml-2">Register here</a></p>
             </div>
