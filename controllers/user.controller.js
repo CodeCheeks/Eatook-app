@@ -105,3 +105,9 @@ module.exports.activate = (req, res, next) => {
 module.exports.profile = (req,res,next) => {
   res.render("users/profile")
 }
+
+//User information
+
+module.exports.userInformation = (req, res, next) => {
+  res.render("users/user_information")
+}

@@ -17,8 +17,12 @@ router.post("/login",secure.isNotAuthenticated, userController.doLogin)
 //logout
 router.post("/logout",secure.isAuthenticated, userController.logout)
 
-// profile
+// USER PROFILE
+//profile main page
 router.get("/profile", secure.isAuthenticated, userController.profile)
+
+//personal information
+router.get("/userinformation", secure.isAuthenticated, userController.userInformation)
 
 //Activate account
 router.get('/activate/:token',secure.isNotAuthenticated, userController.activate)
