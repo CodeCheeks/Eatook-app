@@ -3,11 +3,7 @@ const passport = require('passport')
 const miscController = require("../controllers/misc.controller")
 const userController = require("../controllers/user.controller")
 const secure = require("../middlewares/secure.middleware");
-<<<<<<< HEAD
-const upload = require('./storage.config')
-=======
 
->>>>>>> main
 // home
 router.get("/", miscController.home)
 
