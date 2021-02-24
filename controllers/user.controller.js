@@ -6,7 +6,9 @@ const User = require("../models/User.model")
 
 // login
 module.exports.login = (req,res,next) => {
+  console.log('USER', req.user)
     res.render('authentication/login_form')
+    
 }
 
 // doLogin
@@ -17,7 +19,7 @@ module.exports.doLogin = (req, res, next) => {
     } 
     else if (!user) {
       res.status(400).render('authentication/login_form', { 
-        user: req.body, 
+        //user: req.body,  TODO
         error: validations.error 
       });
     } 
@@ -35,7 +37,37 @@ module.exports.doLogin = (req, res, next) => {
   })(req, res, next)
 };
 
-//logut
+
+//forgot pass
+
+module.exports.forgotpass = (req,res,next) => {
+  res.render("authentication/forgot_pass");
+}
+
+module.exports.doForgotpass = (req,res,next) => {
+  function renderWithErrors(errors) {
+    res.status(400).render('authentication/forgot_pass', {
+      errors: errors,
+    })
+  }
+
+  User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (user) {
+          sendActivationEmail(user.email)
+          res.render("authentication/check_email")
+        } 
+        else {
+          renderWithErrors({
+            email: 'The email is incorrect'
+          })
+        }
+      })
+      .catch(e =>  console.log(e))
+}
+
+
+//logout
 module.exports.logout = (req, res, next) => {
   req.logout();
   res.redirect("/");
