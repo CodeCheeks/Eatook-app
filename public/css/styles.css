@@ -95,6 +95,10 @@ body{
     border-color: #3e3e40!important;
 }
 
+.forgot-pass{
+    color: #888;
+    font-size: small;
+}
 @media only screen and (max-width: 600px) {
 
 .container__form{
