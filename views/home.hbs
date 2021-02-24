@@ -1,6 +1,13 @@
 
 <div class="container">
-    <h1>Home page</h1>
+    <div class=" d-flex justify-content-center my-3">
+        <h1>EATOOK HOME PAGE</h1>
+    </div>
+    <div class="d-flex justify-content-center my-3">
+        <div>
+            <img src="https://res.cloudinary.com/eatookapp/image/upload/v1614196511/DEFAULT_HOME_IMAGE_b6iwnp.jpg" alt="">
+        </div>
+    </div>
     <div class="row">
         <div class="col my-3">
             <form class="d-flex">
@@ -16,5 +23,8 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
+    </div>
+    <div class="row">
+        {{> restaurant_card}}
     </div>
 </div>
