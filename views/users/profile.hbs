@@ -1,72 +1,24 @@
 <div class="container">
-    <div class="row">
-
-  		<div class="col-sm-3">
-        <div class="text-center">
-          <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail mb-2" alt="avatar">
-
-          <input type="file" class="form-control mt-2" id="customFile" />
+    <div class=" d-flex justify-content-center my-3">
+        <div>
+            <div class=" d-flex justify-content-center my-3">
+                <img src="{{user.image}}" alt="Profile image">
+            </div>
+            <h3>Welcome back {{user.firstname}}</h3>
         </div>
-      </div>
-
-    	<div class="col-sm-9">
-            <ul class="nav">
-                <li class="active mx-3"><a data-toggle="tab" href="#home">Home</a></li>
-                <li class="mx-3"><a data-toggle="tab" href="#Settings">Settings</a></li>
-              </ul>
-
-              
-          <div class="tab-content">
-            <div class="tab-pane active" id="home">
-                <hr>
-                  <form class="form" action="##" method="post" id="registrationForm">
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" class="form-control mb-3" name="first_name" id="first_name" placeholder="{{user.firstname}}">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                            <label for="last_name"><h4>Last name</h4></label>
-                              <input type="text" class="form-control mb-3" name="last_name" id="last_name" placeholder="{{user.lastname}}">
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                              <label for="phonenumber"><h4>Phone number</h4></label>
-                              <input type="text" class="form-control mb-3" name="phonenumber" id="phonenumber" placeholder="{{user.phonenumber}}">
-                          </div>
-                      </div>
-          
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control mb-3" name="email" id="email" placeholder="{{user.email}}" title="enter your email.">
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="password"><h4>Password</h4></label>
-                              <input type="password" class="form-control mb-3" name="password" id="password" placeholder="password" title="enter your password.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-xs-12">
-                          <button class="btn btn-lg btn-success mt-2" type="submit">Save</button>
-                        </div>
-                      </div>
-              	    </form>
-                <hr>
-          </div>
-
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="my-3" >
+            <a class="btn btn-secondary" href="/userinformation" role="button">My personal information</a>
         </div>
-  </div>
+        <div class="my-3">
+            <a class="btn btn-secondary" href="/bookings" role="button">My bookings</a>
+        </div>
+        <div class="my-3">
+            <a class="btn btn-secondary" href="/userfavourites" role="button">My Favourite restaurants</a>
+        </div>
+        <div class="my-3">
+            <a class="btn btn-secondary" href="/userreviews" role="button">My reviews</a>
+        </div>
+    </div>
 </div>
