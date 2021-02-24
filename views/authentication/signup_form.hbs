@@ -10,10 +10,24 @@
                 </div>
             {{/if}}
 
-             <input type="text" name="username" placeholder="Username" class="input {{#if errors.username}}is-invalid{{/if}}" id="username" required>
-            {{#if errors.username}}
+            <input type="text" name="firstname" placeholder="Firstname" class="input {{#if errors.firstname}}is-invalid{{/if}}" id="firstname" required>
+            {{#if errors.firstname}}
                 <div class="invalid-feedback">
-                    {{errors.username}}
+                    {{errors.firstname}}
+                </div>
+            {{/if}}
+
+            <input type="text" name="lastname" placeholder="Lastname" class="input {{#if errors.lastname}}is-invalid{{/if}}" id="lastname" required>
+            {{#if errors.lastname}}
+                <div class="invalid-feedback">
+                    {{errors.lastname}}
+                </div>
+            {{/if}}
+
+            <input type="text" name="phonenumber" placeholder="Phone number" class="input {{#if errors.phonenumber}}is-invalid{{/if}}" id="phonenumber">
+            {{#if errors.phonenumber}}
+                <div class="invalid-feedback">
+                    {{errors.phonenumber}}
                 </div>
             {{/if}}
 

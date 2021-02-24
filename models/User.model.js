@@ -8,11 +8,21 @@ const PASSWORD_PATTERN = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
 const userSchema = new Schema(
   {
-    username: {
+    firstname: {
+      type: String,
+      required: [true, 'Firstname is required.'],
+      unique: true,
+    },
+    lastname: {
+      type: String,
+      required: [true, 'Lastname is required.'],
+      unique: true,
+    },
+    phonenumber: {
       type: String,
       trim: true,
-      required: [true, 'Username is required.'],
       unique: true,
+      default: 'Add a phone number'
     },
     email: {
       type: String,

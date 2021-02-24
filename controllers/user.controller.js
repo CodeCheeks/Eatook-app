@@ -40,6 +40,7 @@ module.exports.logout = (req, res, next) => {
   req.logout();
   res.redirect("/");
 };
+
 // signup
 module.exports.signup = (req,res,next) => {
     res.render('authentication/signup_form')
