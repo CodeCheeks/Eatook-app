@@ -38,6 +38,11 @@ const userSchema = new Schema(
       match: [PASSWORD_PATTERN, 'Tu contraseña debe conteneral menos 1 número, 1 mayúscula, 1 minúscula y 8 caracteres'],
       required: [true, 'Password is required.'],
     },
+    image: {
+      type: String,
+      default: 'http://ssl.gstatic.com/accounts/ui/avatar_2x.png'
+    }
+    ,
     role: {
         type: String,
         enum: ['admin','user','owner'],
