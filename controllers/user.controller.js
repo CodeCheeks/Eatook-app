@@ -100,14 +100,26 @@ module.exports.activate = (req, res, next) => {
     .catch((e) => next(e));
 };
 
-//Profile
+//User profile
 
 module.exports.profile = (req,res,next) => {
   res.render("users/profile")
 }
 
-//User information
-
 module.exports.userInformation = (req, res, next) => {
   res.render("users/user_information")
 }
+
+module.exports.userBookings = (req, res, next) => {
+  res.render("users/user_bookings")
+}
+
+module.exports.userFavourites = (req, res, next) => {
+  res.render("users/user_favourites")
+}
+
+module.exports.userReviews = (req, res, next) => {
+  res.render("users/user_reviews")
+}
+
+
