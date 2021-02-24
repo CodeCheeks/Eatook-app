@@ -15,6 +15,9 @@ router.get("/signup/verify-account", secure.isNotAuthenticated, userController.v
 //login
 router.get("/login",secure.isNotAuthenticated, userController.login)
 router.post("/login",secure.isNotAuthenticated, userController.doLogin)
+router.get("/login/forgot-password",secure.isNotAuthenticated, userController.forgotpass)
+router.post("/login/forgot-password",secure.isNotAuthenticated, userController.doForgotpass)
+
 
 //logout
 router.post("/logout",secure.isAuthenticated, userController.logout)

@@ -5,7 +5,7 @@
             <input type="password" name="password" placeholder="Password"  class="input" id="password" required>
 
             {{#if error}}
-                <p class="error-message">{{error}}</p>
+                <p class="error-message invalid-feedback">{{error}}</p>
             {{/if}}
 
             <div class="d-flex mb-5 justify-content-between">
@@ -13,7 +13,7 @@
                 <label for="cookieTime" >Remember me</label>
                 <div class="control__indicator"></div>
                 </label>
-                <span class="ml-auto"><a href="/forgot-password" class="forgot-pass">Forgot Password</a></span>
+                <span class="ml-auto"><a href="/login/forgot-password" class="forgot-pass">Forgot Password</a></span>
             </div>
             <button type="submit" class="btn btn-secondary mt-4">LOG IN</button>
             <div class="text-center w-100">
