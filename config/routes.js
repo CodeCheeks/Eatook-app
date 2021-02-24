@@ -3,12 +3,14 @@ const passport = require('passport')
 const miscController = require("../controllers/misc.controller")
 const userController = require("../controllers/user.controller")
 const secure = require("../middlewares/secure.middleware");
+
 // home
 router.get("/", miscController.home)
 
 //sign up
-router.get("/signup",secure.isNotAuthenticated, userController.signup)
-router.post("/signup",secure.isNotAuthenticated, userController.doSignup)
+router.get("/signup", secure.isNotAuthenticated, userController.signup)
+router.post("/signup", secure.isNotAuthenticated, userController.doSignup)
+router.get("/signup/verify-account", secure.isNotAuthenticated, userController.verify)
 
 //login
 router.get("/login",secure.isNotAuthenticated, userController.login)
