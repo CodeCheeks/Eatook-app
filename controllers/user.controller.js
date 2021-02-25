@@ -3,7 +3,7 @@ const { use } = require("passport")
 const passport = require('passport')
 const { sendActivationEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
-
+const Restaurant = require("../models/Restaurant.model")
 
 
 
@@ -73,3 +73,33 @@ module.exports.userReviews = (req, res, next) => {
 }
 
 
+//Restaurant
+
+
+
+module.exports.addRestaurant = (req, res, next) => {
+  res.render("users/owner/add_restaurant")
+}
+
+
+module.exports.doAddRestaurant = (req, res, next) => {
+  function renderWithErrors(errors) {
+    res.status(400).render('/add-restaurant', {
+      errors: errors,
+      user: req.body
+    })
+  }
+
+  Restaurant.create(req.body)
+  .then(restaurant => {
+    res.redirect('/')
+  })
+  .catch(e => {
+    if (e instanceof mongoose.Error.ValidationError) {
+      renderWithErrors(e.errors)
+    } else {
+      next(e)
+    }
+  })
+
+}

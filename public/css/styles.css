@@ -60,6 +60,18 @@ body{
     
 }
 
+.add-restaurant-form{
+    background: #fff;
+    padding: 40px;
+    clear: both;
+    width: 100%;
+    box-sizing: border-box;
+    height: 750px;
+    border: #c2c55e 2px solid;
+    border-radius: 25px;
+
+}
+
 .input{
     width: 100%;
     padding: 20px;

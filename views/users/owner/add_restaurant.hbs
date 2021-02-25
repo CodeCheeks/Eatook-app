@@ -1,0 +1,23 @@
+<div class="container__form d-flex justify-content-center">
+    <div class="row justify-content-center">     
+        <form action="/add-restaurant" method="POST" class="add-restaurant-form">
+        
+            <input type="string" name="name" placeholder="Restaurant name" class="input" required><br />
+
+            <input type="string" name="adress.street" placeholder="Street" class="input" required>
+            <input type="string" name="adress.city" placeholder="City" class="input" required>
+            <input type="string" name="adress.country" placeholder="Country" class="input" required>
+            <input type="string" name="adress.zip" placeholder="Postal Code" class="input" required>
+
+            <input type="string" name="timeTable.days" placeholder="Open days" class="input" required>
+            <input type="string" name="timeTable.hours" placeholder="13:00-17:00  20:00-24:00" class="input">
+
+            <input type="string" name="cuisine" placeholder="Cuisine type" class="input">
+
+            <button type="submit" class="btn btn-secondary mt-2">ADD RESTAURANT</button>
+
+        </form>
+    
+    </div>
+</div>
+
