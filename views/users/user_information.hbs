@@ -13,7 +13,7 @@
         <div class="tab-content">
           <div class="tab-pane active" id="home">
             <hr>
-              <form class="form" action="##" method="post" id="registrationForm">
+              <div>
                   <div class="form-group">
                       
                       <div class="col-xs-6">
@@ -51,7 +51,7 @@
                           <label for="password"><h4>Password</h4></label>
                           <div class="white-card-movil">
 
-                            <form method="POST" action="/profile/personal-info">
+                            <form method="POST" action="/profile/personal-info/password">
                               <div class="row"><div class="col-xs-12 col-md-4 m-b-1"><label>Old Password </label>
                                 <input type="password" name="oldPassword" class="form-control form-control-lg form-control {{#if errors.incorrectPass}}is-invalid{{/if}}" required>
                                 {{#if errors.incorrectPass}}
@@ -80,7 +80,7 @@
                           </div>
                       </div>
                   </div>
-                </form>
+                </div>
             <hr>
           </div>
       </div>

@@ -28,9 +28,9 @@ router.post("/logout",secure.isAuthenticated, authController.logout)
 router.get("/profile", secure.isAuthenticated, userController.profile)
 
 //personal information
-router.post("/profile/personal-info", secure.isAuthenticated, userController.doChangePass)
 router.get("/profile/personal-info", secure.isAuthenticated, userController.userInformation)
-
+//Edit password
+router.post("/profile/personal-info/password", secure.isAuthenticated, userController.doChangePass)
 //user bookings
 router.get("/profile/bookings", secure.isAuthenticated, userController.userBookings)
 
