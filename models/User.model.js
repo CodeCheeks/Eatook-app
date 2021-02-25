@@ -78,5 +78,5 @@ userSchema.pre('save', function(next) {
     next()
   }
 })
- 
+
 module.exports = model('User', userSchema);
