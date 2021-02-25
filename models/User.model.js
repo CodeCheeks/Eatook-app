@@ -79,4 +79,12 @@ userSchema.pre('save', function(next) {
   }
 })
 
+/* userSchema.pre('updateOne', function(next) {
+    bcrypt.hash(this.user.password, SALT_ROUNDS)
+      .then(hash => {
+        this.password = hash
+        next()
+      })
+}) */
+
 module.exports = model('User', userSchema);
