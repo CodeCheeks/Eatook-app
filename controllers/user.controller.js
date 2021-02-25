@@ -148,11 +148,12 @@ module.exports.userInformation = (req, res, next) => {
 // Change password
 
 module.exports.doChangePass = (req,res,next) => {
-//TODO
-  console.log(req.user.email)
-  console.log(req.body.newPassword)
-  console.log(req.body.newPassword2)
 
+  function renderWithErrors(errors) {
+    res.status(400).render('users/user_information', {
+      errors: errors,
+    })
+  }
 
   if(req.body.newPassword === req.body.newPassword2){
     User.findById(req.user._id)
@@ -164,8 +165,10 @@ module.exports.doChangePass = (req,res,next) => {
       .catch(error => console.log(error));
   }
   else { 
-    console.log('Las contraseñas no coinciden')
-    res.render("users/user_information")
+    console.log('Las contraseñas no coinciden')// TODO NO RENDERIZA LA VISTA CON ERRORES
+    renderWithErrors({
+      pass: 'Las contraseñas no coinciden'
+    })
   }
 }
 

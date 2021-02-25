@@ -56,12 +56,12 @@
                                 <input type="password" name="oldPassword" class="form-control form-control-lg form-control">
                               </div>
                               <div class="col-xs-12 col-md-4 m-b-1"><label>Nueva contraseña</label>
-                                <input type="password" name="newPassword" class="form-control form-control-lg form-control">
+                                <input type="password" name="newPassword" class="form-control form-control-lg form-control {{#if errors.pass}}is-invalid{{/if}}" required>
                               </div>
                               <div class="col-xs-12 col-md-4 m-b-1"><label>Repetir contraseña</label>
-                                <input type="password" name="newPassword2" class="form-control form-control-lg" required>
+                                <input type="password" name="newPassword2" class="form-control form-control-lg {{#if errors.pass}}is-invalid{{/if}}" required>
                               </div>
-                              </div>
+                              
                               <div class="row mt-2">
                                 <div class="col-xs-12 col-md-6"><strong>Seguridad</strong><ul><li><small>Utiliza 6 caracteres o más.</small></li><li><small>Este cambio puede tardar hasta 1 minuto en ser válido.</small></li></ul>
                                   </div>
