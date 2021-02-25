@@ -5,6 +5,7 @@ const { sendActivationEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
 
 
+
 // login
 module.exports.login = (req,res,next) => {
   console.log('USER', req.user)
@@ -155,12 +156,28 @@ module.exports.doChangePass = (req,res,next) => {
     })
   }
 
+
+
   if(req.body.newPassword === req.body.newPassword2){
     User.findById(req.user._id)
       .then((user) => {
-        user.password = req.body.newPassword 
-        user.save()
-        res.render("users/user_information")
+        user.checkPassword(req.body.oldPassword)
+        .then(match =>{
+          if (match) {
+            user.password = req.body.newPassword 
+            user.save()
+            res.render("users/user_information")
+            console.log('contraseña actualizada')
+          }
+          else{
+            console.log('contraseña incorrecta')
+            renderWithErrors({
+              incorrectPass: 'Wrong password'
+            })
+          }
+        })
+        .catch((e) => next(e))
+        
       })
       .catch(error => console.log(error));
   }

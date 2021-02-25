@@ -52,18 +52,24 @@
                           <div class="white-card-movil">
 
                             <form method="POST" action="/profile/personal-info">
-                              <div class="row"><div class="col-xs-12 col-md-4 m-b-1"><label>Antigua contraseña </label>
-                                <input type="password" name="oldPassword" class="form-control form-control-lg form-control">
+                              <div class="row"><div class="col-xs-12 col-md-4 m-b-1"><label>Old Password </label>
+                                <input type="password" name="oldPassword" class="form-control form-control-lg form-control {{#if errors.incorrectPass}}is-invalid{{/if}}" required>
+                                {{#if errors.incorrectPass}}
+                                <div class="invalid-feedback">Incorrect Password</div>
+                                {{/if}}
                               </div>
-                              <div class="col-xs-12 col-md-4 m-b-1"><label>Nueva contraseña</label>
+                              <div class="col-xs-12 col-md-4 m-b-1"><label>New Password</label>
                                 <input type="password" name="newPassword" class="form-control form-control-lg form-control {{#if errors.pass}}is-invalid{{/if}}" required>
+                                {{#if errors.pass}}
+                                <div class="invalid-feedback">Passwords do not match</div>
+                                {{/if}}
                               </div>
-                              <div class="col-xs-12 col-md-4 m-b-1"><label>Repetir contraseña</label>
+                              <div class="col-xs-12 col-md-4 m-b-1"><label>Repeat Password</label>
                                 <input type="password" name="newPassword2" class="form-control form-control-lg {{#if errors.pass}}is-invalid{{/if}}" required>
                               </div>
                               
                               <div class="row mt-2">
-                                <div class="col-xs-12 col-md-6"><strong>Seguridad</strong><ul><li><small>Utiliza 6 caracteres o más.</small></li><li><small>Este cambio puede tardar hasta 1 minuto en ser válido.</small></li></ul>
+                                <div class="col-xs-12 col-md-6"><strong>Security</strong><ul><li><small>The password must contain at least 1 number, 1 uppercase, 1 lowercase and 8 characters.</small></li><li><small>This change may take a minute to become valid.</small></li></ul>
                                   </div>
                                 <div class="col-xs-12 col-md-6">
                                   <button type="submit" class="btn btn-primary-outline btn-lg pull-xs-right mt-3">SAVE CHANGES</button>
