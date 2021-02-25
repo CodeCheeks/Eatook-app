@@ -73,7 +73,7 @@ module.exports.doChangePhone =
   User.findOneAndUpdate({_id: req.user._id},{phonenumber: req.body.phonenumber},{new:true})
   .then((newNumber) => {
     if(newNumber){
-    res.render('users/user_information')
+    res.redirect('/profile/personal-info')
     console.log(`The new numberphone: ${newNumber.phonenumber} has been updated`)
     }
     else{
