@@ -3,6 +3,7 @@ const passport = require('passport')
 const miscController = require("../controllers/misc.controller")
 const userController = require("../controllers/user.controller")
 const authController = require("../controllers/auth.controller")
+const restaurantController = require("../controllers/restaurant.controller")
 const secure = require("../middlewares/secure.middleware");
 
 // home
@@ -50,6 +51,10 @@ router.get('/activate/:token',secure.isNotAuthenticated, authController.activate
 router.get("/add-restaurant", secure.isAuthenticated, userController.addRestaurant)
 router.post("/add-restaurant", secure.isAuthenticated, userController.doAddRestaurant)
 
+//RESTAURANTS
 
+//searchlist
+
+router.get("/search", restaurantController.showRestaurants)
 
 module.exports = router;
