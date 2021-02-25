@@ -21,9 +21,7 @@
           
           {{#if user}}
           <li class="nav-item">
-            <form action="/logout" method="POST">
-                <button class='btn'>Logout</button>
-            </form>
+          <a class="nav-link active mx-4 px-4" aria-current="page" href="/add-restaurant">Add restaurant</a>
           </li>
           <li class="nav-item">
           <a class="nav-link active mx-4 px-4" aria-current="page" href="/profile">My profile</a>
@@ -31,6 +29,11 @@
           {{/if}}
           <li class="nav-item">
             <a class="nav-link active mx-4 px-4 " aria-current="page" href="/help">Help</a>
+          </li>
+          <li class="nav-item">
+            <form action="/logout" method="POST">
+                <button class='btn'>Logout</button>
+            </form>
           </li>
         </ul>
       </div>
