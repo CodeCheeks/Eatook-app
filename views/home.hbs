@@ -8,23 +8,29 @@
             <img src="https://res.cloudinary.com/eatookapp/image/upload/v1614196511/DEFAULT_HOME_IMAGE_b6iwnp.jpg" alt="">
         </div>
     </div>
-    <div class="row">
-        <div class="col my-3">
+    <div class="row d-flex justify-content-center" >
+        <div class="col-9 my-3">
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Restaurant name" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <div class="col-2">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
             </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col my-3">
-            <form class="d-flex">
+    <div class="row d-flex justify-content-center">
+        <div class="col-9  my-3">
+            <form class="d-flex ">
                 <input class="form-control me-2" type="search" placeholder="City" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <div class="col-2">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
             </form>
         </div>
     </div>
-    <div class="row">
-        {{> restaurant_card}}
+    <div class="row d-flex justify-content-center">
+        <div class="col-2">
+            <a class="btn btn-success my-3 mx-3" href="/search" role="button">View all restaurants</a>
+        </div>
     </div>
 </div>
