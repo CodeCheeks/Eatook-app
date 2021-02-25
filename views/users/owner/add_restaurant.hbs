@@ -4,15 +4,53 @@
         
             <input type="string" name="name" placeholder="Restaurant name" class="input" required><br />
 
-            <input type="string" name="adress.street" placeholder="Street" class="input" required>
-            <input type="string" name="adress.city" placeholder="City" class="input" required>
             <input type="string" name="adress.country" placeholder="Country" class="input" required>
+            <input type="string" name="adress.city" placeholder="City" class="input" required>
+            <input type="string" name="adress.street" placeholder="Street" class="input" required>
+
             <input type="string" name="adress.zip" placeholder="Postal Code" class="input" required>
+            <input type="string" name="cuisine" placeholder="Cuisine type" class="input" required>
 
-            <input type="string" name="timeTable.days" placeholder="Open days" class="input" required>
-            <input type="string" name="timeTable.hours" placeholder="13:00-17:00  20:00-24:00" class="input">
+            <div class="container">
+                <div class="row">
+                    <h6>Working days</h6>
+                    <div class="col-sm">
+                        <input type="checkbox" name="timeTable.days" value="Monday">
+                        <label for="vehicle1">Monday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Tuesday">
+                        <label for="vehicle1">Tuesday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Wednesday">
+                        <label for="vehicle1">Wednesday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Thursday">
+                        <label for="vehicle1">Thursday</label><br>
+                    </div>
+                    <div class="col-sm">
+                        <input type="checkbox" name="timeTable.days" value="Friday">
+                        <label for="vehicle1">Friday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Saturday">
+                        <label for="vehicle1">Saturday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Sunday">
+                        <label for="vehicle1">Sunday</label><br>
+                    </div>
+                </div>
 
-            <input type="string" name="cuisine" placeholder="Cuisine type" class="input">
+            </div>
+
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col-sm">
+                        <h6>Open at:</h6>
+                        <input type="time" name="timeTable.hours" required>
+                    </div>
+                     {{!-- <div class="col-sm">
+                        <h6>Close at:</h6>
+                        <input type="time" name="timeTable.hours" required>
+                    </div> --}}
+                </div>
+            </div>
+
+            
+
 
             <button type="submit" class="btn btn-secondary mt-2">ADD RESTAURANT</button>
 
