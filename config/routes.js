@@ -43,6 +43,8 @@ router.get("/profile/reviews", secure.isAuthenticated, userController.userReview
 //Activate account
 router.get('/activate/:token',secure.isNotAuthenticated, authController.activate)
 
+//owner
+router.get("/add-restaurant", secure.isAuthenticated, userController.addRestaurant)
 
 
 
