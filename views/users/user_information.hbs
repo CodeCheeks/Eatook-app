@@ -31,8 +31,19 @@
 
                   <div class="form-group">
                       <div class="col-xs-6">
-                          <label for="phonenumber"><h4>Phone number</h4></label>
-                          <input type="text" class="form-control mb-3" name="phonenumber" id="phonenumber" placeholder="{{user.phonenumber}}">
+                         <form method="POST" action="/profile/personal-info/phonenumber">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-10">
+                                <label for="phonenumber"><h4>Phone number</h4></label>
+                                <input type="text" class="form-control mb-3" name="phonenumber" id="phonenumber" placeholder="{{user.phonenumber}}">
+                              </div>
+                              <div class="col-2">
+                                <button type="submit" class="btn d-inline mt-3">Change number</button>
+                              </div>
+                            </div>
+                          </div>
+                          </form>
                       </div>
                   </div>
       

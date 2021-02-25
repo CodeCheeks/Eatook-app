@@ -31,6 +31,9 @@ router.get("/profile", secure.isAuthenticated, userController.profile)
 router.get("/profile/personal-info", secure.isAuthenticated, userController.userInformation)
 //Edit password
 router.post("/profile/personal-info/password", secure.isAuthenticated, userController.doChangePass)
+//Edit phone number
+router.post("/profile/personal-info/phonenumber", secure.isAuthenticated, userController.doChangePhone)
+
 //user bookings
 router.get("/profile/bookings", secure.isAuthenticated, userController.userBookings)
 
