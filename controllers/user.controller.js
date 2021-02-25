@@ -59,6 +59,33 @@ module.exports.doChangePass = (req,res,next) => {
   }
 }
 
+//Edit phonenumber
+
+module.exports.doChangePhone = 
+(req,res,next) => {
+
+  function renderWithErrors(errors) {
+    res.status(400).render('users/user_information', {
+      errors: errors,
+    })
+  }
+  
+  User.findOneAndUpdate({_id: req.user._id},{phonenumber: req.body.phonenumber},{new:true})
+  .then((newNumber) => {
+    if(newNumber){
+    res.redirect('/profile/personal-info')
+    console.log(`The new numberphone: ${newNumber.phonenumber} has been updated`)
+    }
+    else{
+      renderWithErrors('There was an error with the new provided phonenumber')
+    }
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+  
+
+}
 
 module.exports.userBookings = (req, res, next) => {
   res.render("users/user_bookings")
