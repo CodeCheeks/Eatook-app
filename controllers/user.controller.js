@@ -155,9 +155,10 @@ module.exports.doChangePass = (req,res,next) => {
 
 
   if(req.body.newPassword === req.body.newPassword2){
-    User.findOneAndUpdate({ email: req.user.email},{ password: req.body.newPassword })
+    User.findById(req.user._id)
       .then((user) => {
-        console.log('actualizado')
+        user.password = req.body.newPassword 
+        user.save()
         res.render("users/user_information")
       })
       .catch(error => console.log(error));
