@@ -18,25 +18,26 @@ router.post("/login",secure.isNotAuthenticated, userController.doLogin)
 router.get("/login/forgot-password",secure.isNotAuthenticated, userController.forgotpass)
 router.post("/login/forgot-password",secure.isNotAuthenticated, userController.doForgotpass)
 
-
 //logout
 router.post("/logout",secure.isAuthenticated, userController.logout)
 
 // USER PROFILE
+
 //profile main page
 router.get("/profile", secure.isAuthenticated, userController.profile)
 
 //personal information
-router.get("/userinformation", secure.isAuthenticated, userController.userInformation)
+router.post("/profile/personal-info", secure.isAuthenticated, userController.doChangePass)
+router.get("/profile/personal-info", secure.isAuthenticated, userController.userInformation)
 
 //user bookings
-router.get("/bookings", secure.isAuthenticated, userController.userBookings)
+router.get("/profile/bookings", secure.isAuthenticated, userController.userBookings)
 
 //user favourites
-router.get("/userfavourites", secure.isAuthenticated, userController.userFavourites)
+router.get("/profile/favourites", secure.isAuthenticated, userController.userFavourites)
 
 //user reviews
-router.get("/userreviews", secure.isAuthenticated, userController.userReviews)
+router.get("/profile/reviews", secure.isAuthenticated, userController.userReviews)
 
 //Activate account
 router.get('/activate/:token',secure.isNotAuthenticated, userController.activate)

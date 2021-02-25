@@ -10,63 +10,74 @@
       </div>
 
     	<div class="col-sm-9">
-            <ul class="nav">
-                <li class="active mx-3"><a data-toggle="tab" href="#home">Home</a></li>
-                <li class="mx-3"><a data-toggle="tab" href="#Settings">Settings</a></li>
-              </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <hr>
+              <form class="form" action="##" method="post" id="registrationForm">
+                  <div class="form-group">
+                      
+                      <div class="col-xs-6">
+                          <label for="first_name"><h4>First name</h4></label>
+                          <input type="text" class="form-control mb-3" name="first_name" id="first_name" placeholder="{{user.firstname}}">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      
+                      <div class="col-xs-6">
+                        <label for="last_name"><h4>Last name</h4></label>
+                          <input type="text" class="form-control mb-3" name="last_name" id="last_name" placeholder="{{user.lastname}}">
+                      </div>
+                  </div>
 
-              
-          <div class="tab-content">
-            <div class="tab-pane active" id="home">
-                <hr>
-                  <form class="form" action="##" method="post" id="registrationForm">
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" class="form-control mb-3" name="first_name" id="first_name" placeholder="{{user.firstname}}">
-                          </div>
+                  <div class="form-group">
+                      <div class="col-xs-6">
+                          <label for="phonenumber"><h4>Phone number</h4></label>
+                          <input type="text" class="form-control mb-3" name="phonenumber" id="phonenumber" placeholder="{{user.phonenumber}}">
                       </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                            <label for="last_name"><h4>Last name</h4></label>
-                              <input type="text" class="form-control mb-3" name="last_name" id="last_name" placeholder="{{user.lastname}}">
-                          </div>
+                  </div>
+      
+                  </div>
+                  <div class="form-group">
+                      
+                      <div class="col-xs-6">
+                          <label for="email"><h4>Email</h4></label>
+                          <input type="email" class="form-control mb-3" name="email" id="email" placeholder="{{user.email}}" title="enter your email.">
                       </div>
+                  </div>
 
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                              <label for="phonenumber"><h4>Phone number</h4></label>
-                              <input type="text" class="form-control mb-3" name="phonenumber" id="phonenumber" placeholder="{{user.phonenumber}}">
-                          </div>
-                      </div>
-          
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control mb-3" name="email" id="email" placeholder="{{user.email}}" title="enter your email.">
-                          </div>
-                      </div>
+                  <div class="form-group">
+                      
+                      <div class="col-xs-6">
+                          <label for="password"><h4>Password</h4></label>
+                          <div class="white-card-movil">
 
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="password"><h4>Password</h4></label>
-                              <input type="password" class="form-control mb-3" name="password" id="password" placeholder="password" title="enter your password.">
+                            <form method="POST" action="/profile/personal-info">
+                              <div class="row"><div class="col-xs-12 col-md-4 m-b-1"><label>Antigua contraseña </label>
+                                <input type="password" name="oldPassword" class="form-control form-control-lg form-control">
+                              </div>
+                              <div class="col-xs-12 col-md-4 m-b-1"><label>Nueva contraseña</label>
+                                <input type="password" name="newPassword" class="form-control form-control-lg form-control">
+                              </div>
+                              <div class="col-xs-12 col-md-4 m-b-1"><label>Repetir contraseña</label>
+                                <input type="password" name="newPassword2" class="form-control form-control-lg" required>
+                              </div>
+                              </div>
+                              <div class="row mt-2">
+                                <div class="col-xs-12 col-md-6"><strong>Seguridad</strong><ul><li><small>Utiliza 6 caracteres o más.</small></li><li><small>Este cambio puede tardar hasta 1 minuto en ser válido.</small></li></ul>
+                                  </div>
+                                <div class="col-xs-12 col-md-6">
+                                  <button type="submit" class="btn btn-primary-outline btn-lg pull-xs-right mt-3">SAVE CHANGES</button>
+                                </div>
+                              </div>
+                            </form>
+
                           </div>
                       </div>
-                      <div class="form-group">
-                        <div class="col-xs-12">
-                          <button class="btn btn-lg btn-success mt-2" type="submit">Save</button>
-                        </div>
-                      </div>
-              	    </form>
-                <hr>
+                  </div>
+                </form>
+            <hr>
           </div>
-
-        </div>
+      </div>
   </div>
 </div>
+

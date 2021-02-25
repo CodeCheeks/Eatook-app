@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const { use } = require("passport")
 const passport = require('passport')
 const { sendActivationEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
@@ -39,7 +40,6 @@ module.exports.doLogin = (req, res, next) => {
 
 
 //forgot pass
-
 module.exports.forgotpass = (req,res,next) => {
   res.render("authentication/forgot_pass");
 }
@@ -116,7 +116,7 @@ module.exports.doSignup = (req,res,next) => {
         }
       })
       .catch(e =>  console.log(e))
-  }
+}
 
 
 module.exports.activate = (req, res, next) => {
@@ -143,6 +143,31 @@ module.exports.profile = (req,res,next) => {
 module.exports.userInformation = (req, res, next) => {
   res.render("users/user_information")
 }
+
+
+// Change password
+
+module.exports.doChangePass = (req,res,next) => {
+//TODO
+  console.log(req.user.email)
+  console.log(req.body.newPassword)
+  console.log(req.body.newPassword2)
+
+
+  if(req.body.newPassword === req.body.newPassword2){
+    User.findOneAndUpdate({ email: req.user.email},{ password: req.body.newPassword })
+      .then((user) => {
+        console.log('actualizado')
+        res.render("users/user_information")
+      })
+      .catch(error => console.log(error));
+  }
+  else { 
+    console.log('Las contraseñas no coinciden')
+    res.render("users/user_information")
+  }
+}
+
 
 module.exports.userBookings = (req, res, next) => {
   res.render("users/user_bookings")
