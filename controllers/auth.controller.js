@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const { use } = require("passport")
 const passport = require('passport')
-const { sendActivationEmail } = require("../config/mailer.config")
+const { sendActivationEmail, recoverPassEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
 
 // login
@@ -53,7 +53,7 @@ module.exports.doForgotpass = (req,res,next) => {
   User.findOne({ email: req.body.email })
       .then((user) => {
         if (user) {
-          sendActivationEmail(user.email)
+          recoverPassEmail(user.email, user.id)
           res.render("authentication/check_email")
         } 
         else {
