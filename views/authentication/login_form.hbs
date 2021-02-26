@@ -1,11 +1,11 @@
 <div class="container__form d-flex justify-content-center">
     <div class="row justify-content-center">
         <form action="/login" method="POST" class="login-form">
-            <input type="email" name="email" placeholder="Email Address" class="input" id="email" required><br />
-            <input type="password" name="password" placeholder="Password"  class="input" id="password" required>
+            <input type="email" name="email" placeholder="Email Address" class="input {{#if error}}is-invalid{{/if}}" id="email" required><br/>
+            <input type="password" name="password" placeholder="Password"  class="input {{#if error}}is-invalid{{/if}}" id="password" required>
 
             {{#if error}}
-                <p class="error-message invalid-feedback">{{error}}</p>
+                <p class="invalid-feedback">Wrong email or password</p>
             {{/if}}
 
             <div class="d-flex mb-5 justify-content-between">
