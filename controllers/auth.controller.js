@@ -4,6 +4,11 @@ const passport = require('passport')
 const { sendActivationEmail, recoverPassEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
 
+
+let userId;
+
+
+
 // login
 module.exports.login = (req,res,next) => {
     console.log('USER', req.user)
@@ -19,7 +24,6 @@ module.exports.doLogin = (req, res, next) => {
     } 
     else if (!user) {
       res.status(400).render('authentication/login_form', { 
-        //user: req.body,  TODO
         error: validations.error 
       });
     } 
@@ -64,6 +68,39 @@ module.exports.doForgotpass = (req,res,next) => {
       })
       .catch(e =>  console.log(e))
 }
+
+module.exports.recoverPassword = (req,res,next) => {
+  res.render("authentication/recover_pass");
+  userId = req.params.id
+}
+
+
+module.exports.doRecoverPassword = (req,res,next) => {
+  function renderWithErrors(errors) {
+    res.status(400).redirect(`/forgot-password/${userId}`)
+  }
+  console.log(userId)
+  if(req.body.newPassword === req.body.newPassword2){
+    User.findById(userId)
+      .then((user) => {
+            user.password = req.body.newPassword 
+            user.save()
+            res.render("authentication/login_form")
+            console.log('contraseña actualizada')
+          })
+      .catch(error => console.log(error)) 
+  }
+  else { 
+    console.log('Las contraseñas no coinciden')
+    renderWithErrors({
+      pass: 'Las contraseñas no coinciden'
+    })
+  }
+}
+
+
+
+
 
 
 //logout
