@@ -8,7 +8,7 @@ const secure = require("../middlewares/secure.middleware");
 
 const upload = require('./storage.config')
 
-
+const GOOGLE_SCOPES = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
 
 // home
 router.get("/", miscController.home)
@@ -21,6 +21,8 @@ router.get("/signup/verify-account", secure.isNotAuthenticated, authController.v
 //login
 router.get("/login",secure.isNotAuthenticated, authController.login)
 router.post("/login",secure.isNotAuthenticated, authController.doLogin)
+router.get("/authenticate/google", passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }))
+router.get("/authenticate/google/callback", authController.doLoginGoogle)
 router.get("/login/forgot-password",secure.isNotAuthenticated, authController.forgotpass)
 router.post("/login/forgot-password",secure.isNotAuthenticated, authController.doForgotpass)
 

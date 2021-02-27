@@ -42,6 +42,29 @@ module.exports.doLogin = (req, res, next) => {
   })(req, res, next)
 };
 
+
+module.exports.doLoginGoogle = (req, res, next) => {
+  passport.authenticate('google-auth', (error, user, validations) => {
+    if (error) {
+      next(error);
+    } else if (!user) {
+      res.status(400).render('authentication/login_form', { 
+        user: req.body, error: validations 
+      });
+    } else {
+      req.login(user, loginErr => {
+        if (loginErr) {
+          next(loginErr)
+        }
+        else {
+          console.log('log in done')
+          res.redirect('/')
+        }
+      })
+    }
+  })(req, res, next)
+}
+
   
 //forgot pass
 module.exports.forgotpass = (req,res,next) => {
