@@ -11,7 +11,7 @@
     <div class="row d-flex justify-content-center" >
         <div class="col-9 my-3">
             <form class="d-flex" action="/search-by-name", method="GET">
-                <input class="form-control me-2" name="search" type="search" placeholder="Restaurant name" aria-label="Search">
+                <input class="form-control me-2" name="search" type="search" placeholder="Restaurant name, type of cuisine" aria-label="Search">
                 <div class="col-2">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </div>
@@ -20,8 +20,8 @@
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-9  my-3">
-            <form class="d-flex ">
-                <input class="form-control me-2" type="search" placeholder="City" aria-label="Search">
+            <form class="d-flex "  action="/search-by-city", method="GET">
+                <input class="form-control me-2" name="searchCity" type="search" placeholder="City, zipcode or country" aria-label="Search">
                 <div class="col-2">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </div>
