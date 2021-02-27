@@ -21,7 +21,6 @@ const userSchema = new Schema(
     phonenumber: {
       type: String,
       trim: true,
-      unique: true,
       default: 'Add a phone number'
     },
     email: {
