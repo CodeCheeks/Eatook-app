@@ -3,9 +3,10 @@ const { use } = require("passport")
 const passport = require('passport')
 const { sendActivationEmail, recoverPassEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
+const { v4: uuidv4 } = require('uuid');
 
 
-let userId;
+
 
 
 
@@ -57,7 +58,7 @@ module.exports.doForgotpass = (req,res,next) => {
   User.findOne({ email: req.body.email })
       .then((user) => {
         if (user) {
-          recoverPassEmail(user.email, user.id)
+          recoverPassEmail(user.email, user.activationToken)
           res.render("authentication/check_email")
         } 
         else {
@@ -70,23 +71,29 @@ module.exports.doForgotpass = (req,res,next) => {
 }
 
 module.exports.recoverPassword = (req,res,next) => {
-  res.render("authentication/recover_pass");
-  userId = req.params.id
+  res.render("authentication/recover_pass",{token: req.params.token});
 }
 
 
 module.exports.doRecoverPassword = (req,res,next) => {
   function renderWithErrors(errors) {
-    res.status(400).redirect(`/forgot-password/${userId}`)
+    res.status(400).render(`authentication/recover_pass`,{
+      token: req.params.token,
+      errors: errors
+    })
   }
-  console.log(userId)
+
+  console.log(req.params)
   if(req.body.newPassword === req.body.newPassword2){
-    User.findById(userId)
+    User.findOne({activationToken:req.params.token})
       .then((user) => {
             user.password = req.body.newPassword 
-            user.save()
-            res.render("authentication/login_form")
-            console.log('contraseña actualizada')
+            user.activationToken = uuidv4()
+            return user.save()
+            .then(() =>{
+                res.redirect("/login")
+                console.log('contraseña actualizada')
+            })
           })
       .catch(error => console.log(error)) 
   }
@@ -158,7 +165,7 @@ module.exports.doSignup = (req,res,next) => {
 module.exports.activate = (req, res, next) => {
   User.findOneAndUpdate(
     { activationToken: req.params.token, active: false },
-    { active: true, activationToken: "active" }
+    { active: true }
   )
     .then((u) => {
       if (u) {

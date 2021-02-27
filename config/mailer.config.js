@@ -24,12 +24,12 @@ module.exports.sendActivationEmail = (email, token) => {
 
 
 //Sends recover password email
-module.exports.recoverPassEmail = (email, id) => {
+module.exports.recoverPassEmail = (email, token) => {
   transporter.sendMail({
       from: `"Eatook app" <${process.env.NM_USER}>`, 
       to: email, 
       subject: "Recover your password",
-      html: recoverPassTemplate(id)
+      html: recoverPassTemplate(token)
     })
 }
 

@@ -22,8 +22,8 @@ router.post("/login/forgot-password",secure.isNotAuthenticated, authController.d
 
 
 //recover password
-router.post('/forgot-password/:id',secure.isNotAuthenticated, authController.doRecoverPassword)
-router.get('/forgot-password/:id',secure.isNotAuthenticated, authController.recoverPassword)
+router.post('/forgot-password/:token',secure.isNotAuthenticated, authController.doRecoverPassword)
+router.get('/forgot-password/:token',secure.isNotAuthenticated, authController.recoverPassword)
 
 //logout
 router.post("/logout",secure.isAuthenticated, authController.logout)
