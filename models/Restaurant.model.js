@@ -4,24 +4,29 @@ const restaurantSchema = new mongoose.Schema(
     {
         name:{
             type: String,
-            required: true
+            required: true,
+            lowercase: true
         },
         adress:{
             street: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             },
             city: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             },
             country: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             },
             zip: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             }
         },
         timeTable:{
@@ -38,7 +43,8 @@ const restaurantSchema = new mongoose.Schema(
         cuisine:{
             type: String,
             required: false,  
-            default: 'Generic Food'
+            default: 'generic food',
+            lowercase: true
         },
 
         image: {
