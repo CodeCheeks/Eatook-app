@@ -8,10 +8,22 @@
         </div>
         <div class=" col-7 ">
           <div class="card-body">
-            <h5 class="card-title">{{restaurant.name}}</h5>
-            <p class="card-text">Type of cuisine: {{restaurant.cuisine}}</p>
-            <p class="card-text">Adress: {{restaurant.adress}}</p>
-            <p class="card-text">Opening times: {{restaurant.timeTable}}</p>
+            <h4 class="card-title"><b>{{restaurant.name}}</b></h4>
+            <h6 class="card-text"><b>Type of cuisine:</b> {{restaurant.cuisine}}</h6>
+            <h6 class="card-text"><b>Adress:</b></h6>
+              <span>{{restaurant.adress.street}},</span>
+              <span>{{restaurant.adress.zip}}</span>
+              <br>
+              <span>{{restaurant.adress.city}},</span>
+              <span>{{restaurant.adress.country}}</span>
+            <h6 class="card-text"><b>Opening times:</b> </h6>
+            <span>Openning-Days:
+              {{restaurant.timeTable.days}} 
+            </span>
+            <br>
+            <span>Time table: 
+              {{restaurant.timeTable.hours}} 
+            </span>
         </div>
         </div>
         <div class="col-2 d-flex align-items-center  ">
