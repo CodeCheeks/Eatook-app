@@ -14,6 +14,15 @@ module.exports.showRestaurants = (req,res,next) => {
     .catch((e) => next(e))
   }
 
+module.exports.showRestaurantsByName = (req,res,next) => {
+    Restaurant.find( {name: req.query.search} )
+    .then((restaurants) => {
+        console.log(restaurants)
+        res.render("restaurants/search", {restaurants})
+    })
+    .catch((e) => next(e))
+  }
+
 module.exports.restaurantDetail = (req,res,next) => {
     Restaurant.findById(req.params.id)
     .then((restaurant) => {

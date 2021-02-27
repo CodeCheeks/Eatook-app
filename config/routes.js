@@ -58,9 +58,13 @@ router.post("/add-restaurant", secure.isAuthenticated, userController.doAddResta
 
 //RESTAURANTS
 
-//Search list
+//Search all list
 
 router.get("/search", restaurantController.showRestaurants)
+
+//Search by name
+
+router.get("/search-by-name", restaurantController.showRestaurantsByName)
 
 //Restaurant detail
 
