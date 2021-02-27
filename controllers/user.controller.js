@@ -1,7 +1,4 @@
 const mongoose = require("mongoose")
-const { use } = require("passport")
-const passport = require('passport')
-const { sendActivationEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
 const Restaurant = require("../models/Restaurant.model")
 
@@ -115,6 +112,10 @@ module.exports.doAddRestaurant = (req, res, next) => {
       errors: errors,
       user: req.body
     })
+  }
+
+  if (req.file) {
+    req.body.image = req.file.path;
   }
 
   Restaurant.create(req.body)
