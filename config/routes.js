@@ -57,7 +57,7 @@ router.get("/profile/reviews", secure.isAuthenticated, userController.userReview
 router.get('/activate/:token',secure.isNotAuthenticated, authController.activate)
 
 //owner
-router.get("/add-restaurant", secure.isAuthenticated, userController.addRestaurant)
+router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('admin'), userController.addRestaurant)
 router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), userController.doAddRestaurant)
 
 //RESTAURANTS
@@ -66,9 +66,10 @@ router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), u
 
 router.get("/search", restaurantController.showRestaurants)
 
-//Search by name
+//Search with filters
 
 router.get("/search-by-name", restaurantController.showRestaurantsByName)
+router.get("/search-by-city", restaurantController.showRestaurantsByCity)
 
 //Restaurant detail
 

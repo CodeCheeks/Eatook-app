@@ -15,13 +15,23 @@ module.exports.showRestaurants = (req,res,next) => {
   }
 
 module.exports.showRestaurantsByName = (req,res,next) => {
-    Restaurant.find( {name: req.query.search} )
+    Restaurant.find( {$or: [{name: req.query.search},{cuisine: req.query.search}] })
     .then((restaurants) => {
         console.log(restaurants)
         res.render("restaurants/search", {restaurants})
     })
     .catch((e) => next(e))
   }
+
+module.exports.showRestaurantsByCity = (req,res,next) => {
+    Restaurant.find( {$or: [{"adress.city": req.query.searchCity},{"adress.zip": req.query.searchCity},{"adress.country": req.query.searchCity}] })
+    .then((restaurants) => {
+        console.log(restaurants)
+        res.render("restaurants/search", {restaurants})
+    })
+    .catch((e) => next(e))
+  }
+
 
 module.exports.restaurantDetail = (req,res,next) => {
     Restaurant.findById(req.params.id)
