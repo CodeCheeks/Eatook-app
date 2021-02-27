@@ -1,6 +1,6 @@
 <div class="container__form d-flex justify-content-center">
     <div class="row justify-content-center">     
-        <form action="/add-restaurant" method="POST" class="add-restaurant-form">
+        <form action="/add-restaurant" method="POST" class="add-restaurant-form" enctype="multipart/form-data">
         
             <input type="string" name="name" placeholder="Restaurant name" class="input" required><br />
 
@@ -48,6 +48,17 @@
                     </div> --}}
                 </div>
             </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" name="image" value="{{restaurant.image}}"
+                    class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image">
+                {{#if errors.image}}
+                <div class="invalid-feedback">
+                    {{errors.image}}
+                </div>
+                {{/if}}
+		    </div>
 
             <button type="submit" class="btn btn-secondary mt-2">ADD RESTAURANT</button>
 

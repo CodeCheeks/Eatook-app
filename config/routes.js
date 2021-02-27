@@ -6,6 +6,10 @@ const authController = require("../controllers/auth.controller")
 const restaurantController = require("../controllers/restaurant.controller")
 const secure = require("../middlewares/secure.middleware");
 
+const upload = require('./storage.config')
+
+
+
 // home
 router.get("/", miscController.home)
 
@@ -54,7 +58,7 @@ router.get('/activate/:token',secure.isNotAuthenticated, authController.activate
 
 //owner
 router.get("/add-restaurant", secure.isAuthenticated, userController.addRestaurant)
-router.post("/add-restaurant", secure.isAuthenticated, userController.doAddRestaurant)
+router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), userController.doAddRestaurant)
 
 //RESTAURANTS
 
