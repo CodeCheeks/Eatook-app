@@ -58,8 +58,11 @@ router.post("/add-restaurant", secure.isAuthenticated, userController.doAddResta
 
 //RESTAURANTS
 
-//searchlist
+//Search list
 
 router.get("/search", restaurantController.showRestaurants)
 
+//Restaurant detail
+
+router.get("/restaurant/:id", restaurantController.restaurantDetail)
 module.exports = router;

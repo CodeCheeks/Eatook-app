@@ -13,3 +13,10 @@ module.exports.showRestaurants = (req,res,next) => {
     })
     .catch((e) => next(e))
   }
+
+module.exports.restaurantDetail = (req,res,next) => {
+    Restaurant.findById(req.params.id)
+    .then((restaurant) => {
+        res.render("restaurants/restaurant-detail",{restaurant})
+    })
+}
