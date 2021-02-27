@@ -15,7 +15,7 @@ module.exports.showRestaurants = (req,res,next) => {
   }
 
 module.exports.showRestaurantsByName = (req,res,next) => {
-    Restaurant.find( {$or: [{name: req.query.search},{cuisine: req.query.search}] })
+    Restaurant.find( {$or: [{name: { "$regex": req.query.search}},{cuisine: {"$regex": req.query.search}}] })
     .then((restaurants) => {
         console.log(restaurants)
         res.render("restaurants/search", {restaurants})
@@ -24,7 +24,7 @@ module.exports.showRestaurantsByName = (req,res,next) => {
   }
 
 module.exports.showRestaurantsByCity = (req,res,next) => {
-    Restaurant.find( {$or: [{"adress.city": req.query.searchCity},{"adress.zip": req.query.searchCity},{"adress.country": req.query.searchCity}] })
+    Restaurant.find( {$or: [{"adress.city": {"$regex": req.query.searchCity}},{"adress.zip": { "$regex": req.query.searchCity}},{"adress.country": { "$regex": req.query.searchCity}}] })
     .then((restaurants) => {
         console.log(restaurants)
         res.render("restaurants/search", {restaurants})
