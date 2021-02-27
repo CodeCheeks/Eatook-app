@@ -8,20 +8,20 @@
         </div>
         <div class=" col-7 ">
           <div class="card-body">
-            <h4 class="card-title"><b>{{restaurant.name}}</b></h4>
-            <h6 class="card-text"><b>Type of cuisine:</b> {{restaurant.cuisine}}</h6>
-            <h6 class="card-text"><b>Adress:</b></h6>
-              <span>{{restaurant.adress.street}},</span>
-              <span>{{restaurant.adress.zip}}</span>
+            <h4 class="card-title capitalized"><b>{{restaurant.name}}</b></h4>
+            <h6 class="card-text capitalized" ><b>Type of cuisine:</b> {{restaurant.cuisine}}</h6>
+            <h6 class="card-text capitalized"><b>Adress:</b></h6>
+              <span class='capitalized'>{{restaurant.adress.street}},</span>
+              <span class='capitalized'>{{restaurant.adress.zip}}</span>
               <br>
-              <span>{{restaurant.adress.city}},</span>
-              <span>{{restaurant.adress.country}}</span>
-            <h6 class="card-text"><b>Opening times:</b> </h6>
-            <span>Openning-Days:
+              <span class='capitalized'>{{restaurant.adress.city}},</span>
+              <span class='capitalized'>{{restaurant.adress.country}}</span>
+            <h6 class="card-text" ><b>Opening times:</b> </h6>
+            <span class='capitalized'>Openning-Days:
               {{restaurant.timeTable.days}} 
             </span>
             <br>
-            <span>Time table: 
+            <span class='capitalized'>Time table: 
               {{restaurant.timeTable.hours}} 
             </span>
         </div>
