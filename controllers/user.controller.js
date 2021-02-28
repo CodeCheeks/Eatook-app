@@ -121,9 +121,9 @@ module.exports.doAddRestaurant = (req, res, next) => {
   Restaurant.create(req.body)
   .then(restaurant => {
     res.redirect('/')
-    //TODO ADD USER ID TO THE RESTAURANT
-    return User.findOneAndUpdate({_id: req.user._id},{user: restaurant._id},{ new: true })
-    //TODO
+    restaurant.owner = req.user.id
+    restaurant.save()
+    
   })
   .catch(e => {
     if (e instanceof mongoose.Error.ValidationError) {
