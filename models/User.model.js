@@ -35,7 +35,7 @@ const userSchema = new Schema(
 
     password: {
       type: String,
-      match: [PASSWORD_PATTERN, 'Tu contraseña debe conteneral menos 1 número, 1 mayúscula, 1 minúscula y 8 caracteres'],
+      match: [PASSWORD_PATTERN, 'Your password must contain at least 1 number, 1 uppercase, 1 lowercase and 8 characters'],
       required: [true, 'Password is required.'],
     },
     image: {
