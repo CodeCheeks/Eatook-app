@@ -121,6 +121,9 @@ module.exports.doAddRestaurant = (req, res, next) => {
   Restaurant.create(req.body)
   .then(restaurant => {
     res.redirect('/')
+    restaurant.owner = req.user.id
+    restaurant.save()
+    
   })
   .catch(e => {
     if (e instanceof mongoose.Error.ValidationError) {
