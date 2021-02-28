@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const mongoose = require("mongoose");
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 10
@@ -6,22 +7,22 @@ const SALT_ROUNDS = 10
 const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const PASSWORD_PATTERN = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
+const Restaurant = require("./Restaurant.model")
 const userSchema = new Schema(
   {
     firstname: {
       type: String,
       required: [true, 'Firstname is required.'],
-      unique: true,
+      
     },
     lastname: {
       type: String,
       required: [true, 'Lastname is required.'],
-      unique: true,
+      
     },
     phonenumber: {
       type: String,
       trim: true,
-      unique: true,
       default: 'Add a phone number'
     },
     email: {
@@ -57,7 +58,9 @@ const userSchema = new Schema(
     activationToken: {
       type: String,
       default: () => uuidv4()
-    }
+    },
+
+    restaurants: [{ type: Schema.Types.ObjectId, ref: 'Restaurant' }]
   }
 );
 
@@ -78,5 +81,6 @@ userSchema.pre('save', function(next) {
     next()
   }
 })
+const User = mongoose.model('User', userSchema)
+module.exports = User
 
-module.exports = model('User', userSchema);

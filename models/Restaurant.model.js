@@ -1,27 +1,33 @@
 const mongoose = require("mongoose");
+const User = require("./User.model");
 
 const restaurantSchema = new mongoose.Schema(
     {
         name:{
             type: String,
-            required: true
+            required: true,
+            lowercase: true
         },
         adress:{
             street: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             },
             city: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             },
             country: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             },
             zip: {
                 type: String,
-                required: true
+                required: true,
+                lowercase: true
             }
         },
         timeTable:{
@@ -38,12 +44,18 @@ const restaurantSchema = new mongoose.Schema(
         cuisine:{
             type: String,
             required: false,  
-            default: 'Generic Food'
+            default: 'generic food',
+            lowercase: true
         },
 
         image: {
-            type: String,
+            type: [String],
             default: 'https://res.cloudinary.com/eatookapp/image/upload/v1614196064/defaultrestaurant_uc4ar8.png'
+        },
+        owner: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: "User",
+            
         }
     }
 )

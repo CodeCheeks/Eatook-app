@@ -1,9 +1,6 @@
 const mongoose = require("mongoose")
-const { use } = require("passport")
-const passport = require('passport')
-const { sendActivationEmail } = require("../config/mailer.config")
 const User = require("../models/User.model")
-
+const Restaurant = require("../models/Restaurant.model")
 
 
 
@@ -87,6 +84,8 @@ module.exports.doChangePhone =
 
 }
 
+//Profile 
+
 module.exports.userBookings = (req, res, next) => {
   res.render("users/user_bookings")
 }
@@ -99,4 +98,42 @@ module.exports.userReviews = (req, res, next) => {
   res.render("users/user_reviews")
 }
 
+module.exports.userListRestaurants = (req, res, next) => {
+  res.render("users/owner/list_restaurants")
+}
 
+//Restaurant
+
+module.exports.addRestaurant = (req, res, next) => {
+  res.render("users/owner/add_restaurant")
+}
+
+
+module.exports.doAddRestaurant = (req, res, next) => {
+  function renderWithErrors(errors) {
+    res.status(400).render('/add-restaurant', {
+      errors: errors,
+      user: req.body
+    })
+  }
+
+  if (req.file) {
+    req.body.image = req.file.path;
+  }
+
+  Restaurant.create(req.body)
+  .then(restaurant => {
+    res.redirect('/')
+    restaurant.owner = req.user.id
+    restaurant.save()
+    
+  })
+  .catch(e => {
+    if (e instanceof mongoose.Error.ValidationError) {
+      renderWithErrors(e.errors)
+    } else {
+      next(e)
+    }
+  })
+
+}

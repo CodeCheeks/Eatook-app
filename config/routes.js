@@ -3,7 +3,12 @@ const passport = require('passport')
 const miscController = require("../controllers/misc.controller")
 const userController = require("../controllers/user.controller")
 const authController = require("../controllers/auth.controller")
+const restaurantController = require("../controllers/restaurant.controller")
 const secure = require("../middlewares/secure.middleware");
+
+const upload = require('./storage.config')
+
+const GOOGLE_SCOPES = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
 
 // home
 router.get("/", miscController.home)
@@ -16,8 +21,15 @@ router.get("/signup/verify-account", secure.isNotAuthenticated, authController.v
 //login
 router.get("/login",secure.isNotAuthenticated, authController.login)
 router.post("/login",secure.isNotAuthenticated, authController.doLogin)
+router.get("/authenticate/google", passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }))
+router.get("/authenticate/google/callback", authController.doLoginGoogle)
 router.get("/login/forgot-password",secure.isNotAuthenticated, authController.forgotpass)
 router.post("/login/forgot-password",secure.isNotAuthenticated, authController.doForgotpass)
+
+
+//recover password
+router.post('/forgot-password/:token',secure.isNotAuthenticated, authController.doRecoverPassword)
+router.get('/forgot-password/:token',secure.isNotAuthenticated, authController.recoverPassword)
 
 //logout
 router.post("/logout",secure.isAuthenticated, authController.logout)
@@ -46,7 +58,23 @@ router.get("/profile/reviews", secure.isAuthenticated, userController.userReview
 //Activate account
 router.get('/activate/:token',secure.isNotAuthenticated, authController.activate)
 
+//owner
+router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)
+router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), userController.doAddRestaurant)//user bookings
+router.get("/profile/restaurants", secure.isAuthenticated, secure.checkRole('owner'), userController.userListRestaurants)
+
+//RESTAURANTS
+
+//Search all list
+
+router.get("/search", restaurantController.showRestaurants)
+
+//Search with filters
+
+router.get("/search-by-filter", restaurantController.showRestaurantsByFilter)
 
 
+//Restaurant detail
 
+router.get("/restaurant/:id", restaurantController.restaurantDetail)
 module.exports = router;

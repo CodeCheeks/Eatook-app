@@ -1,5 +1,8 @@
 const nodemailer = require("nodemailer")
-const { generateTemplate } = require("./mailtemplate")
+const { generateTemplate } = require("./emailTemplates/mailtemplate")
+const { recoverPassTemplate } = require("./emailTemplates/recover")
+
+
 
 const transporter = nodemailer.createTransport({
 	service: "Gmail",
@@ -18,3 +21,15 @@ module.exports.sendActivationEmail = (email, token) => {
         html: generateTemplate(token)
       })
 }
+
+
+//Sends recover password email
+module.exports.recoverPassEmail = (email, token) => {
+  transporter.sendMail({
+      from: `"Eatook app" <${process.env.NM_USER}>`, 
+      to: email, 
+      subject: "Recover your password",
+      html: recoverPassTemplate(token)
+    })
+}
+

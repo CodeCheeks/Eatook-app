@@ -14,7 +14,7 @@
 }
   
 body{
-    background: #f6f7d0;
+    background: white;
     font-family: roboto;
     user-select: none;
 }
@@ -60,6 +60,18 @@ body{
     
 }
 
+.add-restaurant-form{
+    background: #fff;
+    padding: 40px;
+    clear: both;
+    width: 100%;
+    box-sizing: border-box;
+    height: 750px;
+    border: #c2c55e 2px solid;
+    border-radius: 25px;
+
+}
+
 .input{
     width: 100%;
     padding: 20px;
@@ -98,6 +110,10 @@ body{
 .forgot-pass{
     color: #888;
     font-size: small;
+}
+
+.capitalized{
+    text-transform: capitalize 
 }
 @media only screen and (max-width: 600px) {
 

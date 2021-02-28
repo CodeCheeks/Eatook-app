@@ -20,21 +20,25 @@
           {{/unless}}
           
           {{#if user}}
-          <li class="nav-item">
-            <form action="/logout" method="POST">
-                <button class='btn'>Logout</button>
-            </form>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link active mx-4 px-4" aria-current="page" href="/profile">My profile</a>
-          </li>
+            {{#isOwner user.role}}
+            <li class="nav-item"><a class="nav-link active mx-4 px-4" aria-current="page" href="/add-restaurant">Add restaurant</a></li>
+            {{else}}
+
+            {{/isOwner}}
+            <li class="nav-item">
+            <a class="nav-link active mx-4 px-4" aria-current="page" href="/profile">My profile</a>
+            </li>
+            <li class="nav-item">
+              <form action="/logout" method="POST">
+                  <button class='btn'>Logout</button>
+              </form>
+            </li>
           {{/if}}
           <li class="nav-item">
             <a class="nav-link active mx-4 px-4 " aria-current="page" href="/help">Help</a>
           </li>
         </ul>
       </div>
-  
 </nav> 
 
 

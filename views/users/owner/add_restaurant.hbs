@@ -1,0 +1,69 @@
+<div class="container__form d-flex justify-content-center">
+    <div class="row justify-content-center">     
+        <form action="/add-restaurant" method="POST" class="add-restaurant-form" enctype="multipart/form-data">
+        
+            <input type="string" name="name" placeholder="Restaurant name" class="input" required><br />
+
+            <input type="string" name="adress.country" placeholder="Country" class="input" required>
+            <input type="string" name="adress.city" placeholder="City" class="input" required>
+            <input type="string" name="adress.street" placeholder="Street" class="input" required>
+
+            <input type="string" name="adress.zip" placeholder="Postal Code" class="input" required>
+            <input type="string" name="cuisine" placeholder="Cuisine type" class="input" required>
+
+            <div class="container">
+                <div class="row">
+                    <h6>Working days</h6>
+                    <div class="col-sm">
+                        <input type="checkbox" name="timeTable.days" value="Monday">
+                        <label for="vehicle1">Monday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Tuesday">
+                        <label for="vehicle1">Tuesday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Wednesday">
+                        <label for="vehicle1">Wednesday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Thursday">
+                        <label for="vehicle1">Thursday</label><br>
+                    </div>
+                    <div class="col-sm">
+                        <input type="checkbox" name="timeTable.days" value="Friday">
+                        <label for="vehicle1">Friday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Saturday">
+                        <label for="vehicle1">Saturday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Sunday">
+                        <label for="vehicle1">Sunday</label><br>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col-sm">
+                        <h6>Open at:</h6>
+                        <input type="time" name="timeTable.hours" required>
+                    </div>
+                     {{!-- <div class="col-sm">
+                        <h6>Close at:</h6>
+                        <input type="time" name="timeTable.hours" required>
+                    </div> --}}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" name="image" value="{{restaurant.image}}"
+                    class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image">
+                {{#if errors.image}}
+                <div class="invalid-feedback">
+                    {{errors.image}}
+                </div>
+                {{/if}}
+		    </div>
+
+            <button type="submit" class="btn btn-secondary mt-2">ADD RESTAURANT</button>
+
+        </form>
+    
+    </div>
+</div>
+
