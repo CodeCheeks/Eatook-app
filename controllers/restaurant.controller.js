@@ -14,24 +14,15 @@ module.exports.showRestaurants = (req,res,next) => {
     .catch((e) => next(e))
   }
 
-module.exports.showRestaurantsByName = (req,res,next) => {
-    Restaurant.find( {$or: [{name: { "$regex": req.query.search}},{cuisine: {"$regex": req.query.search}}] })
-    .then((restaurants) => {
-        console.log(restaurants)
-        res.render("restaurants/search", {restaurants})
-    })
-    .catch((e) => next(e))
-  }
-
-module.exports.showRestaurantsByCity = (req,res,next) => {
-    Restaurant.find( {$or: [{"adress.city": {"$regex": req.query.searchCity}},{"adress.zip": { "$regex": req.query.searchCity}},{"adress.country": { "$regex": req.query.searchCity}}] })
-    .then((restaurants) => {
-        console.log(restaurants)
-        res.render("restaurants/search", {restaurants})
-    })
-    .catch((e) => next(e))
-  }
-
+module.exports.showRestaurantsByFilter = (req,res,next) => {
+        Restaurant.find({$and :[{$or: [{name: { "$regex": req.query.search}},{cuisine: {"$regex": req.query.search}}] }, {$or: [{"adress.city": {"$regex": req.query.searchCity}},{"adress.zip": { "$regex": req.query.searchCity}},{"adress.country": { "$regex": req.query.searchCity}}]}] })
+        .then((restaurants) => {
+            console.log(restaurants)
+            res.render("restaurants/search", {restaurants})
+        })
+        .catch((e) => next(e))
+    }
+    
 
 module.exports.restaurantDetail = (req,res,next) => {
     Restaurant.findById(req.params.id)
