@@ -58,15 +58,12 @@ module.exports.doChangePass = (req,res,next) => {
 
 //Edit phonenumber
 
-module.exports.doChangePhone = 
-(req,res,next) => {
-
+module.exports.doChangePhone = (req,res,next) => {
   function renderWithErrors(errors) {
     res.status(400).render('users/user_information', {
       errors: errors,
     })
   }
-  
   User.findOneAndUpdate({_id: req.user._id},{phonenumber: req.body.phonenumber},{new:true})
   .then((newNumber) => {
     if(newNumber){
@@ -77,12 +74,30 @@ module.exports.doChangePhone =
       renderWithErrors('There was an error with the new provided phonenumber')
     }
   })
-  .catch((err) => {
-    console.log(err)
-  })
-  
-
+  .catch(error => console.log(error))
 }
+
+
+
+module.exports.doChangeEmail = (req,res,next) => {
+  function renderWithErrors(errors) {
+    res.status(400).render('users/user_information', {
+      errors: errors,
+    })
+  }
+  User.findOneAndUpdate({_id: req.user._id},{email: req.body.email},{new:true})
+  .then((newEmail) => {
+    if(newEmail){
+    res.redirect('/profile/personal-info')
+    console.log(`The email has been updated`)
+    }
+    else{
+      renderWithErrors('There was an error with the new provided email')
+    }
+  })
+  .catch(error => console.log(error))
+}
+
 
 //Profile 
 
