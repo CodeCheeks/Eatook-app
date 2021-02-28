@@ -8,7 +8,9 @@ const Restaurant = require("../models/Restaurant.model")
 
 module.exports.showRestaurants = (req,res,next) => {
     Restaurant.find()
-    .then((restaurants) => {
+    .populate("owner")
+    .then((restaurants) => {    
+        console.log(restaurants[0].owner)
         res.render("restaurants/search", {restaurants})
     })
     .catch((e) => next(e))
@@ -16,6 +18,7 @@ module.exports.showRestaurants = (req,res,next) => {
 
 module.exports.showRestaurantsByFilter = (req,res,next) => {
         Restaurant.find({$and :[{$or: [{name: { "$regex": req.query.search}},{cuisine: {"$regex": req.query.search}}] }, {$or: [{"adress.city": {"$regex": req.query.searchCity}},{"adress.zip": { "$regex": req.query.searchCity}},{"adress.country": { "$regex": req.query.searchCity}}]}] })
+        .populate("owner")
         .then((restaurants) => {
             console.log(restaurants)
             res.render("restaurants/search", {restaurants})
@@ -26,6 +29,7 @@ module.exports.showRestaurantsByFilter = (req,res,next) => {
 
 module.exports.restaurantDetail = (req,res,next) => {
     Restaurant.findById(req.params.id)
+    .populate("owner")
     .then((restaurant) => {
         res.render("restaurants/restaurant-detail",{restaurant})
     })

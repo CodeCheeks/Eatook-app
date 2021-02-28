@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const mongoose = require("mongoose");
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 10
@@ -80,6 +81,6 @@ userSchema.pre('save', function(next) {
     next()
   }
 })
-
-module.exports = model('User', userSchema);
+const User = mongoose.model('User', userSchema)
+module.exports = User
 
