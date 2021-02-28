@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const UserModel = require("./User.model");
 
 const restaurantSchema = new mongoose.Schema(
     {
@@ -50,6 +51,11 @@ const restaurantSchema = new mongoose.Schema(
         image: {
             type: [String],
             default: 'https://res.cloudinary.com/eatookapp/image/upload/v1614196064/defaultrestaurant_uc4ar8.png'
+        },
+        owner: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: "User",
+            
         }
     }
 )
