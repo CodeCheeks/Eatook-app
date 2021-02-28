@@ -84,6 +84,8 @@ module.exports.doChangePhone =
 
 }
 
+//Profile 
+
 module.exports.userBookings = (req, res, next) => {
   res.render("users/user_bookings")
 }
@@ -96,10 +98,11 @@ module.exports.userReviews = (req, res, next) => {
   res.render("users/user_reviews")
 }
 
+module.exports.userListRestaurants = (req, res, next) => {
+  res.render("users/owner/list_restaurants")
+}
 
 //Restaurant
-
-
 
 module.exports.addRestaurant = (req, res, next) => {
   res.render("users/owner/add_restaurant")
