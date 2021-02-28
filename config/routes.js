@@ -59,7 +59,7 @@ router.get("/profile/reviews", secure.isAuthenticated, userController.userReview
 router.get('/activate/:token',secure.isNotAuthenticated, authController.activate)
 
 //owner
-router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('admin'), userController.addRestaurant)
+router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)
 router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), userController.doAddRestaurant)
 
 //RESTAURANTS

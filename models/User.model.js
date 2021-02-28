@@ -11,12 +11,12 @@ const userSchema = new Schema(
     firstname: {
       type: String,
       required: [true, 'Firstname is required.'],
-      unique: true,
+      
     },
     lastname: {
       type: String,
       required: [true, 'Lastname is required.'],
-      unique: true,
+      
     },
     phonenumber: {
       type: String,

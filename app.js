@@ -33,6 +33,7 @@ app.use((req, res, next) => {
   next()
 })
 
+
 app.use(favicon('public/img/favicon.ico'));
 
 app.use("/", routes);
@@ -51,6 +52,9 @@ res.status(error.status);
 res.render("error", error);
 });
   
+
+
+
   // Initialization on port
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
