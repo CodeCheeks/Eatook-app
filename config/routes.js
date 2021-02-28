@@ -70,8 +70,8 @@ router.get("/search", restaurantController.showRestaurants)
 
 //Search with filters
 
-router.get("/search-by-name", restaurantController.showRestaurantsByName)
-router.get("/search-by-city", restaurantController.showRestaurantsByCity)
+router.get("/search-by-filter", restaurantController.showRestaurantsByFilter)
+
 
 //Restaurant detail
 
