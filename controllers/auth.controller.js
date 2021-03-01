@@ -61,7 +61,7 @@ module.exports.doLoginGoogle = (req, res, next) => {
             { email: user.email },
             { googleAccount: true })
           .then(() => res.redirect('/'))
-          .catch(next(e))
+          .catch((e) => next(e))
         }
       })
     }

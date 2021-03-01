@@ -63,7 +63,9 @@ const userSchema = new Schema(
       default: false
     },
 
-    restaurants: [{ type: Schema.Types.ObjectId, ref: 'Restaurant' }]
+    restaurants: [{ type: Schema.Types.ObjectId, ref: 'Restaurant' }],
+
+    
   }
 );
 
