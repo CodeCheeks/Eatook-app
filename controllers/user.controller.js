@@ -128,7 +128,13 @@ module.exports.userHelp = (req, res, next) => {
 
 
 module.exports.userListRestaurants = (req, res, next) => {
-  res.render("users/owner/list_restaurants")
+  User.findById(req.user._id)
+  .populate('restaurants')
+  .then((user) => {
+    res.render("users/owner/list_restaurants",{user})
+})
+.catch((e) => next(e))
+  
 }
 
 //Restaurant
@@ -153,8 +159,14 @@ module.exports.doAddRestaurant = (req, res, next) => {
   Restaurant.create(req.body)
   .then(restaurant => {
     res.redirect('/')
+    req.user.restaurants.push(restaurant._id)
+    User.findByIdAndUpdate(req.user._id, {restaurants: req.user.restaurants})
+    .then(
+      //console.log(req.user.restaurants)
+    )
     restaurant.owner = req.user.id
     restaurant.save()
+
     
   })
   .catch(e => {

@@ -33,7 +33,22 @@ Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
             },
             owner: u._id
             
-          }).then((restaurant) => console.log(`Created ${restaurant.name} by ${u.email}`));
+          }).then((restaurant) => {
+            
+            u.restaurants.push(restaurant._id)
+            User.findByIdAndUpdate(u._id,{restaurants: u.restaurants})
+            
+            .then((user) => {
+              console.log('User restaurants:', user)
+              console.log('urestaurants', u.restaurants)
+              console.log(`Created ${restaurant.name} by ${u.email}`)
+            
+            }
+            )
+            
+            
+        })
+        .catch((e) => console.log(e));
         }
       });
     }
