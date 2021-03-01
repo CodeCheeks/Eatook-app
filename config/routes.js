@@ -16,7 +16,7 @@ router.get("/", miscController.home)
 //sign up
 router.get("/signup", secure.isNotAuthenticated, authController.signup)
 router.post("/signup", secure.isNotAuthenticated, authController.doSignup)
-router.get("/signup/verify-account", secure.isNotAuthenticated, authController.verify)
+router.get("/signup/verify-account", authController.verify)
 
 //login
 router.get("/login",secure.isNotAuthenticated, authController.login)
@@ -57,7 +57,7 @@ router.get("/profile/favourites", secure.isAuthenticated, userController.userFav
 router.get("/profile/reviews", secure.isAuthenticated, userController.userReviews)
 
 //Activate account
-router.get('/activate/:token',secure.isNotAuthenticated, authController.activate)
+router.get('/activate/:token', authController.activate)
 
 //owner
 router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)

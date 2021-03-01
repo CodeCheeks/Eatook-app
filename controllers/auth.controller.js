@@ -192,9 +192,9 @@ module.exports.activate = (req, res, next) => {
   )
     .then((u) => {
       if (u) {
-        res.render("authentication/login_form");
-      } else {
         res.redirect("/")
+      } else {
+        console.log('Problems with activation')
       }
     })
     .catch((e) => next(e));

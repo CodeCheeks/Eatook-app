@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const User = require("../models/User.model")
 const Restaurant = require("../models/Restaurant.model")
-
+const { sendActivationEmail } = require("../config/mailer.config")
 
 
 //Profile
@@ -85,10 +85,18 @@ module.exports.doChangeEmail = (req,res,next) => {
       errors: errors,
     })
   }
-  User.findOneAndUpdate({_id: req.user._id},{email: req.body.email},{new:true})
-  .then((newEmail) => {
-    if(newEmail){
-    res.redirect('/profile/personal-info')
+  User.findOneAndUpdate(
+    {_id: req.user._id},
+    {email: req.body.email, active:false},
+    {new:true})
+  .then((user) => {
+    if(user){
+
+    sendActivationEmail(user.email,user.activationToken)
+    req.logout();
+    res.redirect("/signup/verify-account");
+    
+    
     console.log(`The email has been updated`)
     }
     else{
