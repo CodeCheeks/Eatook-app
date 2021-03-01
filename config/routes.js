@@ -12,6 +12,9 @@ const GOOGLE_SCOPES = ['https://www.googleapis.com/auth/userinfo.email', 'https:
 
 // home
 router.get("/", miscController.home)
+router.get("/ABOUT", miscController.about)
+
+/* ---- Authenticate ---- */
 
 //sign up
 router.get("/signup", secure.isNotAuthenticated, authController.signup)
@@ -32,39 +35,35 @@ router.post('/forgot-password/:token',secure.isNotAuthenticated, authController.
 router.get('/forgot-password/:token',secure.isNotAuthenticated, authController.recoverPassword)
 
 //logout
-router.post("/logout",secure.isAuthenticated, authController.logout)
+router.get("/logout",secure.isAuthenticated, authController.logout)
 
-// USER PROFILE
-
-//profile main page
-router.get("/profile", secure.isAuthenticated, userController.profile)
-
-//personal information
+/* ---- USER PROFILE ---- */
 router.get("/profile/personal-info", secure.isAuthenticated, userController.userInformation)
+router.get("/profile/help", secure.isAuthenticated, userController.userHelp)
+
+// role: user
+router.get("/profile", secure.isAuthenticated, userController.profile)
+router.get("/profile/bookings", secure.isAuthenticated, userController.userBookings)
+router.get("/profile/favourites", secure.isAuthenticated, userController.userFavourites)
+router.get("/profile/reviews", secure.isAuthenticated, userController.userReviews)
+
+//role: owner
+router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)
+router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), userController.doAddRestaurant)
+router.get("/profile/restaurants", secure.isAuthenticated, secure.checkRole('owner'), userController.userListRestaurants)
+
+//personal information edit
 router.post("/profile/personal-info/password", secure.isAuthenticated, userController.doChangePass)
 router.post("/profile/personal-info/phonenumber", secure.isAuthenticated, userController.doChangePhone)
 router.post("/profile/personal-info/email", secure.isAuthenticated, userController.doChangeEmail)
 
 
 
-//user bookings
-router.get("/profile/bookings", secure.isAuthenticated, userController.userBookings)
-
-//user favourites
-router.get("/profile/favourites", secure.isAuthenticated, userController.userFavourites)
-
-//user reviews
-router.get("/profile/reviews", secure.isAuthenticated, userController.userReviews)
-
 //Activate account
 router.get('/activate/:token', authController.activate)
 
-//owner
-router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)
-router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), userController.doAddRestaurant)//user bookings
-router.get("/profile/restaurants", secure.isAuthenticated, secure.checkRole('owner'), userController.userListRestaurants)
 
-//RESTAURANTS
+/* ---- RESTAURANTS ---- */
 
 //Search all list
 

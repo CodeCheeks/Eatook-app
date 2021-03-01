@@ -1,42 +1,61 @@
 <nav class="navbar navbar-expand-md mb-2 navbar-light justify-content-between " style="background-color:#c2c55e;">
-      <a href="/" class="navbar-brand">
+      <a href="/" class="navbar-brand mx-3">
         <img src="https://res.cloudinary.com/mhmd/image/upload/v1557368579/logo_iqjuay.png" width="45" alt="" class="d-inline-block align-middle ml-2">
       </a>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      </form>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 ms-auto">
+        <ul class="navbar-nav mb-2 ms-auto mx-3">
           {{#unless user}}
           <li class="nav-item">
             <a class="nav-link active mx-4 px-4" aria-current="page" href="/login">Log in</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link active mx-4 px-4" aria-current="page" href="/signup">Sign up</a>
+            <a class="nav-link active mx-4 px-4" aria-current="page" href="/about">About us</a>
           </li>
           {{/unless}}
           
           {{#if user}}
+            <img src="{{user.image}}" class="" height="35"  style="border-radius: 50%;" alt="avatar">
             {{#isOwner user.role}}
-            <li class="nav-item"><a class="nav-link active mx-4 px-4" aria-current="page" href="/add-restaurant">Add restaurant</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/profile/personal-info">Account information</a></li>
+                <li><a class="dropdown-item" href="/profile/restaurants">My Restaurants</a></li>
+                <li><a class="dropdown-item" href="/add-restaurant">Add Restaurant</a></li>
+                <li><a class="dropdown-item" href="/profile/help">Help</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li class="nav-item">
+                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </li>
+              </ul>
+            </li>
             {{else}}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/profile/personal-info">Account information</a></li>
+                  <li><a class="dropdown-item" href="/profile/favourites">My favourites</a></li>
+                  <li><a class="dropdown-item" href="/profile/bookings">My bookings</a></li>
+                  <li><a class="dropdown-item" href="/profile/reviews">My reviews</a></li>
+                  <li><a class="dropdown-item" href="/profile/help">Help</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li class="nav-item">
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                  </li>
+                </ul>
+            </li>
 
             {{/isOwner}}
-            <li class="nav-item">
-            <a class="nav-link active mx-4 px-4" aria-current="page" href="/profile">My profile</a>
+
+            <li>
+              <a class="nav-link active mx-4 px-4" aria-current="page" href="/about">About us</a>
             </li>
-            <li class="nav-item">
-              <form action="/logout" method="POST">
-                  <button class='btn'>Logout</button>
-              </form>
-            </li>
+
           {{/if}}
-          <li class="nav-item">
-            <a class="nav-link active mx-4 px-4 " aria-current="page" href="/help">Help</a>
-          </li>
         </ul>
       </div>
 </nav> 
