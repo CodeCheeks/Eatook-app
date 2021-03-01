@@ -57,8 +57,11 @@ module.exports.doLoginGoogle = (req, res, next) => {
           next(loginErr)
         }
         else {
-          console.log('log in done')
-          res.redirect('/')
+          User.findOneAndUpdate(
+            { email: user.email },
+            { googleAccount: true })
+          .then(() => res.redirect('/'))
+          .catch(next(e))
         }
       })
     }

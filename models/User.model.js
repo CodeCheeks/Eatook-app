@@ -58,6 +58,11 @@ const userSchema = new Schema(
       default: () => uuidv4()
     },
 
+    googleAccount:{
+      type: Boolean,
+      default: false
+    },
+
     restaurants: [{ type: Schema.Types.ObjectId, ref: 'Restaurant' }]
   }
 );
