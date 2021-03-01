@@ -121,6 +121,12 @@ module.exports.userReviews = (req, res, next) => {
   res.render("users/user_reviews")
 }
 
+
+module.exports.userHelp = (req, res, next) => {
+  res.render("users/user_help")
+}
+
+
 module.exports.userListRestaurants = (req, res, next) => {
   res.render("users/owner/list_restaurants")
 }
