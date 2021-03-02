@@ -137,7 +137,7 @@ module.exports.userListRestaurants = (req, res, next) => {
   
 }
 
-//Restaurant
+//RESTAURANTS CRUD
 
 module.exports.addRestaurant = (req, res, next) => {
   res.render("users/owner/add_restaurant")
@@ -177,4 +177,40 @@ module.exports.doAddRestaurant = (req, res, next) => {
     }
   })
 
+}
+
+
+module.exports.editRestaurant = (req, res, next) => {
+  Restaurant.findById({_id: req.params.id})
+  .then((restaurant) => {
+    res.render("users/owner/add_restaurant", {restaurant})
+  })
+  .catch((e) => console.log(e))
+  
+}
+
+module.exports.doEditRestaurant = (req, res, next) => {
+ 
+  function renderWithErrors(errors) {
+    res.status(400).render('/add-restaurant', {
+      errors: errors,
+      user: req.body
+    })
+  }
+
+  if (req.file) {
+    req.body.image = req.file.path;
+  }
+
+  
+  Restaurant.findById({_id: req.params.id})
+  .then((restaurant) => {
+    console.log(req.body)
+    restaurant.name = req.body.name
+    restaurant.save()
+
+  })
+  .catch((e) => console.log(e))
+  
+    
 }
