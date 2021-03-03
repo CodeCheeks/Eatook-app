@@ -231,3 +231,12 @@ module.exports.doEditRestaurant = (req, res, next) => {
   })
 
 }
+
+module.exports.doDeleteRestaurant =(req, res, next) => {
+  Restaurant.findByIdAndDelete({_id:req.params.id})
+  .then((restaurant) => {
+  console.log(`The restaurant ${restaurant.name} has been deleted`)
+  res.redirect('/profile/restaurants')
+})
+  .catch(e => console.log(e))
+}
