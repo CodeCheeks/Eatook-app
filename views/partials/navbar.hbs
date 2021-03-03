@@ -2,6 +2,7 @@
       <a href="/" class="navbar-brand mx-3">
         <img src="https://res.cloudinary.com/mhmd/image/upload/v1557368579/logo_iqjuay.png" width="45" alt="" class="d-inline-block align-middle ml-2">
       </a>
+
       <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,7 +18,7 @@
           {{/unless}}
           
           {{#if user}}
-            <img src="{{user.image}}" class="" height="35"  style="border-radius: 50%;">
+            <img src="{{user.image}}" class="hide" height="35"  style="border-radius: 50%;">
             {{#isOwner user.role}}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>

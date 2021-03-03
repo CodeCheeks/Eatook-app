@@ -46,21 +46,21 @@
                 <div class="row">
                     <h6>Working days</h6>
                     <div class="col-sm">
-                        <input type="checkbox" name="timeTable.days" value="Monday">
+                        <input type="checkbox" name="timeTable.days" value="Monday" {{#checkDay restaurant.timeTable.days 'Monday'}}checked{{else}}{{/checkDay}}>
                         <label for="days">Monday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Tuesday" checked>
+                        <input type="checkbox" name="timeTable.days" value="Tuesday" {{#checkDay restaurant.timeTable.days 'Tuesday'}}checked{{else}}{{/checkDay}}>
                         <label for="days">Tuesday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Wednesday" checked>
+                        <input type="checkbox" name="timeTable.days" value="Wednesday" {{#checkDay restaurant.timeTable.days 'Wednesday'}}checked{{else}}{{/checkDay}}>
                         <label for="days">Wednesday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Thursday" checked>
+                        <input type="checkbox" name="timeTable.days" value="Thursday" {{#checkDay restaurant.timeTable.days 'Thursday'}}checked{{else}}{{/checkDay}}>
                         <label for="days">Thursday</label><br>
                     </div>
                     <div class="col-sm">
-                        <input type="checkbox" name="timeTable.days" value="Friday" checked>
+                        <input type="checkbox" name="timeTable.days" value="Friday" {{#checkDay restaurant.timeTable.days 'Friday'}}checked{{else}}{{/checkDay}}>
                         <label for="days">Friday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Saturday" checked>
+                        <input type="checkbox" name="timeTable.days" value="Saturday" {{#checkDay restaurant.timeTable.days 'Saturday'}}checked{{else}}{{/checkDay}}>
                         <label for="days">Saturday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Sunday" checked>
+                        <input type="checkbox" name="timeTable.days" value="Sunday" {{#checkDay restaurant.timeTable.days 'Sunday'}}checked{{else}}{{/checkDay}}>
                         <label for="days">Sunday</label><br>
                     </div>
                 </div>
