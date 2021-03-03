@@ -137,7 +137,7 @@ module.exports.userListRestaurants = (req, res, next) => {
   
 }
 
-//Restaurant
+//RESTAURANTS CRUD
 
 module.exports.addRestaurant = (req, res, next) => {
   res.render("users/owner/add_restaurant")
@@ -174,6 +174,58 @@ module.exports.doAddRestaurant = (req, res, next) => {
       renderWithErrors(e.errors)
     } else {
       next(e)
+    }
+  })
+
+}
+
+
+module.exports.editRestaurant = (req, res, next) => {
+  Restaurant.findById({_id: req.params.id})
+  .then((restaurant) => {
+    res.render("users/owner/add_restaurant", {restaurant})
+  })
+  .catch((e) => console.log(e))
+  
+}
+
+
+
+module.exports.doEditRestaurant = (req, res, next) => {
+  function renderWithErrors(errors) {
+    res.status(400).render('/add-restaurant', {
+      errors: errors,
+      user: req.body
+    })
+  }
+
+  if (req.file) {
+    req.body.image = req.file.path;
+  }
+
+  Restaurant.findById({_id: req.params.id})
+  .then(restaurant => {
+
+    restaurant.name = req.body.name 
+    restaurant.cuisine = req.body.cuisine 
+    restaurant.image = req.body.image 
+
+    restaurant.timeTable.days = req.body['timeTable.days']
+    restaurant.timeTable.hours = req.body['timeTable.hours']
+
+    restaurant.adress.country = req.body['adress.country']
+    restaurant.adress.city = req.body['adress.city']
+    restaurant.adress.street = req.body['adress.street']
+    restaurant.adress.zip = req.body['adress.zip']
+
+    restaurant.save()
+    res.redirect('/profile/restaurants')
+  })
+  .catch(e => {
+    if (e instanceof mongoose.Error.ValidationError) {
+      renderWithErrors(e.errors)
+    } else {
+      renderWithErrors(e)
     }
   })
 

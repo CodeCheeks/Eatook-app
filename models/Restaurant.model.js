@@ -9,7 +9,7 @@ const restaurantSchema = new mongoose.Schema(
             lowercase: true
         },
         adress:{
-            street: {
+            country: {
                 type: String,
                 required: true,
                 lowercase: true
@@ -19,7 +19,7 @@ const restaurantSchema = new mongoose.Schema(
                 required: true,
                 lowercase: true
             },
-            country: {
+            street: {
                 type: String,
                 required: true,
                 lowercase: true

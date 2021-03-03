@@ -1,15 +1,15 @@
 <div class="container__form d-flex justify-content-center">
     <div class="row justify-content-center">     
-        <form action="/add-restaurant" method="POST" class="add-restaurant-form" enctype="multipart/form-data">
+        <form action="{{#if restaurant._id}}/edit-restaurant/{{restaurant._id}}{{else}}/add-restaurant{{/if}}" method="POST" class="add-restaurant-form" enctype="multipart/form-data">
         
-            <input type="string" name="name" placeholder="Restaurant name" class="input" required><br />
+            <input type="string" name="name" placeholder="Restaurant name" class="input" value="{{restaurant.name}}"required><br />
 
-            <input type="string" name="adress.country" placeholder="Country" class="input" required>
-            <input type="string" name="adress.city" placeholder="City" class="input" required>
-            <input type="string" name="adress.street" placeholder="Street" class="input" required>
-
-            <input type="string" name="adress.zip" placeholder="Postal Code" class="input" required>
-            <input type="string" name="cuisine" placeholder="Cuisine type" class="input" required>
+            <input type="string" name="adress.country" placeholder="Country" class="input" value="{{restaurant.adress.country}}" required>
+            <input type="string" name="adress.city" placeholder="City" class="input" value="{{restaurant.adress.city}}" required>
+            <input type="string" name="adress.street" placeholder="Street" class="input" value="{{restaurant.adress.street}}" required>
+            <input type="string" name="adress.zip" placeholder="Postal Code" class="input" value="{{restaurant.adress.zip}}" required>
+            
+            <input type="string" name="cuisine" placeholder="Cuisine type" class="input" value="{{restaurant.cuisine}}" required>
 
             <div class="container">
                 <div class="row">
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-sm">
                         <h6>Open at:</h6>
-                        <input type="time" name="timeTable.hours" required>
+                        <input type="time" name="timeTable.hours" value="{{restaurant.timeTable.hours}}" required>
                     </div>
                      {{!-- <div class="col-sm">
                         <h6>Close at:</h6>
@@ -60,7 +60,7 @@
                 {{/if}}
 		    </div>
 
-            <button type="submit" class="btn btn-secondary mt-2">ADD RESTAURANT</button>
+            <button type="submit" class="btn btn-secondary mt-2">{{#if restaurant._id}}EDIT RESTAURANT{{else}}CREATE RESTAURANT{{/if}}</button>
 
         </form>
     
