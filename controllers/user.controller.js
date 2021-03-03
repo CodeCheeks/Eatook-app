@@ -158,7 +158,7 @@ module.exports.doAddRestaurant = (req, res, next) => {
 
   Restaurant.create(req.body)
   .then(restaurant => {
-    res.redirect('/')
+    res.redirect('/profile/restaurants')
     req.user.restaurants.push(restaurant._id)
     User.findByIdAndUpdate(req.user._id, {restaurants: req.user.restaurants})
     .then(
@@ -211,7 +211,8 @@ module.exports.doEditRestaurant = (req, res, next) => {
     restaurant.image = req.body.image 
 
     restaurant.timeTable.days = req.body['timeTable.days']
-    restaurant.timeTable.hours = req.body['timeTable.hours']
+    restaurant.timeTable.openhour = req.body['timeTable.openhour']
+    restaurant.timeTable.closehour = req.body['timeTable.closehour']
 
     restaurant.adress.country = req.body['adress.country']
     restaurant.adress.city = req.body['adress.city']

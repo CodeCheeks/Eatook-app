@@ -1,55 +1,122 @@
 <div class="container__form d-flex justify-content-center">
     <div class="row justify-content-center">     
-        <form action="{{#if restaurant._id}}/edit-restaurant/{{restaurant._id}}{{else}}/add-restaurant{{/if}}" method="POST" class="add-restaurant-form" enctype="multipart/form-data">
+        <form action="{{#if restaurant._id}}/edit-restaurant/{{restaurant._id}}{{else}}/add-restaurant{{/if}}" method="POST" class="add-restaurant-form" enctype="multipart/form-data" id="add__restaurant">
         
-            <input type="string" name="name" placeholder="Restaurant name" class="input" value="{{restaurant.name}}"required><br />
+            <div class="container my-1">
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="string" name="name" placeholder="Restaurant name" class="input" value="{{restaurant.name}}"required><br />
+                    </div>
+                </div>
+            </div>
 
-            <input type="string" name="adress.country" placeholder="Country" class="input" value="{{restaurant.adress.country}}" required>
-            <input type="string" name="adress.city" placeholder="City" class="input" value="{{restaurant.adress.city}}" required>
-            <input type="string" name="adress.street" placeholder="Street" class="input" value="{{restaurant.adress.street}}" required>
-            <input type="string" name="adress.zip" placeholder="Postal Code" class="input" value="{{restaurant.adress.zip}}" required>
+
+            <div class="container my-1">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="string" name="adress.country" placeholder="Country" class="input" value="{{restaurant.adress.country}}" required>    
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="string" name="adress.city" placeholder="City" class="input" value="{{restaurant.adress.city}}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container my-1">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <input type="string" name="adress.street" placeholder="Street" class="input" value="{{restaurant.adress.street}}" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="string" name="adress.zip" placeholder="zip" class="input" value="{{restaurant.adress.zip}}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container my-1">
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="string" name="cuisine" placeholder="Cuisine type" class="input" value="{{restaurant.cuisine}}" required>
+                    </div>
+                </div>
+            </div>
             
-            <input type="string" name="cuisine" placeholder="Cuisine type" class="input" value="{{restaurant.cuisine}}" required>
 
-            <div class="container">
+            <div class="container my-1">
                 <div class="row">
                     <h6>Working days</h6>
                     <div class="col-sm">
                         <input type="checkbox" name="timeTable.days" value="Monday">
-                        <label for="vehicle1">Monday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Tuesday">
-                        <label for="vehicle1">Tuesday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Wednesday">
-                        <label for="vehicle1">Wednesday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Thursday">
-                        <label for="vehicle1">Thursday</label><br>
+                        <label for="days">Monday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Tuesday" checked>
+                        <label for="days">Tuesday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Wednesday" checked>
+                        <label for="days">Wednesday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Thursday" checked>
+                        <label for="days">Thursday</label><br>
                     </div>
                     <div class="col-sm">
-                        <input type="checkbox" name="timeTable.days" value="Friday">
-                        <label for="vehicle1">Friday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Saturday">
-                        <label for="vehicle1">Saturday</label><br>
-                        <input type="checkbox" name="timeTable.days" value="Sunday">
-                        <label for="vehicle1">Sunday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Friday" checked>
+                        <label for="days">Friday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Saturday" checked>
+                        <label for="days">Saturday</label><br>
+                        <input type="checkbox" name="timeTable.days" value="Sunday" checked>
+                        <label for="days">Sunday</label><br>
                     </div>
                 </div>
 
             </div>
 
-            <div class="container my-3">
+            <div class="container my-2">
                 <div class="row">
-                    <div class="col-sm">
-                        <h6>Open at:</h6>
-                        <input type="time" name="timeTable.hours" value="{{restaurant.timeTable.hours}}" required>
+                    <div class="col-sm-4">
+                        <label for="timeTable.hours">Open hour:</label>
+                        <select name="timeTable.openhour" id="hour" form="add__restaurant">
+                            <option value="8:00" selected>8:00</option>
+                            <option value="9:00">9:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="24:00">24:00</option>
+                        </select>
                     </div>
-                     {{!-- <div class="col-sm">
-                        <h6>Close at:</h6>
-                        <input type="time" name="timeTable.hours" required>
-                    </div> --}}
+                    <div class="col-sm-4">
+                        <label for="timeTable.hours">Close hour:</label>
+                        <select name="timeTable.closehour" id="hour" form="add__restaurant">
+                            <option value="8:00">8:00</option>
+                            <option value="9:00">9:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="24:00" selected>24:00</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="my-3">
                 <label for="image" class="form-label">Image</label>
                 <input type="file" name="image" value="{{restaurant.image}}"
                     class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image">

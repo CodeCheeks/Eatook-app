@@ -35,10 +35,15 @@ const restaurantSchema = new mongoose.Schema(
                 type: [String],
                 required: true
             },
-            hours: {
+            openhour: {
                 type: String,
                 required: false,
-                default: '13:00-17:00  20:00-24:00'
+                default: '12:00'
+            },
+            closehour: {
+                type: String,
+                required: false,
+                default: '24:00'
             }
         },
         cuisine:{
