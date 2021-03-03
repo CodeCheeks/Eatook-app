@@ -189,8 +189,9 @@ module.exports.editRestaurant = (req, res, next) => {
   
 }
 
+
+
 module.exports.doEditRestaurant = (req, res, next) => {
- 
   function renderWithErrors(errors) {
     res.status(400).render('/add-restaurant', {
       errors: errors,
@@ -202,15 +203,30 @@ module.exports.doEditRestaurant = (req, res, next) => {
     req.body.image = req.file.path;
   }
 
-  
   Restaurant.findById({_id: req.params.id})
-  .then((restaurant) => {
-    console.log(req.body)
-    restaurant.name = req.body.name
-    restaurant.save()
+  .then(restaurant => {
 
+    restaurant.name = req.body.name 
+    restaurant.cuisine = req.body.cuisine 
+    restaurant.image = req.body.image 
+
+    restaurant.timeTable.days = req.body['timeTable.days']
+    restaurant.timeTable.hours = req.body['timeTable.hours']
+
+    restaurant.adress.country = req.body['adress.country']
+    restaurant.adress.city = req.body['adress.city']
+    restaurant.adress.street = req.body['adress.street']
+    restaurant.adress.zip = req.body['adress.zip']
+
+    restaurant.save()
+    res.redirect('/profile/restaurants')
   })
-  .catch((e) => console.log(e))
-  
-    
+  .catch(e => {
+    if (e instanceof mongoose.Error.ValidationError) {
+      renderWithErrors(e.errors)
+    } else {
+      renderWithErrors(e)
+    }
+  })
+
 }

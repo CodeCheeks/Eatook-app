@@ -49,10 +49,10 @@ router.get("/profile/reviews", secure.isAuthenticated, userController.userReview
 
 //role: owner
 router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)
-router.post("/add-restaurant", secure.isAuthenticated, upload.single('image'), userController.doAddRestaurant)
+router.post("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), upload.single('image'), userController.doAddRestaurant)
 router.get("/profile/restaurants", secure.isAuthenticated, secure.checkRole('owner'), userController.userListRestaurants)
-router.post("/edit-restaurant/:id", secure.isAuthenticated,secure.checkRole('owner'), userController.doEditRestaurant)
 router.get("/edit-restaurant/:id", secure.isAuthenticated, secure.checkRole('owner'), userController.editRestaurant)
+router.post("/edit-restaurant/:id", secure.isAuthenticated,secure.checkRole('owner'),upload.single('image'), userController.doEditRestaurant)
 
 //personal information edit
 router.post("/profile/personal-info/password", secure.isAuthenticated, userController.doChangePass)
