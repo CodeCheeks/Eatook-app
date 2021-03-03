@@ -4,7 +4,7 @@
       {{#each restaurants as |restaurant|}}
       <div class="row my-3">
         <div class="col-2 col-l-2 col-xl-2 mx-4 my-4">
-          <img class="card-img-top mt-3" src="{{restaurant.image}}" alt="Restaurant image" >
+          <img class="card-img-top mt-3" src="{{restaurant.image.[0]}}" alt="Restaurant image" >
         </div>
         <div class=" col-7 ">
           <div class="card-body">
@@ -17,9 +17,7 @@
               <span class='capitalized'>{{restaurant.adress.city}},</span>
               <span class='capitalized'>{{restaurant.adress.country}}</span>
             <h6 class="card-text" ><b>Opening times:</b> </h6>
-            <span class='capitalized'>Openning-Days:
-              {{restaurant.timeTable.days}} 
-            </span>
+            <span class='capitalized'>Openning-Days: {{restaurant.timeTable.days}}</span>
             <br>
             <span class='capitalized'>Time table: 
               {{restaurant.timeTable.openhour}}-{{restaurant.timeTable.closehour}}  

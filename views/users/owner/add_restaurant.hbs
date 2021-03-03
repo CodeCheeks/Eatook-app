@@ -72,63 +72,64 @@
                     <div class="col-sm-4">
                         <label for="timeTable.hours">Open hour:</label>
                         <select name="timeTable.openhour" id="hour" form="add__restaurant">
-                            <option value="8:00" selected>8:00</option>
-                            <option value="9:00">9:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="24:00">24:00</option>
+                            <option value="8:00" {{#checkHour restaurant.timeTable.openhour '8:00'}}selected{{else}}{{/checkHour}}>8:00</option>
+                            <option value="9:00" {{#checkHour restaurant.timeTable.openhour '9:00'}}selected{{else}}{{/checkHour}}>9:00</option>
+                            <option value="10:00" {{#checkHour restaurant.timeTable.openhour '10:00'}}selected{{else}}{{/checkHour}}>10:00</option>
+                            <option value="11:00" {{#checkHour restaurant.timeTable.openhour '11:00'}}selected{{else}}{{/checkHour}}>11:00</option>
+                            <option value="12:00" {{#checkHour restaurant.timeTable.openhour '12:00'}}selected{{else}}{{/checkHour}}>12:00</option>
+                            <option value="13:00" {{#checkHour restaurant.timeTable.openhour '13:00'}}selected{{else}}{{/checkHour}}>13:00</option>
+                            <option value="14:00" {{#checkHour restaurant.timeTable.openhour '14:00'}}selected{{else}}{{/checkHour}}>14:00</option>
+                            <option value="15:00" {{#checkHour restaurant.timeTable.openhour '15:00'}}selected{{else}}{{/checkHour}}>15:00</option>
+                            <option value="16:00" {{#checkHour restaurant.timeTable.openhour '16:00'}}selected{{else}}{{/checkHour}}>16:00</option>
+                            <option value="17:00" {{#checkHour restaurant.timeTable.openhour '17:00'}}selected{{else}}{{/checkHour}}>17:00</option>
+                            <option value="18:00" {{#checkHour restaurant.timeTable.openhour '18:00'}}selected{{else}}{{/checkHour}}>18:00</option>
+                            <option value="19:00" {{#checkHour restaurant.timeTable.openhour '19:00'}}selected{{else}}{{/checkHour}}>19:00</option>
+                            <option value="20:00" {{#checkHour restaurant.timeTable.openhour '20:00'}}selected{{else}}{{/checkHour}}>20:00</option>
+                            <option value="21:00" {{#checkHour restaurant.timeTable.openhour '21:00'}}selected{{else}}{{/checkHour}}>21:00</option>
+                            <option value="22:00" {{#checkHour restaurant.timeTable.openhour '22:00'}}selected{{else}}{{/checkHour}}>22:00</option>
+                            <option value="23:00" {{#checkHour restaurant.timeTable.openhour '23:00'}}selected{{else}}{{/checkHour}}>23:00</option>
+                            <option value="24:00" {{#checkHour restaurant.timeTable.openhour '24:00'}}selected{{else}}{{/checkHour}}>24:00</option>
                         </select>
                     </div>
                     <div class="col-sm-4">
                         <label for="timeTable.hours">Close hour:</label>
                         <select name="timeTable.closehour" id="hour" form="add__restaurant">
-                            <option value="8:00">8:00</option>
-                            <option value="9:00">9:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="24:00" selected>24:00</option>
+                            <option value="8:00" {{#checkHour restaurant.timeTable.closehour '8:00'}}selected{{else}}{{/checkHour}}>8:00</option>
+                            <option value="9:00" {{#checkHour restaurant.timeTable.closehour '9:00'}}selected{{else}}{{/checkHour}}>9:00</option>
+                            <option value="10:00" {{#checkHour restaurant.timeTable.closehour '10:00'}}selected{{else}}{{/checkHour}}>10:00</option>
+                            <option value="11:00" {{#checkHour restaurant.timeTable.closehour '11:00'}}selected{{else}}{{/checkHour}}>11:00</option>
+                            <option value="12:00" {{#checkHour restaurant.timeTable.closehour '12:00'}}selected{{else}}{{/checkHour}}>12:00</option>
+                            <option value="13:00" {{#checkHour restaurant.timeTable.closehour '13:00'}}selected{{else}}{{/checkHour}}>13:00</option>
+                            <option value="14:00" {{#checkHour restaurant.timeTable.closehour '14:00'}}selected{{else}}{{/checkHour}}>14:00</option>
+                            <option value="15:00" {{#checkHour restaurant.timeTable.closehour '15:00'}}selected{{else}}{{/checkHour}}>15:00</option>
+                            <option value="16:00" {{#checkHour restaurant.timeTable.closehour '16:00'}}selected{{else}}{{/checkHour}}>16:00</option>
+                            <option value="17:00" {{#checkHour restaurant.timeTable.closehour '17:00'}}selected{{else}}{{/checkHour}}>17:00</option>
+                            <option value="18:00" {{#checkHour restaurant.timeTable.closehour '18:00'}}selected{{else}}{{/checkHour}}>18:00</option>
+                            <option value="19:00" {{#checkHour restaurant.timeTable.closehour '19:00'}}selected{{else}}{{/checkHour}}>19:00</option>
+                            <option value="20:00" {{#checkHour restaurant.timeTable.closehour '20:00'}}selected{{else}}{{/checkHour}}>20:00</option>
+                            <option value="21:00" {{#checkHour restaurant.timeTable.closehour '21:00'}}selected{{else}}{{/checkHour}}>21:00</option>
+                            <option value="22:00" {{#checkHour restaurant.timeTable.closehour '22:00'}}selected{{else}}{{/checkHour}}>22:00</option>
+                            <option value="23:00" {{#checkHour restaurant.timeTable.closehour '23:00'}}selected{{else}}{{/checkHour}}>23:00</option>
+                            <option value="24:00" {{#checkHour restaurant.timeTable.closehour '24:00'}}selected{{else}}{{/checkHour}}>24:00</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <div class="my-3">
-                <label for="image" class="form-label">Image</label>
-                <input type="file" name="image" value="{{restaurant.image}}"
-                    class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image">
-                {{#if errors.image}}
-                <div class="invalid-feedback">
-                    {{errors.image}}
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" name="image" value="{{restaurant.image}}" class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image">
+                        {{#if errors.image}}
+                        <div class="invalid-feedback">
+                            {{errors.image}}
+                        </div>
+                        {{/if}}
+                    </div>
                 </div>
-                {{/if}}
 		    </div>
-
             <button type="submit" class="btn btn-secondary mt-2">{{#if restaurant._id}}EDIT RESTAURANT{{else}}CREATE RESTAURANT{{/if}}</button>
-
         </form>
     
     </div>
