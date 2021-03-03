@@ -208,7 +208,7 @@ module.exports.doEditRestaurant = (req, res, next) => {
 
     restaurant.name = req.body.name 
     restaurant.cuisine = req.body.cuisine 
-    restaurant.image = req.body.image 
+    restaurant.image.push(req.body.image) 
 
     restaurant.timeTable.days = req.body['timeTable.days']
     restaurant.timeTable.openhour = req.body['timeTable.openhour']
