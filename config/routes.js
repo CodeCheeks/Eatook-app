@@ -53,6 +53,7 @@ router.post("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner')
 router.get("/profile/restaurants", secure.isAuthenticated, secure.checkRole('owner'), userController.userListRestaurants)
 router.get("/edit-restaurant/:id", secure.isAuthenticated, secure.checkRole('owner'), userController.editRestaurant)
 router.post("/edit-restaurant/:id", secure.isAuthenticated,secure.checkRole('owner'),upload.single('image'), userController.doEditRestaurant)
+router.post("/delete-restaurant/:id", secure.isAuthenticated,secure.checkRole('owner'), userController.doDeleteRestaurant)
 
 //personal information edit
 router.post("/profile/personal-info/password", secure.isAuthenticated, userController.doChangePass)
