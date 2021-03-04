@@ -1,0 +1,58 @@
+<div class="container border rounded">
+    <div class="row">
+        <div class="booking-form">
+            <form method="POST" action="/restaurant/{{restaurant.id}}/booking" id="book__restaurant">
+                <div class="row">
+                    <div class="col">
+                        <div class="row no-margin">
+                            <div class="col">
+                                <div class="form-group">
+                                    <span class="form-label">Date:</span>
+                                    <input class="form-control" name="date" type="date" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row no-margin">
+                            <div class="col">
+                                <span class="form-label">Hour:</span>
+                                <select name="hour" id="hour" form="book__restaurant">
+                                    <option value="19:00">19:00</option>
+                                    <option value="19:30">19:30</option>
+                                    <option value="20:00">20:00</option>
+                                    <option value="20:30">20:30</option>
+                                    <option value="21:00">21:00</option>
+                                    <option value="21:30">21:30</option>
+                                    <option value="22:00">22:00</option>
+                                    <option value="22:30">22:30</option>
+                                    <option value="23:00">23:00</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <span class="form-label">Number of people:</span>
+                            <input class="form-control" type="number" name="number" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Email:</span>
+                    <input class="form-control" type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Phone:</span>
+                    <input class="form-control" type="tel" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-btn my-2">
+                    <button class="btn submit-btn" data-bs-toggle="modal" data-bs-target="#booking__modal">Book Now</button>
+                </div>
+                {{> modal_booking}}
+            </form>
+        </div>
+    </div>
+</div> 
