@@ -60,10 +60,21 @@ const restaurantSchema = new mongoose.Schema(
         owner: {
             type: mongoose.SchemaTypes.ObjectId,
             ref: "User",
-            
+        }
+    },
+    {
+        timestamps: true,
+        toJSON: {
+            virtuals: true,
         }
     }
 )
+
+restaurantSchema.virtual("likes", {
+    ref: "Like",
+    localField: "_id",
+    foreignField: "restaurant",
+});
 
 const Restaurant = mongoose.model('Restaurant',restaurantSchema)
 
