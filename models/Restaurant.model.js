@@ -76,6 +76,12 @@ restaurantSchema.virtual("likes", {
     foreignField: "restaurant",
 });
 
+restaurantSchema.virtual("bookings", {
+    ref: "Booking",
+    localField: "_id",
+    foreignField: "restaurant",
+});
+
 const Restaurant = mongoose.model('Restaurant',restaurantSchema)
 
 module.exports = Restaurant;

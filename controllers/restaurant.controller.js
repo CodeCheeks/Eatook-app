@@ -1,8 +1,11 @@
 const mongoose = require("mongoose")
 const { use } = require("passport")
 const passport = require('passport')
+
 const User = require("../models/User.model")
 const Restaurant = require("../models/Restaurant.model")
+const Booking = require("../models/Booking.model")
+
 const {bookingEmail} = require("../config/mailer.config")
 
 //Show restaurants
@@ -55,10 +58,20 @@ module.exports.doBooking = (req,res,next) => {
     User.findOne({ email: req.body.email })
       .then((user) => {
         if (user) {
-            bookingEmail(user.email)
-            setTimeout(() => {
-                res.redirect('/');
-              }, 2000);
+            Booking.create({
+                restaurant: req.params.id,
+                user: req.user._id,
+                date: req.body.date,
+                hour: req.body.hour,
+                number: req.body.number
+              })
+            .then(book =>{
+                bookingEmail(user.email)
+                setTimeout(() => {
+                    res.redirect('/');
+                  }, 2000);
+            })
+            .catch(e => next(e))
         } 
         else {
           renderWithErrors({

@@ -69,8 +69,8 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.virtual('likes', {
-	ref: 'Like',
+userSchema.virtual('bookings', {
+	ref: 'Booking',
 	localField: '_id',
 	foreignField: 'user'
 });
