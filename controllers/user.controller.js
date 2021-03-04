@@ -240,3 +240,17 @@ module.exports.doDeleteRestaurant =(req, res, next) => {
 })
   .catch(e => console.log(e))
 }
+
+
+
+module.exports.favourites = (req, res, next) => {
+  Like.find({ user: req.user._id })
+    .populate("restaurant")
+    .then((likes) => {
+      res.render("users/user_favourites", {
+        restaurants: likes.map((l) => {
+          return { ...l.toJSON().restaurant, likedByUser: true };
+        }),
+      });
+    });
+};

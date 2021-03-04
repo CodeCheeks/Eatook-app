@@ -120,6 +120,20 @@ body{
 .capitalized{
     text-transform: capitalize 
 }
+
+/* ---- likes ---- */
+.likes {
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    border: none;
+}
+
+.unliked {
+    filter: grayscale();
+}
+
+
 @media only screen and (max-width: 600px) {
 
 .hide{
@@ -147,3 +161,4 @@ body{
    text-align: center;
    display: flex;
 }
+

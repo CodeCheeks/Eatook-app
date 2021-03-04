@@ -29,13 +29,15 @@ router.get("/authenticate/google/callback", authController.doLoginGoogle)
 router.get("/login/forgot-password",secure.isNotAuthenticated, authController.forgotpass)
 router.post("/login/forgot-password",secure.isNotAuthenticated, authController.doForgotpass)
 
+//logout
+router.get("/logout",secure.isAuthenticated, authController.logout)
 
 //recover password
 router.post('/forgot-password/:token',secure.isNotAuthenticated, authController.doRecoverPassword)
 router.get('/forgot-password/:token',secure.isNotAuthenticated, authController.recoverPassword)
 
-//logout
-router.get("/logout",secure.isAuthenticated, authController.logout)
+//Activate account
+router.get('/activate/:token', authController.activate)
 
 /* ---- USER PROFILE ---- */
 router.get("/profile/personal-info", secure.isAuthenticated, userController.userInformation)
@@ -46,6 +48,7 @@ router.get("/profile", secure.isAuthenticated, userController.profile)
 router.get("/profile/bookings", secure.isAuthenticated, userController.userBookings)
 router.get("/profile/favourites", secure.isAuthenticated, userController.userFavourites)
 router.get("/profile/reviews", secure.isAuthenticated, userController.userReviews)
+router.get("/profile/favourites", secure.isAuthenticated, userController.favourites);
 
 //role: owner
 router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)
@@ -60,10 +63,9 @@ router.post("/profile/personal-info/password", secure.isAuthenticated, userContr
 router.post("/profile/personal-info/phonenumber", secure.isAuthenticated, userController.doChangePhone)
 router.post("/profile/personal-info/email", secure.isAuthenticated, userController.doChangeEmail)
 
+//likes
+router.get("/restaurant/:id/like", miscController.like);
 
-
-//Activate account
-router.get('/activate/:token', authController.activate)
 
 
 /* ---- RESTAURANTS ---- */

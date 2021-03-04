@@ -17,7 +17,6 @@ hbs.registerHelper('checkDay', function (data, day, options) {
     return data.includes(day) ? options.fn() : options.inverse()
 })
 
-
 // Comprobar si es user
 hbs.registerHelper('checkHour', function (data, hour, options) {
     if(data === undefined){

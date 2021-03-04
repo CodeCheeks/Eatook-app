@@ -69,6 +69,12 @@ const userSchema = new Schema(
   }
 );
 
+userSchema.virtual('likes', {
+	ref: 'Like',
+	localField: '_id',
+	foreignField: 'user'
+});
+
 userSchema.methods.checkPassword = function (passwordToCheck) {
   return bcrypt.compare(passwordToCheck, this.password)
 }
