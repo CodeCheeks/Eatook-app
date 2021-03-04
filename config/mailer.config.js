@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer")
 const { generateTemplate } = require("./emailTemplates/mailtemplate")
 const { recoverPassTemplate } = require("./emailTemplates/recover")
+const { bookingTemplate } = require("./emailTemplates/booking")
 
 
 
@@ -32,6 +33,21 @@ module.exports.recoverPassEmail = (email, token) => {
       html: recoverPassTemplate(token)
     })
 }
+
+
+//Sends booking email
+module.exports.bookingEmail = (email) => {
+  transporter.sendMail({
+      from: `"Eatook app" <${process.env.NM_USER}>`, 
+      to: email, 
+      subject: "Booking confirmed",
+      html: bookingTemplate()
+    })
+}
+
+
+
+
 
 
 

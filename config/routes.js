@@ -82,4 +82,9 @@ router.get("/search-by-filter", restaurantController.showRestaurantsByFilter)
 //Restaurant detail
 
 router.get("/restaurant/:id", restaurantController.restaurantDetail)
+router.post("/restaurant/:id/booking", restaurantController.doBooking)
+
+
+
+
 module.exports = router;

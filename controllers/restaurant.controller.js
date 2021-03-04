@@ -3,6 +3,7 @@ const { use } = require("passport")
 const passport = require('passport')
 const User = require("../models/User.model")
 const Restaurant = require("../models/Restaurant.model")
+const {bookingEmail} = require("../config/mailer.config")
 
 //Show restaurants
 
@@ -49,3 +50,25 @@ module.exports.restaurantDetail = (req,res,next) => {
         res.render("restaurants/restaurant-detail",{restaurant})
     })
 }
+
+module.exports.doBooking = (req,res,next) => {
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (user) {
+            bookingEmail(user.email)
+            setTimeout(() => {
+                res.redirect('/');
+              }, 2000);
+        } 
+        else {
+          renderWithErrors({
+            email: 'The email is incorrect'
+          })
+        }
+      })
+      .catch(e =>  console.log(e))
+    
+}
+
+
+

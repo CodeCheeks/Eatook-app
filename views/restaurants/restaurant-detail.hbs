@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-6 detail__img__sec">
+        <div class="col-4 detail__img__sec">
             <div class="carousel__restaurant mt-5">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -27,8 +27,16 @@
                     </div>
             </div>
         </div>
-        <div class="col-6">
-            <h1>row1</h1>
-        </div>  
+
+        <div class="col-3">
+            {{#if user}}
+                {{> booking_form}}
+            {{/if}}
+        </div>
     </div>
 </div>
+
+
+
+
+			
