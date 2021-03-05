@@ -1,6 +1,8 @@
 const hbs = require("hbs");
 const path = require('path')
 
+const Restaurant = require("../models/Restaurant.model")
+
 hbs.registerPartials(path.join(__dirname, "../views/partials"));
 
 
@@ -26,6 +28,6 @@ hbs.registerHelper('checkHour', function (data, hour, options) {
 })
 
 
-
-
-
+hbs.registerHelper('random', function () {
+    return Math.floor(Math.random() * (40 - 0) + 0)
+})

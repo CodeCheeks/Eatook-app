@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Restaurant = require("../models/Restaurant.model");
 const User = require("../models/User.model");
 
-const {images, cuisine, openhour, closehour, prices, days} = require("./dataSeeds")
+const {images, cuisine, openhour, closehour, prices, days} = require("./imageData")
 
 Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
   for(let i = 0; i<40; i++){

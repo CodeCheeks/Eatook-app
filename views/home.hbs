@@ -1,31 +1,28 @@
+<div class='top__title'>
+<h4 class='home__main__text'>FIND AND BOOK THE BEST RESTAURANTS</h4> 
+</div>
+<div class="home__underpicture">
+    <div class="row " >
+            <form class="d-flex flex-column align-items-center justify-content-center search__form pb-5 mb-5" action="/search-by-filter", method="GET">
+                
+                <div class="row my-3 h__search__input">
+                    <input class="form-control me-2" name="search" type="search" placeholder="Restaurant name, type of cuisine" aria-label="Search">   
+                </div>
+                <div class="row my-3 h__search__input"> 
+                    <input class="form-control me-2" name="searchCity" type="search" placeholder="City, zipcode or country" aria-label="Search">
+                </div>
+                <div class="row h__search__btn">
+                    <div class="col">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </div>
+                    <div class="col ">
+                        <a class="btn btn-sm btn-outline-success" href="/search" role="button">View all</a>
+                    </div>
+                </div>
+            </form>
+    </div>
+    {{> home_card}}
+</div>  
 
 
 
-    
-        <div class='top__title'>
-        <h4 class='home__main__text'>FIND AND BOOK THE BEST RESTAURANTS</h4> 
-        </div>
-        <div class="home__underpicture">
-            <div class="row " >
-                    <form class="d-flex flex-column align-items-center justify-content-center search__form pb-5 mb-5" action="/search-by-filter", method="GET">
-                        
-                        <div class="row my-3 h__search__input">
-                            <input class="form-control me-2" name="search" type="search" placeholder="Restaurant name, type of cuisine" aria-label="Search">   
-                        </div>
-                        <div class="row my-3 h__search__input"> 
-                            <input class="form-control me-2" name="searchCity" type="search" placeholder="City, zipcode or country" aria-label="Search">
-                        </div>
-                        <div class="row h__search__btn">
-                            <div class="col">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </div>
-                            <div class="col ">
-                                <a class="btn btn-sm btn-outline-success" href="/search" role="button">View all</a>
-                            </div>
-                        </div>
-                    </form>
-            </div>
-        </div>  
-    
-    
-   
