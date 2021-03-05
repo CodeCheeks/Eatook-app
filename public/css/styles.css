@@ -8,6 +8,7 @@
 #f6f7d0
 */
 
+/* GENERAL STYLES */
 *{
     margin: 0;
     padding: 0;
@@ -16,9 +17,9 @@
 body{
     background: white;
     font-family: "Raleway", sans-serif;
-    user-select: none;
 }
 
+/* FORMS */
 .container__form{
     width: 450px;
     margin: 30px auto;
@@ -88,6 +89,8 @@ body{
     border: 2px solid #c2c55e;     
 }
 
+/* BUTTONS */
+
 .btn{
     width: 100%;
     background: #617c11;
@@ -117,6 +120,11 @@ body{
     font-size: small;
 }
 
+.manage__restaurants__btns{
+    text-align: center;
+    display: flex;
+ }
+/* FIX TEXT */
 .capitalized{
     text-transform: capitalize 
 }
@@ -133,6 +141,7 @@ body{
     filter: grayscale();
 }
 
+/* MEDIA QUERIES */
 
 @media only screen and (max-width: 600px) {
 
@@ -147,7 +156,7 @@ body{
 
 }
 
-
+/* HOME VIEW */
 .home__underpicture{
     width: 2080px;
     height: 100%;
@@ -157,8 +166,5 @@ body{
 
 
 
-.manage__restaurants__btns{
-   text-align: center;
-   display: flex;
-}
+
 

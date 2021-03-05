@@ -5,8 +5,9 @@
         </div>
     </div>
     <div class="row row-cols-3 row-cols-md-4 g-4">
+        {{>favourites_card restaurant}}
         {{#each restaurants as |restaurant|}}
-        {{> favourites_card}}
+        {{>favourites_card restaurant}}
         {{/each}}
     </div>
 </div>
