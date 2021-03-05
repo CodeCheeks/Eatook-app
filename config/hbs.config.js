@@ -27,15 +27,7 @@ hbs.registerHelper('checkHour', function (data, hour, options) {
     return data.includes(hour) ? options.fn() : options.inverse()
 })
 
-hbs.registerHelper('restaurantData', function (n, data) {
-    Restaurant.find()
-    .then((restaurants) => {    
-        if(data === 'name') {
-            return restaurants[n].name
-        }
-    })
-    .catch((e) => next(e)) 
+
+hbs.registerHelper('random', function () {
+    return Math.floor(Math.random() * (40 - 0) + 0)
 })
-
-
-
