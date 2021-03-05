@@ -120,7 +120,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="image" class="form-label">Image</label>
-                        <input type="file" name="image" value="{{restaurant.image}}" class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image">
+                        <input type="file" name="image" value="{{restaurant.image}}" class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image" >
                         {{#if errors.image}}
                         <div class="invalid-feedback">
                             {{errors.image}}

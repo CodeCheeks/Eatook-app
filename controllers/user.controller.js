@@ -252,5 +252,6 @@ module.exports.favourites = (req, res, next) => {
           return { ...l.toJSON().restaurant, likedByUser: true };
         }),
       });
-    });
+    })
+    .catch((e) => console.log(e));
 };
