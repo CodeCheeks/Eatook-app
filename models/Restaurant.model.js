@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const User = require("./User.model");
+const faker = require('faker');
+
+const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const restaurantSchema = new mongoose.Schema(
     {
@@ -29,6 +32,31 @@ const restaurantSchema = new mongoose.Schema(
                 required: true,
                 lowercase: true
             }
+        },
+        contact: {
+            phonenumber: {
+                type: String,
+                trim: true,
+                default: '684479954'
+            },
+            email: {
+            type: String,
+            lowercase: true,
+            trim: true,
+            match: [EMAIL_PATTERN, 'invalid email'],
+            unique: false,
+            default: 'maisgoson@gmail.com'
+            }
+        },
+        description:{
+            type: String,
+            required: false,
+            default: faker.lorem.paragraph()
+        },
+        priceAverage:{
+            type: String,
+            required: false,
+            default: faker.commerce.price()
         },
         timeTable:{
             days: {
