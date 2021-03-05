@@ -1,6 +1,8 @@
 const hbs = require("hbs");
 const path = require('path')
 
+const Restaurant = require("../models/Restaurant.model")
+
 hbs.registerPartials(path.join(__dirname, "../views/partials"));
 
 
@@ -25,7 +27,15 @@ hbs.registerHelper('checkHour', function (data, hour, options) {
     return data.includes(hour) ? options.fn() : options.inverse()
 })
 
-
+hbs.registerHelper('restaurantData', function (n, data) {
+    Restaurant.find()
+    .then((restaurants) => {    
+        if(data === 'name') {
+            return restaurants[n].name
+        }
+    })
+    .catch((e) => next(e)) 
+})
 
 
 
