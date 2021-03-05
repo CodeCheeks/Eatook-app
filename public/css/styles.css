@@ -30,15 +30,17 @@ body{
 /* ALL VIEWS */
 .top__title{
 background-color: var(--light--green-color);
-padding-top: 30px;
-padding-bottom: 15px;
+padding-top: 10px;
+padding-bottom: 5px;
 color: var(--dark--green-color);
+border-radius: 5px;
+width: 100%;
 }
 
 /* NAVBAR */
 
 .main__nav{
-    padding: 15px 0 5px;
+    padding: 7px 0 3px;
     background-color: var(--nav--green-color);
     
 }
@@ -227,21 +229,34 @@ color: var(--dark--green-color);
 /* HOME VIEW */
 .home__underpicture{
     width: 100%;
-    height: 350px;
-    margin-top: 15px;
-    background-image: url("https://res.cloudinary.com/eatookapp/image/upload/v1614672009/syed-ahmad-kgjQ1AGDwE0-unsplash_gvgx5b.jpg");
-    background-size: contain ;
+    height: 500px;
+    margin-top: 65px;
+    background-image: url("https://res.cloudinary.com/eatookapp/image/upload/v1614971426/Backgrounds/food-366875_1920_uo38gp.jpg");
+    background-size: cover ;
     background-repeat: no-repeat;
     background-position: center;
     background-color: rgba(122, 114, 114, 0.1);
     text-align: center;
+    border-radius: 5px;
 }
 
 .home__main__text{
     text-align: center;
+    
 }
 
+.h__search__input{
+    height: 60px;
+    width: 50%
+}
 
+.h__search__btn{
+    width: 20%
+}
+
+.search__form{
+    height: 500px;
+}
 
 
 
