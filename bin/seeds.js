@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 const Restaurant = require("../models/Restaurant.model");
 const User = require("../models/User.model");
 
+const {images, cuisine, openhour, closehour, prices, days} = require("./dataSeeds")
 
 Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
-    // Create N users
-    for (let i = 0; i < 2; i++) {
+  for(let i = 0; i<40; i++){
       User.create({
         firstname: faker.name.firstName(),
         lastname: faker.name.lastName(),
@@ -17,40 +17,41 @@ Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
         password: 'Example123',
         role: 'owner',
         active: true
-      }).then((u) => {
-        // For each user, create N products
-        for (let j = 0; j < 3; j++) {
+      })
+      .then((u) => {
           Restaurant.create({
             name: faker.company.companyName(),
             adress: {
-                street: faker.address.streetName(),
+                street: faker.address.streetAddress(),
                 city: faker.address.city(),
                 country: faker.address.country(),
                 zip: faker.address.zipCode(),
             },
+            contact: {
+              phonenumber: faker.phone.phoneNumberFormat(),
+              email: faker.internet.email()
+            },
+            description: faker.lorem.paragraphs(),
+            priceAverage: prices[Math.floor(Math.random() * prices.length)],
+            image: [images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)]],
+            cuisine: cuisine[Math.floor(Math.random() * cuisine.length)],
             timeTable: {
-                days: faker.date.weekday(),
+              days: days[Math.floor(Math.random() * days.length)],
+              openhour: openhour[Math.floor(Math.random() * openhour.length)],
+              closehour: closehour[Math.floor(Math.random() * closehour.length)]
             },
             owner: u._id
             
-          }).then((restaurant) => {
-            
+          })
+          .then((restaurant) => {
             u.restaurants.push(restaurant._id)
             User.findByIdAndUpdate(u._id,{restaurants: u.restaurants})
-            
-            .then((user) => {
-              console.log('User restaurants:', user)
-              console.log('urestaurants', u.restaurants)
+            .then(() => {
               console.log(`Created ${restaurant.name} by ${u.email}`)
-            
-            }
-            )
-            
-            
+            })
         })
-        .catch((e) => console.log(e));
-        }
-      });
+      .catch((e) => console.log(e));
+      })
     }
   });
 
