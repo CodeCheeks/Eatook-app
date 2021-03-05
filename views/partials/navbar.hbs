@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-md mb-2 navbar-light justify-content-between " style="background-color:#c2c55e;">
-      <a href="/" class="navbar-brand mx-3">
-        <img src="https://res.cloudinary.com/mhmd/image/upload/v1557368579/logo_iqjuay.png" width="45" alt="" class="d-inline-block align-middle ml-2">
+<nav class="navbar main__nav navbar-expand-md navbar-light justify-content-between ">
+    
+      <a href="/" class="navbar__left invert navbar-brand mx-3">
+        <img src="https://res.cloudinary.com/eatookapp/image/upload/v1614963814/ICONS/Strawberry-595b40b75ba036ed117d9197_zpn0qm.svg" width="45" alt="" class="d-inline-block align-middle ml-2">
+        <h2>EATOOK</h2>
       </a>
-
+    
       <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,38 +12,46 @@
         <ul class="navbar-nav mb-2 ms-auto mx-3">
           {{#unless user}}
           <li class="nav-item">
-            <a class="nav-link active mx-4 px-4" aria-current="page" href="/login">Log in</a>
+            <a class="nav-link active mx-4 px-4" aria-current="page" href="/about">About us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active mx-4 px-4" aria-current="page" href="/about">About us</a>
+            <a class="nav-link active mx-4 px-4" href="/profile/help">Help</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link active mx-4 px-4" aria-current="page" href="/login">Log in</a>
           </li>
           {{/unless}}
           
           {{#if user}}
-            <img src="{{user.image}}" class="hide" height="35"  style="border-radius: 50%;">
+          <li class="nav-item">
+            <a class="nav-link active mx-4 px-4" aria-current="page" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active mx-4 px-4" href="/profile/help">Help</a>
+          </li>
+            
             {{#isOwner user.role}}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">profile</a>
+              <a class="nav-link dropdown-toggle mx-4 px-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="/profile/personal-info">Account information</a></li>
                 <li><a class="dropdown-item" href="/profile/restaurants">My Restaurants</a></li>
                 <li><a class="dropdown-item" href="/add-restaurant">Add Restaurant</a></li>
-                <li><a class="dropdown-item" href="/profile/help">Help</a></li>
+                
                 <li><hr class="dropdown-divider"></li>
                 <li class="nav-item">
-                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                  <li><a class="dropdown-item" href="/logout"><b>Log out</b></a></li>
                 </li>
               </ul>
             </li>
             {{else}}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">profile</a>
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle mx-4 px-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">profile</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="/profile/personal-info">Account information</a></li>
                   <li><a class="dropdown-item" href="/profile/favourites">My favourites</a></li>
                   <li><a class="dropdown-item" href="/profile/bookings">My bookings</a></li>
                   <li><a class="dropdown-item" href="/profile/reviews">My reviews</a></li>
-                  <li><a class="dropdown-item" href="/profile/help">Help</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li class="nav-item">
                     <li><a class="dropdown-item" href="/logout">Log out</a></li>
@@ -51,9 +61,7 @@
 
             {{/isOwner}}
 
-            <li>
-              <a class="nav-link active mx-4 px-4" aria-current="page" href="/about">About us</a>
-            </li>
+           <img src="{{user.image}}" class="hide nav__picture mx-4" height="35"  style="border-radius: 50%;">
 
           {{/if}}
         </ul>

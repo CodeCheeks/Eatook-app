@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --nav--green-color: #9ACD32;
+    --light--green-color:#D0F0C0;
+    --btn--green-color:#808000;
+    --dark--green-color: #3c9213;
+    
+
+  }
 /*
 #222917
 #617c11
@@ -18,7 +27,57 @@ body{
     background: white;
     font-family: "Raleway", sans-serif;
 }
+/* ALL VIEWS */
+.top__title{
+background-color: var(--light--green-color);
+padding-top: 30px;
+padding-bottom: 15px;
+color: var(--dark--green-color);
+}
 
+/* NAVBAR */
+
+.main__nav{
+    padding: 15px 0 5px;
+    background-color: var(--nav--green-color);
+    
+}
+
+.navbar__left{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.invert{
+    -webkit-filter: invert(100%);
+}
+
+.navbar__left h2{
+    font-size: 1.3em;
+    padding-left: 10px;
+    padding-top: 10%;
+    font-weight: 700;
+}
+
+.nav__picture{
+    width: 15%;
+    height:15%;
+    border: 3px solid white;
+}
+
+
+.nav-link{
+    color:white !important;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}
 /* FORMS */
 .container__form{
     width: 450px;
@@ -93,7 +152,7 @@ body{
 
 .btn{
     width: 100%;
-    background: #617c11;
+    background: var(--nav--green-color);
     height: 60px;
     text-align: center;
     text-transform: uppercase;
@@ -105,7 +164,7 @@ body{
 
 .btn-secondary:hover {
     color: #fff;
-    background-color:#c2c55e !important;
+    background-color:var(--nav--green-color) !important;
     border-color: #3e3e40!important;
 }
 
@@ -158,9 +217,18 @@ body{
 
 /* HOME VIEW */
 .home__underpicture{
-    width: 2080px;
-    height: 100%;
+    width: 100%;
+    height: 350px;
+    margin-top: 15px;
+    background-image: url("https://res.cloudinary.com/eatookapp/image/upload/v1614672009/syed-ahmad-kgjQ1AGDwE0-unsplash_gvgx5b.jpg");
+    background-size: contain ;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: rgba(122, 114, 114, 0.1);
+    text-align: center;
+}
+
+.home__main__text{
     text-align: center;
 }
 
