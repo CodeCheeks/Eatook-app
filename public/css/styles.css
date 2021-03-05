@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --nav--green-color: #9ACD32;
+    --light--green-color:#D0F0C0;
+    --btn--green-color:#808000;
+
+  }
 /*
 #222917
 #617c11
@@ -19,6 +26,42 @@ body{
     font-family: "Raleway", sans-serif;
 }
 
+/* NAVBAR */
+
+.main__nav{
+    padding: 15px 0 5px;
+    margin-bottom: 30px !important;
+    background-color: var(--nav--green-color);
+    
+}
+
+.navbar__left{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.invert{
+    -webkit-filter: invert(100%);
+}
+
+.navbar__left h2{
+    font-size: 1.3em;
+    padding-left: 10px;
+    padding-top: 10%;
+    font-weight: 700;
+}
+
+.nav-item{
+    color: white !important;
+    font-weight: bold;
+}
+
+.nav-link{
+    color:white !important;
+    font-weight: bold;
+}
 /* FORMS */
 .container__form{
     width: 450px;
@@ -93,7 +136,7 @@ body{
 
 .btn{
     width: 100%;
-    background: #617c11;
+    background: var(--nav--green-color);
     height: 60px;
     text-align: center;
     text-transform: uppercase;
@@ -105,7 +148,7 @@ body{
 
 .btn-secondary:hover {
     color: #fff;
-    background-color:#c2c55e !important;
+    background-color:var(--nav--green-color) !important;
     border-color: #3e3e40!important;
 }
 
@@ -160,6 +203,7 @@ body{
 .home__underpicture{
     width: 2080px;
     height: 100%;
+    margin-top: 15px;
     background-color: rgba(122, 114, 114, 0.1);
     text-align: center;
 }
