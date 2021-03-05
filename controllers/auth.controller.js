@@ -195,9 +195,11 @@ module.exports.activate = (req, res, next) => {
   )
     .then((u) => {
       if (u) {
-        res.redirect("/")
+        req.flash('flashMessage', 'Your account has been successfully activated.')
+        res.redirect("/login")
       } else {
-        console.log('Problems with activation')
+        req.flash('flashMessage', 'Problems with your account activation. Please contact with us.')
+        res.redirect("/login")
       }
     })
     .catch((e) => next(e));
