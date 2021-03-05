@@ -5,6 +5,7 @@ const logger = require("morgan");
 const routes = require("./config/routes");
 const session = require("./config/session.config");
 const favicon = require('serve-favicon');
+const flash = require('connect-flash');
 
 const passport = require('passport')
 
@@ -26,10 +27,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
+app.use(flash());
 
 app.use((req, res, next) => {
-  //++IMPORTANTE TODOS LOS REQ.CURRENTUSER SON REQ.USER EN NUESTRO PROYECTO++
   res.locals.user = req.user;
+  res.locals.flashMessage = req.flash('flashMessage');
+
   next()
 })
 

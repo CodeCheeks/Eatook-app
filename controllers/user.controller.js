@@ -12,6 +12,7 @@ module.exports.profile = (req,res,next) => {
 
 module.exports.userInformation = (req, res, next) => {
   res.render("users/user_information")
+  
 }
 
 
@@ -33,8 +34,9 @@ module.exports.doChangePass = (req,res,next) => {
           if (match) {
             user.password = req.body.newPassword 
             user.save()
-            res.render("users/user_information")
-            console.log('contraseña actualizada')
+            req.flash('flashMessage', 'Password successfully updated')
+            res.redirect("/profile/personal-info")
+
           }
           else{
             console.log('contraseña incorrecta')
@@ -67,6 +69,7 @@ module.exports.doChangePhone = (req,res,next) => {
   User.findOneAndUpdate({_id: req.user._id},{phonenumber: req.body.phonenumber},{new:true})
   .then((newNumber) => {
     if(newNumber){
+    req.flash('flashMessage', 'Phone number successfully updated')
     res.redirect('/profile/personal-info')
     console.log(`The new numberphone: ${newNumber.phonenumber} has been updated`)
     }
@@ -158,7 +161,7 @@ module.exports.doAddRestaurant = (req, res, next) => {
 
   Restaurant.create(req.body)
   .then(restaurant => {
-    res.redirect('/profile/restaurants')
+    
     req.user.restaurants.push(restaurant._id)
     User.findByIdAndUpdate(req.user._id, {restaurants: req.user.restaurants})
     .then(
@@ -166,7 +169,8 @@ module.exports.doAddRestaurant = (req, res, next) => {
     )
     restaurant.owner = req.user.id
     restaurant.save()
-
+    req.flash('flashMessage', 'Restaurant successfully added')
+    res.redirect('/profile/restaurants')
     
   })
   .catch(e => {
@@ -220,6 +224,7 @@ module.exports.doEditRestaurant = (req, res, next) => {
     restaurant.adress.zip = req.body['adress.zip']
 
     restaurant.save()
+    req.flash('flashMessage', 'Successfully updated restaurant')
     res.redirect('/profile/restaurants')
   })
   .catch(e => {
