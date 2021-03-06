@@ -35,6 +35,7 @@ padding-bottom: 5px;
 color: var(--dark--green-color);
 border-radius: 5px;
 width: 100%;
+text-align: center;
 }
 
 /* NAVBAR */
@@ -199,17 +200,7 @@ width: 100%;
     text-transform: capitalize 
 }
 
-/* ---- likes ---- */
-.likes {
-    text-decoration: none;
-    color: black;
-    background-color: transparent;
-    border: none;
-}
 
-.unliked {
-    filter: grayscale();
-}
 
 /* MEDIA QUERIES */
 
@@ -254,9 +245,73 @@ width: 100%;
     width: 20%
 }
 
+.h__searchall__btn a{
+    padding-top: 20px;
+    
+}
 .search__form{
     height: 500px;
 }
 
+/* SEARCH VIEW */
 
+.searchview__container{
+  border: 1px solid var(--light--green-color);  
+}
 
+/* RESTAURANT CARD SEARCH VIEW */
+
+.restaurant__card__img{
+    border-radius: 5px;
+}
+
+.s__details__btn{
+    width: auto;
+    height: auto;
+    border: 1px solid grey;
+    
+}
+
+.btns__restaurant__card{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card__info__wrapper{
+    background-color: rgba(208,240,192,0.5);
+    padding-left: 40px;
+    padding-top: 15px;
+    border-radius: 5px;
+    text-align: left;
+    margin:15px !important
+    
+}
+
+.card__info__text{
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10%;
+    margin-top: 3px;
+}
+
+/* ---- likes ---- */
+.likes {
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    border: none;
+    margin-left: 20px
+}
+
+.unliked {
+    filter: grayscale();
+}
+
+/* RESTAURANTS DETAIL VIEW */
+
+.booking_time__form{
+    margin: 20px auto 5%;
+    
+}

@@ -3,36 +3,38 @@
 <div class="container-sm">
   <div class="row my-4 justify-content-center">
 
-    <div class="col-2 mx-4">
-      <img class="card-img-top my-3 hide" src="{{restaurant.image.[0]}}" alt="Restaurant image" >
-      <a href="/restaurant/{{restaurant.id}}" class="btn btn-success">See more</a>
+    <div class="col-3 mx-4">
+      
+      <img class="card-img-top restaurant__card__img my-3 hide" src="{{restaurant.image.[0]}}" alt="Restaurant image"  >
+      <div class="btns__restaurant__card">
+        <a href="/restaurant/{{restaurant.id}}" class="btn s__details__btn btn-md btn-success">See more</a>
+        
+      </div>
     </div>
 
-    <div class="col-sm-8 my-4">
+    <div class="col-sm-8 my-4 card__info__wrapper">
         <div class="row mb-2 justify-content-between">
           <div class="col-sm-8 m-1">
-            <h4 class="card-title capitalized"><b>{{restaurant.name}}</b></h4>
-          </div>
-          <div class="col-sm-2 my-2">
-            <button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button>
+            <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4> 
           </div>
         </div>
         <div class="row mb-4">
-          <div class="col-sm-6">
+          <div class="col-sm-6 card__info__text">
             <h6 class="card-text capitalized"><b>Adress:</b></h6>
-              <span class='capitalized'>{{restaurant.adress.street}}, {{restaurant.adress.city}}</span>
+            <span class='capitalized'>{{restaurant.adress.street}}, {{restaurant.adress.city}}</span>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 card__info__text">
             <h6 class="card-text" ><b>Timetable:</b> </h6>
             <span class='capitalized'>{{restaurant.timeTable.days}}</span>
             <br>
             <span class='capitalized'>{{restaurant.timeTable.openhour}}-{{restaurant.timeTable.closehour}}  
             </span>
           </div>
+            <div class="row mb-4 card__info__text">
+            <h6 class="card-text capitalized" ><b>Type of cuisine:</b> {{restaurant.cuisine}}</h6>
+          </div>
         </div>
-        <div class="row mb-4">
-          <h6 class="card-text capitalized" ><b>Type of cuisine:</b> {{restaurant.cuisine}}</h6>
-        </div>
+        
       </div>
     </div>
   <hr>

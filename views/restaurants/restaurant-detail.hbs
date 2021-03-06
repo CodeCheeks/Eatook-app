@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container searchview__container">
+    <h2 class="top__title">{{restaurant.name}}</h2>
     <div class="row">
-        <div class="col-4 detail__img__sec">
+        <div class="col-5 detail__img__sec">
             <div class="carousel__restaurant mt-5">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -28,9 +29,13 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-7">
+            <h5>{{restaurant.name}}</h5>
+            <h5>Book a date here:</h5>
             {{#if user}}
                 {{> booking_form}}
+            {{else}}
+                {{> booking_form_guest}}
             {{/if}}
         </div>
     </div>
