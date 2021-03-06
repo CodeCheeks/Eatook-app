@@ -308,3 +308,10 @@ text-align: center;
 .unliked {
     filter: grayscale();
 }
+
+/* RESTAURANTS DETAIL VIEW */
+
+.booking_time__form{
+    margin: 20px auto 5%;
+    
+}

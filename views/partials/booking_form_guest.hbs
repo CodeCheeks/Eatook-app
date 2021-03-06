@@ -15,7 +15,7 @@
                     </div>
                     <div class="col">
                         <div class="row no-margin">
-                            <div class="col booking_time__form">
+                            <div class="col">
                                 <span class="form-label">Hour:</span>
                                 <select name="hour" id="hour" form="book__restaurant">
                                     <option value="19:00">19:00</option>
@@ -42,16 +42,14 @@
                 </div>
                 <div class="form-group">
                     <span class="form-label">Email:</span>
-                    <input class="form-control" type="email" name="email" placeholder="Enter your email" value='{{user.email}}'required>
+                    <input class="form-control" type="email" name="email" placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
                     <span class="form-label">Phone:</span>
-                    <input class="form-control" type="tel" name="phone" placeholder="Enter your phone number" value='{{user.phonenumber}}' required>
+                    <input class="form-control" type="tel" name="phone" placeholder="Enter your phone number" required>
                 </div>
-                <div class="form-btn my-2">
-                    <button class="btn submit-btn" data-bs-toggle="modal" data-bs-target="#booking__modal">Book Now</button>
-                </div>
-                {{> modal_booking}}
+                <a class="btn btn-primary my-2" href="/login" role="button">Log in to book</a>
+                
             </form>
         </div>
     </div>
