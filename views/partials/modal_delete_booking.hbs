@@ -1,14 +1,17 @@
-<div class="modal fade" id="booking__modal" tabindex="-1" aria-labelledby="booking__modal" aria-hidden="true">
+<div class="modal fade" id="delete__modal" tabindex="-1" aria-labelledby="delete__modal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="booking__modal">Booking confirmation</h5>
+        <h5 class="modal-title" id="delete__modal">Delete confirmation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Your booking has been confirmed, we have sent you an email with your booking details.
+        We will proceed to eliminate your booking. Are you sure you want to delete it?
       </div>
       <div class="modal-footer">
+        <form action="/delete-booking/{{id}}" method="POST">
+          <button class="btn__form btn-danger btn-sm d-inline">Delete</button>
+        </form>
         <button type="button" class="btn__form btn-success btn-sm d-inline" data-bs-dismiss="modal">Close</button>
       </div>
     </div>

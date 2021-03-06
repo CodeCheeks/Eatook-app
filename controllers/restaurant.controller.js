@@ -67,9 +67,9 @@ module.exports.doBooking = (req,res,next) => {
               })
             .then(book =>{
                 bookingEmail(user.email)
-                setTimeout(() => {
-                    res.redirect('/');
-                  }, 2000);
+                req.flash('flashMessage', 'Your booking has been successfully processed.')
+                res.redirect('/profile/bookings')
+
             })
             .catch(e => next(e))
         } 

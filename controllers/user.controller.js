@@ -114,19 +114,41 @@ module.exports.doChangeEmail = (req,res,next) => {
 
 //Profile 
 
+//bookings
 module.exports.userBookings = (req, res, next) => {
-  Booking.findById(req.user._id)
+  Booking.find({user: req.user._id})
+  .populate('restaurant')
   .then((bookings) => {
     res.render("users/user_bookings", {bookings})
   })
   .catch(error => console.log(error))
 }
 
+module.exports.doDeleteBooking = (req, res, next) => {
+  Booking.findByIdAndDelete({_id:req.params.id})
+  .then(() => {
+    req.flash('flashMessage', 'Your booking has been deleted.')
+    res.redirect('/profile/bookings')
+})
+  .catch(e => console.log(e))
+}
+
+module.exports.doUpdateBooking = (req, res, next) => {
+
+  Booking.findByIdAndUpdate(req.params.id, { date: req.body.date, hour: req.body.hour, number: req.body.number })
+  .then(() => {
+    req.flash('flashMessage', 'Your booking has been updated.')
+    res.redirect('/profile/bookings')
+  })
+  .catch(e => console.log(e))
+}
+
+
+//favourites
 module.exports.userFavourites = (req, res, next) => {
   Like.find({user: req.user._id})
   .populate('restaurant')
   .then((favourites) => {
-    console.log(favourites)
     res.render("users/user_favourites", {favourites})
     })
   .catch(error => console.log(error))
@@ -252,7 +274,7 @@ module.exports.doEditRestaurant = (req, res, next) => {
 module.exports.doDeleteRestaurant =(req, res, next) => {
   Restaurant.findByIdAndDelete({_id:req.params.id})
   .then((restaurant) => {
-  console.log(`The restaurant ${restaurant.name} has been deleted`)
+    req.flash('flashMessage', 'Your restaurant has been deleted.')
   res.redirect('/profile/restaurants')
 })
   .catch(e => console.log(e))

@@ -1,0 +1,64 @@
+<div class="modal fade" id="update__modal" tabindex="-1" aria-labelledby="update__modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="update__modal">{{restaurant.name}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="POST" action="/update-booking/{{id}}" id="book__restaurant">
+        <div class="modal-body">
+            <div class="container border rounded">    
+                <div class="row">
+                    <div class="booking-form">
+                        
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row no-margin">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <span class="form-label">Date:</span>
+                                                <input class="form-control" name="date" type="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row no-margin">
+                                        <div class="col">
+                                            <span class="form-label">Hour:</span>
+                                            <select name="hour" id="hour" form="book__restaurant">
+                                                <option value="19:00">19:00</option>
+                                                <option value="19:30">19:30</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="20:30">20:30</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="21:30">21:30</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="22:30">22:30</option>
+                                                <option value="23:00">23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row no-margin">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Number of people:</span>
+                                        <input class="form-control" type="number" name="number" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div> 
+        </div>
+    <div class="modal-footer">
+        <button type="button" class="btn__form btn-danger btn-sm d-inline" data-bs-dismiss="modal">Close</button>
+        <button class="btn__form btn-success btn-sm d-inline">Update</button>
+    </form>
+    </div>
+    </div>
+  </div>
+</div>
