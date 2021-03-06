@@ -259,6 +259,14 @@ text-align: center;
   border: 1px solid var(--light--green-color);  
 }
 
+.filter__btn{
+    width: 10% ;
+    height: 5%;
+    background-color: rgba(122, 114, 114, 0.1);
+    color: var(--dark--green-color);
+    border:1px solid var(--light--green-color);
+}
+
 /* RESTAURANT CARD SEARCH VIEW */
 
 .restaurant__card__img{

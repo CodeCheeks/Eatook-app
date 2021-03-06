@@ -79,6 +79,10 @@ router.get("/search", restaurantController.showRestaurants)
 //Search with filters
 
 router.get("/search-by-filter", restaurantController.showRestaurantsByFilter)
+router.get("/search-by-price-descending", restaurantController.showRestaurantsByPriceDes)
+router.get("/search-by-price-ascending", restaurantController.showRestaurantsByPriceAsc)
+router.get("/search-by-name", restaurantController.showRestaurantsByName)
+
 
 
 //Restaurant detail
