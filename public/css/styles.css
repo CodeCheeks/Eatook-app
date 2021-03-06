@@ -200,17 +200,7 @@ text-align: center;
     text-transform: capitalize 
 }
 
-/* ---- likes ---- */
-.likes {
-    text-decoration: none;
-    color: black;
-    background-color: transparent;
-    border: none;
-}
 
-.unliked {
-    filter: grayscale();
-}
 
 /* MEDIA QUERIES */
 
@@ -296,4 +286,25 @@ text-align: center;
     text-align: left;
     margin:15px !important
     
+}
+
+.card__info__text{
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10%;
+    margin-top: 3px;
+}
+
+/* ---- likes ---- */
+.likes {
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    border: none;
+    margin-left: 20px
+}
+
+.unliked {
+    filter: grayscale();
 }
