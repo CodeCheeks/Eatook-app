@@ -49,6 +49,8 @@ router.get("/profile/bookings", secure.isAuthenticated, userController.userBooki
 router.get("/profile/favourites", secure.isAuthenticated, userController.userFavourites)
 router.get("/profile/reviews", secure.isAuthenticated, userController.userReviews)
 router.get("/profile/favourites", secure.isAuthenticated, userController.favourites);
+router.post("/update-booking/:id", secure.isAuthenticated, userController.doUpdateBooking)
+router.post("/delete-booking/:id", secure.isAuthenticated, userController.doDeleteBooking)
 
 //role: owner
 router.get("/add-restaurant", secure.isAuthenticated, secure.checkRole('owner'), userController.addRestaurant)
