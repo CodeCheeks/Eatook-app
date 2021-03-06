@@ -27,7 +27,6 @@ hbs.registerHelper('checkHour', function (data, hour, options) {
     return data.includes(hour) ? options.fn() : options.inverse()
 })
 
-
 hbs.registerHelper('random', function () {
     return Math.floor(Math.random() * (40 - 0) + 0)
 })

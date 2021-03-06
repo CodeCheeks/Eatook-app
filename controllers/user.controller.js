@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 const User = require("../models/User.model")
 const Restaurant = require("../models/Restaurant.model")
+const Booking = require("../models/Booking.model")
+const Like = require("../models/Like.model")
 const { sendActivationEmail } = require("../config/mailer.config")
 
 
@@ -113,11 +115,21 @@ module.exports.doChangeEmail = (req,res,next) => {
 //Profile 
 
 module.exports.userBookings = (req, res, next) => {
-  res.render("users/user_bookings")
+  Booking.findById(req.user._id)
+  .then((bookings) => {
+    res.render("users/user_bookings", {bookings})
+  })
+  .catch(error => console.log(error))
 }
 
 module.exports.userFavourites = (req, res, next) => {
-  res.render("users/user_favourites")
+  Like.find({user: req.user._id})
+  .populate('restaurant')
+  .then((favourites) => {
+    console.log(favourites)
+    res.render("users/user_favourites", {favourites})
+    })
+  .catch(error => console.log(error))
 }
 
 module.exports.userReviews = (req, res, next) => {
