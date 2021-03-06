@@ -27,10 +27,52 @@
                     </button>
                     </div>
             </div>
+            <div class="container d-flex justify-content-center my-5 restaurant__contact__detail">
+                <div class="col">
+                    <ul class='restaurant__contact__ul'>
+                        <li><b>CONTACT INFORMATION</b></li>
+                        <li>{{restaurant.contact.phonenumber}}</li>
+                        <li>{{restaurant.contact.email}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center my-5">
+                <div class='col-10 restaurant__description'>
+                    {{restaurant.description}}
+                </div>
+            </div>
         </div>
 
-        <div class="col-7">
-            <h5>{{restaurant.name}}</h5>
+        <div class="col-lg-7 col-sm-12 restaurant__detail__info d-flex flex-column align-items-start">
+            
+                    <div class="col-sm-8 my-4 card__info__wrapper">
+                <div class="row mb-2 justify-content-between">
+                <div class="col-sm-8 m-1">
+                    <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4> 
+                </div>
+                </div>
+                <div class="row mb-4">
+                <div class="col-sm-6 card__info__text">
+                    <h6 class="card-text capitalized"><b>Adress:</b></h6>
+                    <span class='capitalized'>{{restaurant.adress.street}}, {{restaurant.adress.city}}</span>
+                </div>
+                <div class="col-sm-6 card__info__text">
+                    <h6 class="card-text" ><b>Timetable:</b> </h6>
+                    <span class='capitalized'>{{restaurant.timeTable.days}}</span>
+                    <br>
+                    <span class='capitalized'>{{restaurant.timeTable.openhour}}-{{restaurant.timeTable.closehour}}  
+                    </span>
+                </div>
+                <div class="col-sm-6 card__info__text">
+                    <h6 class="card-text capitalized" ><b>Type of cuisine:</b> {{restaurant.cuisine}}</h6>
+                </div>
+                <div class="col-sm-6card__info__text">
+                    <h6 class="card-text capitalized" ><b>Price average:</b> {{restaurant.priceAverage}}</h6>
+                </div>
+                
+                </div>
+                
+            </div>
             <h5>Book a date here:</h5>
             {{#if user}}
                 {{> booking_form}}
