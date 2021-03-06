@@ -17,8 +17,6 @@ module.exports.home = (req, res, next) => {
       })
       .catch((e) => next(e));
   };
-
-
 module.exports.about = (req,res,next) => {
     res.render('about')
 }

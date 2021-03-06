@@ -1,12 +1,8 @@
-<div class="col">
-	<div class="card" id="restaurant-{{_id}}">
-		<img src="{{image}}" class="card-img-top" alt="...">
-		<div class="card-body">
-			<h5 class="card-title">{{name}}</h5>
-			<div class="card-buttons">
-				<a href="/restaurant/{{_id}}" class="btn btn-primary">See more</a>
-				<button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{_id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button>
-			</div>
-		</div>
-	</div>
+<div class="card m-2" style="width: 18rem;">
+  <img src="{{restaurant.image.[0]}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{restaurant.name}}</h5>
+    <p class="card-text">{{restaurant.cuisine}}</p>
+    <a href="/restaurant/{{restaurant.id}}" class="btn btn-primary">See More</a>
+  </div>
 </div>
