@@ -134,7 +134,7 @@ module.exports.doDeleteBooking = (req, res, next) => {
 }
 
 module.exports.doUpdateBooking = (req, res, next) => {
-
+  console.log(req.body)
   Booking.findByIdAndUpdate(req.params.id, { date: req.body.date, hour: req.body.hour, number: req.body.number })
   .then(() => {
     req.flash('flashMessage', 'Your booking has been updated.')
