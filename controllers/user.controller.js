@@ -166,8 +166,16 @@ module.exports.userHelp = (req, res, next) => {
 
 module.exports.userListRestaurants = (req, res, next) => {
   User.findById(req.user._id)
-  .populate('restaurants')
+  
+  .populate({
+    path: 'restaurants',
+    populate: {
+      path: 'bookings',
+    }
+  })
+  
   .then((user) => {
+    console.log(user)
     res.render("users/owner/list_restaurants",{user})
 })
 .catch((e) => next(e))

@@ -66,7 +66,13 @@ const userSchema = new Schema(
     restaurants: [{ type: Schema.Types.ObjectId, ref: 'Restaurant' }],
 
     
-  }
+  },
+    {
+        timestamps: true,
+        toJSON: {
+            virtuals: true,
+        }
+    }
 );
 
 userSchema.virtual('bookings', {

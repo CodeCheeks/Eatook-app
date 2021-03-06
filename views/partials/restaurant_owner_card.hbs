@@ -25,18 +25,28 @@
                 <div class="card-body ">
                     <h4 class="card-title capitalized manage__restaurants__btns hide"><b>Manage restaurant</b></h4>
                     <div class='manage__restaurants__btns'>
-                        <a class=" btn__form btn-success btn-sm d-inline" href="/edit-restaurant/{{this.id}}" role="button">EDIT</a>
-                        <a class=" btn__form btn-danger btn-sm d-inline" data-bs-toggle="modal" data-bs-target="#delete__modal">DELETE</a>
+                        <a class="btn__form btn-success btn-sm d-inline" href="/edit-restaurant/{{this.id}}" role="button">EDIT</a>
+                        <a class="btn__form btn-danger btn-sm d-inline" data-bs-toggle="modal" data-bs-target="#delete__modal" type="button">DELETE</a>
                     </div>
                 </div>
             </div>  
-            <div class=" col-sm-2 ">
-                <div class="card-body ">
-                    <a class="btn btn-secondary btn" href="#" role="button">Bookings</a>
-                </div>
-            </div> 
         </div>
-
+          <div class="row my-3 justify-content-around">
+              {{#each this.bookings as |booking|}}
+              <div class="row">
+                <div class="col-sm-2">
+                    <h5>{{booking.date}}</h5>
+                </div>
+                <div class="col-sm-2">
+                    <h5>{{booking.hour}}</h5>
+                </div>
+                <div class="col-sm-2">
+                    <h5>{{booking.number}}</h5>
+                </div>
+              </div>
+              {{/each}}
+              
+          </div>
                 
         {{> modal_delete_restaurant}}
 

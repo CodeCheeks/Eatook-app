@@ -14,6 +14,7 @@ module.exports.showRestaurants = (req,res,next) => {
     Restaurant.find()
     .populate("owner")
     .populate("likes")
+    .populate("bookings")
     .then((restaurants) => {    
         res.render("restaurants/search", {restaurants: restaurants.map((r, i) => {
             r = r.toJSON();
