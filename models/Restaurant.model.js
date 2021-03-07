@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("./User.model");
 const Booking = require("./Booking.model");
+const Review = require("./Review.model");
 const faker = require('faker');
 
 const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -116,6 +117,7 @@ restaurantSchema.virtual("reviews", {
     localField: "_id",
     foreignField: "restaurant",
 });
+
 const Restaurant = mongoose.model('Restaurant',restaurantSchema)
 
 module.exports = Restaurant;

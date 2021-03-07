@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -e hbs,css,js app.js",
-    "seeds": "node bin/seeds.js"
+    "seeds": "node bin/seeds.js",
+    "seeds2": "node bin/seeds2.js"
   },
   "repository": {
     "type": "git",

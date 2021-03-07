@@ -167,7 +167,6 @@ module.exports.userHelp = (req, res, next) => {
 
 module.exports.userListRestaurants = (req, res, next) => {
   User.findById(req.user._id)
-  
   .populate({
     path: 'restaurants',
     populate: {

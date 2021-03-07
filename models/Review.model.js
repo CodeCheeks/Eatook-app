@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const Restaurant = require("./Restaurant.model");
-const User = require("./User.model");
 
 const reviewSchema = new mongoose.Schema(
   {
@@ -33,6 +31,5 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
-const Review = mongoose.model("Review", reviewSchema);
 
-module.exports = Review;
+module.exports = mongoose.model("Review", reviewSchema);

@@ -9,6 +9,7 @@ const Review = require("../models/Review.model");
 const {images, cuisine, openhour, closehour, prices, days} = require("./imageData")
 
 Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
+  
   for(let i = 0; i<40; i++){
       User.create({
         firstname: faker.name.firstName(),
@@ -54,44 +55,6 @@ Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
       .catch((e) => console.log(e));
       })
     }
-
   });
   
  
-    Restaurant.find()
-    .then((restaurants) => {
-      for(let i=0;i<10;i++){
-        User.create({
-          firstname: faker.name.firstName(),
-          lastname: faker.name.lastName(),
-          phonenumber: faker.phone.phoneNumber(),
-          email: faker.internet.email(),
-          password: 'Example123',
-          role: 'user',
-          active: true
-        })
-        .then((u) => {
-          restaurants.forEach((rest) => {
-            Review.create({
-              user: u._id,
-              restaurant: rest._id,
-              comment: faker.lorem.paragraphs(),
-              rating: Math.floor(Math.random()*6)
-            })
-            .then((rev)=> {
-              console.log(rev.rating)
-            })
-          })
-         
-        })
-        
-      }
-    })
-    .catch((e) => console.log(e))
-  
- 
-  
-
-
-
-

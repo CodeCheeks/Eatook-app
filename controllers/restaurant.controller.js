@@ -107,7 +107,6 @@ module.exports.showRestaurantsByName= (req,res,next) => {
 module.exports.restaurantDetail = (req,res,next) => {
     Restaurant.findById(req.params.id)
     .populate("owner")
-    .populate("likes")
     .populate("reviews")
     .then((restaurant) => {
       console.log(restaurant)
