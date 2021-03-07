@@ -30,3 +30,10 @@ hbs.registerHelper('checkHour', function (data, hour, options) {
 hbs.registerHelper('random', function () {
     return Math.floor(Math.random() * (40 - 0) + 0)
 })
+
+hbs.registerHelper('average', function (rateArr) {
+    let rates = [];
+    rateArr.forEach(element => rates.push(element.rating))
+    return (rates.reduce((a, b) => (a + b)) / rates.length)
+    
+})

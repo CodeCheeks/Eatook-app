@@ -267,6 +267,11 @@ text-align: center;
     border:1px solid var(--light--green-color);
 }
 
+.rating__wrapper{
+    
+    padding:5px;
+    border-radius: 10px;
+}
 /* RESTAURANT CARD SEARCH VIEW */
 
 .restaurant__card__img{
