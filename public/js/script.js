@@ -17,3 +17,20 @@ const like = (element) => {
   }, 5000);
 
   
+  var button = document.getElementById('click__button'); // Assumes element with id='button'
+
+  let div = document.getElementById('booking__form');
+  div.style.display = 'none'
+  button.onclick = function() {
+      
+      if (div.style.display !== 'none') {
+        button.innerHTML = 'BOOK NOW'
+        button.style.backgroundColor = 'rgba(154,205,50,1)'
+          div.style.display = 'none';
+      }
+      else {
+        button.innerHTML = 'CLOSE'
+          button.style.backgroundColor = 'rgba(154,205,50,0.5)'
+          div.style.display = 'block';
+      }
+  };
