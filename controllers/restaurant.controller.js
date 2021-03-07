@@ -5,6 +5,7 @@ const passport = require('passport')
 const User = require("../models/User.model")
 const Restaurant = require("../models/Restaurant.model")
 const Booking = require("../models/Booking.model")
+const Review = require("../models/Review.model")
 
 const {bookingEmail} = require("../config/mailer.config")
 
@@ -15,6 +16,7 @@ module.exports.showRestaurants = (req,res,next) => {
     .populate("owner")
     .populate("likes")
     .populate("bookings")
+    .populate("reviews")
     .then((restaurants) => {    
         res.render("restaurants/search", {restaurants: restaurants.map((r, i) => {
             r = r.toJSON();
@@ -102,13 +104,11 @@ module.exports.showRestaurantsByName= (req,res,next) => {
 
 
 
-
-
-
 module.exports.restaurantDetail = (req,res,next) => {
     Restaurant.findById(req.params.id)
     .populate("owner")
     .populate("likes")
+    .populate("reviews")
     .then((restaurant) => {
       console.log(restaurant)
         res.render("restaurants/restaurant-detail",{restaurant})
