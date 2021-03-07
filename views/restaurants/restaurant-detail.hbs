@@ -74,13 +74,11 @@
             </div>
             <div class='booking__btn__wrapper d-flex flex-column align-items-center my-3'>
             <button class="btn submit-btn " id="click__button" data-bs-toggle="modal" data-bs-target="#booking__modal">Book Now</button>
-                {{#if user}}
-                    <div id="booking__form" class='my-4'>
-                    {{> booking_form}}
-                {{else}}
-                    {{> booking_form_guest}}
-                    </div>
-                {{/if}}
+                
+                <div id="booking__form" class='my-4'>
+                {{> booking_form}}
+                </div>
+                
             </div>
         </div>
     </div>
