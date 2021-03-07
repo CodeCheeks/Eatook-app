@@ -43,9 +43,9 @@
             </div>
         </div>
 
-        <div class="col-lg-7 col-sm-12 restaurant__detail__info d-flex flex-column align-items-start">
+        <div class="col-lg-7 col-sm-12 restaurant__detail__info d-flex flex-column align-items-center">
             
-                    <div class="col-sm-8 my-4 card__info__wrapper">
+            <div class="col-sm-8 my-4 card__info__wrapper">
                 <div class="row mb-2 justify-content-between">
                 <div class="col-sm-8 m-1">
                     <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4> 
@@ -70,15 +70,16 @@
                     <h6 class="card-text capitalized" ><b>Price average:</b> {{restaurant.priceAverage}}</h6>
                 </div>
                 
+                </div> 
+            </div>
+            <div class='booking__btn__wrapper d-flex flex-column align-items-center my-3'>
+            <button class="btn submit-btn " id="click__button" data-bs-toggle="modal" data-bs-target="#booking__modal">Book Now</button>
+                
+                <div id="booking__form" class='my-4'>
+                {{> booking_form}}
                 </div>
                 
             </div>
-            <h5>Book a date here:</h5>
-            {{#if user}}
-                {{> booking_form}}
-            {{else}}
-                {{> booking_form_guest}}
-            {{/if}}
         </div>
     </div>
 </div>

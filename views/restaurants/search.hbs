@@ -2,6 +2,17 @@
 <div class="container searchview__container">
     <div class="row justify-content-center">
         <div class="col">
+            <div class="dropdown d-flex justify-content-end ">
+                <button class="btn btn-secondary dropdown-toggle filter__btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort by
+                </button>
+                <ul class="dropdown-menu  btn-sm " aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="/search-by-price-descending">Filter by price descending</a></li>
+                    <li><a class="dropdown-item" href="/search-by-price-ascending">Filter by price ascending</a></li>
+                    <li><a class="dropdown-item" href="/search-by-name">Filter by name</a></li>
+                </ul>
+            </div>
+            
             {{> restaurant_card}}   
         </div>
     </div>
