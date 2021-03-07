@@ -119,6 +119,7 @@ module.exports.userBookings = (req, res, next) => {
   Booking.find({user: req.user._id})
   .populate('restaurant')
   .then((bookings) => {
+    console.log(bookings)
     res.render("users/user_bookings", {bookings})
   })
   .catch(error => console.log(error))
