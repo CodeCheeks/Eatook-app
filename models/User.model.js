@@ -81,6 +81,12 @@ userSchema.virtual('bookings', {
 	foreignField: 'user'
 });
 
+userSchema.virtual('reviews', {
+	ref: 'Review',
+	localField: '_id',
+	foreignField: 'user'
+});
+
 userSchema.methods.checkPassword = function (passwordToCheck) {
   return bcrypt.compare(passwordToCheck, this.password)
 }
