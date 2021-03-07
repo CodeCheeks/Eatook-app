@@ -47,7 +47,7 @@
             
             <div class="col-sm-8 my-4 card__info__wrapper">
                 <div class="row mb-2 justify-content-between">
-                <div class="col-sm-8 d-flex m-1">
+                <div class="col-11 d-flex justify-content-between m-1">
                     <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4> 
                     <h3 class='rating__wrapper'>⭐ <span id='restaurantRateAvg'>{{average restaurant.reviews}}/5</span></h3>
                 </div>

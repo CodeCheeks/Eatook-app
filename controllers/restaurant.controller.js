@@ -36,6 +36,7 @@ module.exports.showRestaurantsByFilter = (req,res,next) => {
         Restaurant.find({$and :[{$or: [{name: { "$regex": req.query.search}},{cuisine: {"$regex": req.query.search}}] }, {$or: [{"adress.city": {"$regex": req.query.searchCity}},{"adress.zip": { "$regex": req.query.searchCity}},{"adress.country": { "$regex": req.query.searchCity}}]}] })
         .populate("owner")
         .populate("likes")
+        .populate("reviews")
         .then((restaurants) => {  
             res.render("restaurants/search", {restaurants: restaurants.map((r, i) => {
                 r = r.toJSON();
@@ -55,6 +56,7 @@ module.exports.showRestaurantsByPriceDes  = (req,res,next) => {
   Restaurant.find({}).sort('priceAverage')
   .populate("owner")
   .populate("likes")
+  .populate("reviews")
   .then((restaurants) => {   
       res.render("restaurants/search", {restaurants: restaurants.map((r, i) => {
           r = r.toJSON();
@@ -89,6 +91,7 @@ module.exports.showRestaurantsByName= (req,res,next) => {
   Restaurant.find({}).sort('name')
   .populate("owner")
   .populate("likes")
+  .populate("reviews")
   .then((restaurants) => {   
       res.render("restaurants/search", {restaurants: restaurants.map((r, i) => {
           r = r.toJSON();
