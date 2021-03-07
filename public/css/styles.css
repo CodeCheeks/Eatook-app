@@ -253,6 +253,15 @@ text-align: center;
     height: 500px;
 }
 
+#next__carrousel__home{
+    width:5%  !important;
+    right: -5%;
+}
+
+#prev__carrousel__home{
+    width:5%  !important;
+    left: -5%;
+}
 /* SEARCH VIEW */
 
 .searchview__container{
