@@ -323,6 +323,23 @@ text-align: center;
     
 }
 
+.carousel-control-next{
+    width: 10%;
+    height: 15%;
+    top: 45%;
+    border: none;
+    background-color: var(--nav--green-color);
+}
+
+.carousel-control-prev{
+    width: 10%;
+    height: 15%;
+    top: 45%;
+    border: none;
+    background-color: var(--nav--green-color);
+}
+
+
 .restaurant__detail__info{
     margin-top: 3%;
 
@@ -345,3 +362,19 @@ text-align: center;
     width: 100%;
     
 }
+
+@media (max-width: 1000px) {
+    .restaurant__description {
+      display: none;
+    }
+
+    .restaurant__detail__wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail__img__sec{
+        width: 90%;
+    }
+  }
