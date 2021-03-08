@@ -83,6 +83,10 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+         <div>lat: {{restaurant.location.coordinates.[0]}}, lng: {{restaurant.location.coordinates.[1]}}</div>
+         <div id="map"></div>
+    </div>
     <div class="row">
         <h1>Reviews</h1>
             {{#each restaurant.reviews as |review|}}
@@ -99,8 +103,15 @@
               </div>
             {{/each}}
     </div>
+    
 
 </div>
+
+<script>const mapPoint = { lat: {{restaurant.location.coordinates.[0]}}, lng: {{restaurant.location.coordinates.[1]}} };</script>
+
+<script src="/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{API_KEY_MAPS}}&callback=initMap&libraries=&v=weekly" async></script>
+
 
 
 
