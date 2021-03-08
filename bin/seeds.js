@@ -6,11 +6,11 @@ const Restaurant = require("../models/Restaurant.model");
 const User = require("../models/User.model");
 const Review = require("../models/Review.model");
 
-const {images, cuisine, openhour, closehour, prices, days} = require("./imageData")
+const {images, cuisine, openhour, closehour, prices, days, coord} = require("./imageData")
 
 Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
   
-  for(let i = 0; i<40; i++){
+  for(let i = 0; i<50; i++){
       User.create({
         firstname: faker.name.firstName(),
         lastname: faker.name.lastName(),
@@ -33,7 +33,7 @@ Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
               phonenumber: faker.phone.phoneNumberFormat(),
               email: faker.internet.email()
             },
-            location:{coordinates: [faker.address.latitude(), faker.address.longitude()]},
+            location:{coordinates: coord[Math.floor(Math.random() * coord.length)],},
             description: faker.lorem.paragraph(),
             priceAverage: prices[Math.floor(Math.random() * prices.length)],
             image: [images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)]],

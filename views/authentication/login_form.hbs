@@ -1,26 +1,27 @@
-<div class="container__form d-flex justify-content-center mt-5">
-    <div class="row justify-content-center">
-        <form action="/login" method="POST" class="login-form">
-            <input type="email" name="email" placeholder="Email Address" class="input {{#if error}}is-invalid{{/if}}" id="email" required><br/>
-            <input type="password" name="password" placeholder="Password"  class="input {{#if error}}is-invalid{{/if}}" id="password" required>
+<div class="container">
+    <div class="container__form d-flex justify-content-center mt-5">
+        <div class="row justify-content-center">
+            <form action="/login" method="POST" class="login-form">
+                <input type="email" name="email" placeholder="Email Address" class="input {{#if error}}is-invalid{{/if}}" id="email" required><br/>
+                <input type="password" name="password" placeholder="Password"  class="input {{#if error}}is-invalid{{/if}}" id="password" required>
 
-            {{#if error}}
-                <p class="invalid-feedback">Wrong email or password</p>
-            {{/if}}
+                {{#if error}}
+                    <p class="invalid-feedback">Wrong email or password</p>
+                {{/if}}
 
-            <div class="d-flex mb-5 justify-content-between">
-                <input type="checkbox" name="" value="">
-                <label for="cookieTime" >Remember me</label>
-                <div class="control__indicator"></div>
-                </label>
-                <span class="ml-auto"><a href="/login/forgot-password" class="forgot-pass">Forgot Password</a></span>
-            </div>
-            <button type="submit" class="btn btn-secondary mt-4">LOG IN</button>
-            <a href="/authenticate/google" class="btn btn-danger my-3">Iniciar sesión con Google</a>
-            <div class="text-center w-100">
-                <p class="text-muted font-weight-bold mt-2">Don't have an account  <a href="/signup" class="text-primary ml-2">Register here</a></p>
-            </div>
-        </form>
+                <div class="d-flex mb-5 justify-content-between">
+                    <input type="checkbox" name="" value="">
+                    <label for="cookieTime" >Remember me</label>
+                    <div class="control__indicator"></div>
+                    </label>
+                    <span class="ml-auto"><a href="/login/forgot-password" class="forgot-pass">Forgot Password</a></span>
+                </div>
+                <button type="submit" class="btn btn-secondary mt-4">LOG IN</button>
+                <a href="/authenticate/google" class="btn btn-danger my-3">Iniciar sesión con Google</a>
+                <div class="text-center w-100">
+                    <p class="text-muted font-weight-bold mt-2">Don't have an account  <a href="/signup" class="text-primary ml-2">Register here</a></p>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-

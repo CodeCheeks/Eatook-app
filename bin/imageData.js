@@ -92,3 +92,8 @@ module.exports.images = [
     'https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/c20cbf11-045e-429c-a1f0-8f1d84ce2c9f/c359d915-552d-4ce2-8a6f-fa4523fdfa87.jpg',
     'https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/c20cbf11-045e-429c-a1f0-8f1d84ce2c9f/e4d680a2-e379-4367-9d1d-0bca0379394b.jpg',
   ]
+
+
+  module.exports.coord = [[-23.5504,-46.6339],[30.0561,31.2394],[40.6943,-73.9249],[55.7558,37.6178],[-34.5997,-58.3819],[41.0100,28.9603],[24.8600,67.0100],[12.9699,77.5980],[48.8566,2.3522],
+  [51.5072,-0.1275],[41.8373,-87.6862],[41.3825,2.1769]
+  ]
