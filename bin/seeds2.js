@@ -16,6 +16,7 @@ Promise.all(Review.deleteMany().then(() => {
         lastname: faker.name.lastName(),
         phonenumber: faker.phone.phoneNumber(),
         email: faker.internet.email(),
+        image: faker.image.image(),
         password: 'Example123',
         role: 'user',
         active: true
