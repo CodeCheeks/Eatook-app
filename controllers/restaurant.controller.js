@@ -111,17 +111,23 @@ module.exports.showRestaurantsByName= (req,res,next) => {
 module.exports.restaurantDetail = (req,res,next) => {
     Restaurant.findById(req.params.id)
     .populate("owner")
+    .populate("likes")
     .populate({
       path: 'reviews',
       populate: {
         path: 'user',
       }})
     .then((restaurant) => {
-      console.log(restaurant)
+
+      let newRestaurant = restaurant.toJSON()
+      newRestaurant.likeCount = restaurant.likes.length
+
+      console.log(newRestaurant)
         res.render("restaurants/restaurant-detail",{
-          restaurant,
-          lat: 40,
-          lng:3
+
+          restaurant: {
+            ...newRestaurant
+          }
         })
     })
     .catch((e) => next(e))

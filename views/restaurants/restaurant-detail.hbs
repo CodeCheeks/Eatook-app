@@ -44,11 +44,11 @@
         </div>
 
         <div class="col-lg-7 col-sm-12 restaurant__detail__info d-flex flex-column align-items-center">
-            
+
             <div class="col-sm-8 my-4 card__info__wrapper">
                 <div class="row mb-2 justify-content-between">
                 <div class="col-11 d-flex justify-content-between m-1">
-                    <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4> 
+                    <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{restaurant.likeCount}}</span></button></h4> 
                     <h3 class='rating__wrapper'>⭐ <span id='restaurantRateAvg'>{{average restaurant.reviews}}/5</span></h3>
                 </div>
                 </div>
@@ -84,7 +84,6 @@
         </div>
     </div>
     <div class="row justify-content-center">
-         <div>lat: {{restaurant.location.coordinates.[0]}}, lng: {{restaurant.location.coordinates.[1]}}</div>
          <div id="map"></div>
     </div>
     <div class="row my-10">
@@ -135,10 +134,6 @@
 <script>const mapPoint = { lat: {{restaurant.location.coordinates.[0]}}, lng: {{restaurant.location.coordinates.[1]}} };</script>
 
 <script src="/js/map.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{API_KEY_MAPS}}&callback=initMap&libraries=&v=weekly" async></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{mapsKey}}&callback=initMap&libraries=&v=weekly" async></script>
 
 
-
-
-
-			
