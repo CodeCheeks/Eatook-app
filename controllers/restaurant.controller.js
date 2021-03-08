@@ -120,7 +120,9 @@ module.exports.restaurantDetail = (req,res,next) => {
     .then((restaurant) => {
 
       let newRestaurant = restaurant.toJSON()
-      newRestaurant.likeCount = restaurant.likes.length
+      newRestaurant.likeCount = restaurant.likes.length,
+      newRestaurant.disabled = req.user ? newRestaurant.owner.toString() === req.user._id.toString() : true;
+      newRestaurant.likedByUser = req.user ? newRestaurant.likes.some((l) => l.user.toString() == req.user._id.toString()): false;
 
       console.log(newRestaurant)
         res.render("restaurants/restaurant-detail",{
