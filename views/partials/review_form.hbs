@@ -1,0 +1,37 @@
+<div class="booking-form">
+    <form method="POST" action="/restaurant/{{restaurant.id}}/review" id="review__restaurant">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Rating:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value=1>
+                <label class="form-check-label" for="inlineRadio1">⭐</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value=2>
+                <label class="form-check-label" for="inlineRadio2">⭐⭐</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value=3 >
+                <label class="form-check-label" for="inlineRadio3">⭐⭐⭐</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value=4 >
+                <label class="form-check-label" for="inlineRadio3">⭐⭐⭐⭐</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value=5 >
+                <label class="form-check-label" for="inlineRadio3">⭐⭐⭐⭐⭐</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
