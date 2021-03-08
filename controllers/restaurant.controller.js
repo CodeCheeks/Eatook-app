@@ -117,7 +117,7 @@ module.exports.restaurantDetail = (req,res,next) => {
         path: 'user',
       }})
     .then((restaurant) => {
-      console.log(restaurant)
+      
         res.render("restaurants/restaurant-detail",{
           restaurant,
           lat: 40,
@@ -139,10 +139,12 @@ module.exports.doBooking = (req,res,next) => {
                 number: req.body.number
               })
             .then(book =>{
-                bookingEmail(user.email)
-                req.flash('flashMessage', 'Your booking has been successfully processed.')
-                res.redirect('/profile/bookings')
-
+                Restaurant.findById(book.restaurant)
+                .then((rest) => {bookingEmail(user.email,rest.name, book.date, book.hour)
+                  req.flash('flashMessage', 'Your booking has been successfully processed.')
+                  res.redirect('/profile/bookings')
+                  console.log('Here', user.email, rest.name, book.date, book.hour)})
+                
             })
             .catch(e => next(e))
         } 
