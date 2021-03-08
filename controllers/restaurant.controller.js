@@ -164,5 +164,34 @@ module.exports.doBooking = (req,res,next) => {
     
 }
 
+module.exports.doReview = (req,res,next) => {
+  
+  User.findById(req.user.id)
+  .populate('reviews')
+    .then((u) => {
+      if (u) {
+          Review.create({
+              user: u,
+              restaurant: req.params.id,
+              comment: req.body.comment,
+              rating: req.body.rating
+            })
+          .then(rev =>{
+              console.log(rev)
+              res.redirect(`/restaurant/${req.params.id}`)
+
+          })
+          .catch(e => next(e))
+      } 
+      else {
+        renderWithErrors({
+          email: 'The email is incorrect'
+        })
+      }
+    })
+    .catch(e =>  console.log(e))
+  
+}
+
 
 

@@ -26,7 +26,7 @@ Promise.all(Review.deleteMany().then(() => {
           Review.create({
             user: u._id,
             restaurant: rest._id,
-            comment: faker.lorem.paragraphs(),
+            comment: faker.lorem.paragraph(),
             rating: Math.floor(Math.random()*6)
           })
           .then((review) =>{
