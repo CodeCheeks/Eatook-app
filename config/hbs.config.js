@@ -34,7 +34,7 @@ hbs.registerHelper('random', function () {
 hbs.registerHelper('average', function (rateArr) {
     let rates = [];
     rateArr.forEach(element => rates.push(element.rating))
-    return (rates.reduce((a, b) => (a + b)) / rates.length)
+    return (rates.reduce((a, b) => (a + b)) / rates.length).toFixed(1)
 })
 
 hbs.registerHelper('randomRestaurant', function (info, key, n) {

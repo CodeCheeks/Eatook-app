@@ -89,6 +89,7 @@ router.get("/search-by-name", restaurantController.showRestaurantsByName)
 
 router.get("/restaurant/:id", restaurantController.restaurantDetail)
 router.post("/restaurant/:id/booking", restaurantController.doBooking)
+router.post("/restaurant/:id/review", restaurantController.doReview)
 
 
 
