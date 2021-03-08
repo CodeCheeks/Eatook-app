@@ -35,5 +35,20 @@ hbs.registerHelper('average', function (rateArr) {
     let rates = [];
     rateArr.forEach(element => rates.push(element.rating))
     return (rates.reduce((a, b) => (a + b)) / rates.length)
-    
+})
+
+hbs.registerHelper('randomRestaurant', function (info, key, n) {
+let item = info[n];
+if(key === "name"){
+    return item.name
+}
+else if(key === "image"){
+    return item.image[0]
+}
+else if(key === "cuisine"){
+    return item.cuisine
+}
+else if (key === "id"){
+    return item.id
+    }
 })
