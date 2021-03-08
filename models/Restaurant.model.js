@@ -44,7 +44,8 @@ const restaurantSchema = new mongoose.Schema(
             },
             coordinates: {
                 type: [Number],
-                required: false
+                required: false,
+                default: [-23.5504,-46.6339]
             }
         },
         contact: {
@@ -70,7 +71,7 @@ const restaurantSchema = new mongoose.Schema(
         priceAverage:{
             type: String,
             required: false,
-            default: faker.commerce.price()
+            default: '15,00€'
         },
         timeTable:{
             days: {

@@ -98,6 +98,11 @@ text-align: center;
 /* FORMS */
 .container__form{
     width: 450px;
+    margin: 100px auto;
+}
+
+.container__form__login{
+    width: 450px;
     margin: 300px auto;
 }
 
@@ -136,6 +141,8 @@ text-align: center;
     border-radius: 25px;
     
 }
+
+
 
 .add-restaurant-form{
     background: #fff;
