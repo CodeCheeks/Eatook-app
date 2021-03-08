@@ -89,6 +89,10 @@
     </div>
     <div class="row my-10">
         <h1>Reviews</h1>
+        <div class="row my-10">
+            <h3>Add your review</h3>
+            {{> review_form}}
+        </div>
             {{#each restaurant.reviews as |review|}}
             <div class="row mx-4">
                 <div class="row">
