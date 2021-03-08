@@ -73,6 +73,7 @@ module.exports.showRestaurantsByPriceAsc = (req,res,next) => {
   Restaurant.find({}).sort('-priceAverage')
   .populate("owner")
   .populate("likes")
+  .populate("reviews")
   .then((restaurants) => {   
       res.render("restaurants/search", {restaurants: restaurants.map((r, i) => {
           r = r.toJSON();
@@ -117,7 +118,11 @@ module.exports.restaurantDetail = (req,res,next) => {
       }})
     .then((restaurant) => {
       console.log(restaurant)
-        res.render("restaurants/restaurant-detail",{restaurant})
+        res.render("restaurants/restaurant-detail",{
+          restaurant,
+          lat: 40,
+          lng:3
+        })
     })
     .catch((e) => next(e))
 }

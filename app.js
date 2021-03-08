@@ -33,6 +33,8 @@ app.use((req, res, next) => {
   res.locals.user = req.user;
   res.locals.flashMessage = req.flash('flashMessage');
 
+  res.locals.mapsKey = process.env.API_KEY_MAPS
+
   next()
 })
 

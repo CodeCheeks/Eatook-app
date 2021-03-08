@@ -33,7 +33,8 @@ Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
               phonenumber: faker.phone.phoneNumberFormat(),
               email: faker.internet.email()
             },
-            description: faker.lorem.paragraphs(),
+            location:{coordinates: [faker.address.latitude(), faker.address.longitude()]},
+            description: faker.lorem.paragraph(),
             priceAverage: prices[Math.floor(Math.random() * prices.length)],
             image: [images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)], images[Math.floor(Math.random() * images.length)]],
             cuisine: cuisine[Math.floor(Math.random() * cuisine.length)],

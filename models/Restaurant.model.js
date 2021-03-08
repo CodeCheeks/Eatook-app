@@ -35,6 +35,18 @@ const restaurantSchema = new mongoose.Schema(
                 lowercase: true
             }
         },
+        location:{
+            type: {
+                type: String,
+                enum: ['Point'],
+                required: false,
+                default: 'Point'
+            },
+            coordinates: {
+                type: [Number],
+                required: false
+            }
+        },
         contact: {
             phonenumber: {
                 type: String,
@@ -99,6 +111,8 @@ const restaurantSchema = new mongoose.Schema(
         }
     }
 )
+
+restaurantSchema.index({location: '2dsphere'})
 
 restaurantSchema.virtual("likes", {
     ref: "Like",
