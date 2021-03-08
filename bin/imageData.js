@@ -92,4 +92,3 @@ module.exports.images = [
     'https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/c20cbf11-045e-429c-a1f0-8f1d84ce2c9f/c359d915-552d-4ce2-8a6f-fa4523fdfa87.jpg',
     'https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/c20cbf11-045e-429c-a1f0-8f1d84ce2c9f/e4d680a2-e379-4367-9d1d-0bca0379394b.jpg',
   ]
-
