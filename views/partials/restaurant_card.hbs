@@ -15,7 +15,7 @@
         <div class="row mb-2 ">
           <div class="col-sm-11 d-flex justify-content-between m-1">
             <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4>           
-            <h3 class="rating__wrapper">⭐ <span id="restaurantRateAvg">{{average restaurant.reviews}}/5</span></h3>
+            <h3 class="rating__wrapper">⭐ {{#if restaurant.reviews}}<span id="restaurantRateAvg">{{average restaurant.reviews}}/5</span>{{else}}<span>-/5</span>{{/if}}</h3>
           </div>
         </div>
         <div class="row mb-4">
