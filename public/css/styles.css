@@ -200,7 +200,10 @@ text-align: center;
     text-transform: capitalize 
 }
 
+/* FOOTER */
+.footer__ul{
 
+}
 
 /* MEDIA QUERIES */
 
@@ -334,7 +337,6 @@ text-align: center;
 
 .booking_time__form{
     margin: 20px auto 5%;
-    
 }
 
 .carousel-control-next{
@@ -375,6 +377,15 @@ text-align: center;
 .booking__btn__wrapper{
     width: 100%;
     
+}
+
+.accordion-button {
+    background-color: var( --nav--green-color);
+}
+
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--nav--green-color);
 }
 
 #map{
