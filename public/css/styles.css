@@ -27,6 +27,11 @@ body{
     background: white;
     font-family: "Raleway", sans-serif;
 }
+
+footer{
+    margin-top:auto; 
+  }
+
 /* ALL VIEWS */
 .top__title{
 background-color: var(--light--green-color);
@@ -93,7 +98,7 @@ text-align: center;
 /* FORMS */
 .container__form{
     width: 450px;
-    margin: 30px auto;
+    margin: 300px auto;
 }
 
 .signup,.login{
@@ -215,7 +220,7 @@ text-align: center;
 
 .container__form{
     width: 320px;
-    margin: 2px auto;
+    margin: 300px auto;
 }
 
 }
