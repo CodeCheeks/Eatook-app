@@ -1,12 +1,12 @@
 <div class='container justify-content-center'>
-    <div class="row border my-4">
+    <div class="row my-4">
         <div class="col d-flex justify-content-center ">
-            <h1>MY FAVOURITES</h1>
+            <h1 class='top__title'>MY FAVOURITES</h1>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row row-cols-3 row-cols-md-4 g-4">
+<div class="container ">
+    <div class="favourites__wrapper booking__unit row row-cols-3 row-cols-md-4 g-4">
         {{#each favourites}}
             {{> favourites_card}}
         {{/each}}
