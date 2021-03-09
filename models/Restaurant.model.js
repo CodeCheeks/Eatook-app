@@ -3,6 +3,7 @@ const User = require("./User.model");
 const Booking = require("./Booking.model");
 const Review = require("./Review.model");
 const faker = require('faker');
+const axios = require('axios');
 
 const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -133,6 +134,17 @@ restaurantSchema.virtual("reviews", {
     foreignField: "restaurant",
 });
 
+restaurantSchema.pre('save', function(next) {
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.adress.city}+${this.adress.street}&key=AIzaSyCE7wrxgMjXx0VoOL0oD1jZzoVVB3VLQH8`)
+    .then((response) =>  {
+      console.log(response.data.results[0])
+      this.location.coordinates[0] = response.data.results[0].geometry.location.lat
+      this.location.coordinates[1] = response.data.results[0].geometry.location.lng
+      next()
+    })
+    .catch(e => console.log(e))
+})
+  
 const Restaurant = mongoose.model('Restaurant',restaurantSchema)
 
 module.exports = Restaurant;

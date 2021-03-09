@@ -182,7 +182,6 @@ module.exports.userListRestaurants = (req, res, next) => {
   })
   
   .then((user) => {
-    console.log(user)
     res.render("users/owner/list_restaurants",{user})
 })
 .catch((e) => next(e))
