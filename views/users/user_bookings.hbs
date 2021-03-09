@@ -1,23 +1,23 @@
 <div class='container justify-content-center'>
     <div class="row border my-4">
         <div class="col d-flex justify-content-center ">
-            <h1>MY BOOKINGS</h1>
+            <h1 class='top__title'>MY BOOKINGS</h1>
         </div>
     </div>
 </div>
 
 {{#each bookings}}
     <div class="container">
-        <div class="row">
-            <div class="row my-3 justify-content-around">
-                <div class=" col-3 ">
-                    <h3>{{restaurant.name}}</h3>
+        <div class="row booking__unit">
+            <div class="row booking__wrapper my-3 ">
+                <div class=" capitalized col-3 booking__sec ">
+                    <a href="/restaurant/{{restaurant.id}}"><h3>{{restaurant.name}}</h3></a>
                 </div>  
-                <div class=" col-3 ">
+                <div class=" col-3 booking__sec ">
                     <h4>{{date}}</h4>
                     <h4>{{hour}}</h4>
                 </div>  
-                <div class=" col-3 ">
+                <div class=" col-3 booking__sec">
                     <h4>People: </h4><h4>{{number}}</h4>
                 </div> 
                 <div class=" col-3 ">
@@ -32,7 +32,7 @@
             {{> modal_delete_booking}}
             {{> modal_update_booking}}
 
-            <hr>
+            
         </div>
     </div>
 {{/each}}

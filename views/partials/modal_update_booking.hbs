@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal__style">
-                <h5 class="modal-title" id="update__modal__{{_id}}">{{restaurant.name}}</h5>
+                <h5 class="modal-title capitalized" id="update__modal__{{_id}}">{{restaurant.name}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="/update-booking/{{id}}" id="book__restaurant">
@@ -13,18 +13,18 @@
 
                                 <div class="row no-margin">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <span class="form-label">Date:</span>
-                                            <input class="form-control" name="date" type="date" value="{{date}}" required>
+                                            <input class="form-control mt-1" name="date" type="date" value="{{date}}" required>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row no-margin">
                                     <div class="col">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <h6 class="form-label">Hour:</h6>
-                                            <input type="time" id="hour" name="hour" value="{{hour}}" required>
+                                            <input class="mt-1 form-control width50" type="time" id="hour" name="hour" value="{{hour}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -32,9 +32,9 @@
 
                                 <div class="row no-margin">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                             <span class="form-label">Number of people:</span>
-                                            <input class="form-control" type="number" name="number" value="{{number}}" required>
+                                            <input class="form-control mt-1" type="number" name="number" value="{{number}}" required>
                                         </div>
                                     </div>
                                 </div>
