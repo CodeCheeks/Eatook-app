@@ -3,6 +3,7 @@ const User = require("../models/User.model")
 const Restaurant = require("../models/Restaurant.model")
 const Booking = require("../models/Booking.model")
 const Like = require("../models/Like.model")
+const Review = require("../models/Review.model")
 const { sendActivationEmail } = require("../config/mailer.config")
 
 
@@ -156,7 +157,13 @@ module.exports.userFavourites = (req, res, next) => {
 }
 
 module.exports.userReviews = (req, res, next) => {
-  res.render("users/user_reviews")
+  Review.find({user: req.user._id})
+  .populate('restaurant')
+  .then((reviews) => {
+    res.render("users/user_reviews", {reviews})
+    })
+  .catch(error => console.log(error))
+ 
 }
 
 
