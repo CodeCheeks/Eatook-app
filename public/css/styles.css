@@ -240,14 +240,27 @@ text-align: center;
     margin: 300px auto;
 }
 
+
+#next__carrousel__home{
+    right: 23%!important;
 }
+
+#prev__carrousel__home{
+    left: 0%!important;
+}
+
+
+}
+
+
+
 
 /* HOME VIEW */
 .home__underpicture{
     width: 100%;
-    height: 500px;
-    margin-top: 65px;
-    background-image: url("https://res.cloudinary.com/eatookapp/image/upload/v1614971426/Backgrounds/food-366875_1920_uo38gp.jpg");
+    height: 650px;
+    margin-top: 40px;
+    background-image: url("https://res.cloudinary.com/eatookapp/image/upload/v1615292897/home_background_fct41x.jpg");
     background-size: cover ;
     background-repeat: no-repeat;
     background-position: center;
