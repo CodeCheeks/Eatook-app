@@ -36,6 +36,7 @@ footer{
     color: var(--dark--green-color) !important;
 }
 
+
 /* ALL VIEWS */
 .top__title{
 background-color: var(--light--green-color);
@@ -47,6 +48,9 @@ width: 100%;
 text-align: center;
 }
 
+.modal__style{
+   background-color: var(--nav--green-color);
+}
 /* NAVBAR */
 
 .main__nav{
@@ -222,9 +226,6 @@ text-align: center;
 }
 
 /* FOOTER */
-.footer__ul{
-
-}
 
 /* MEDIA QUERIES */
 
