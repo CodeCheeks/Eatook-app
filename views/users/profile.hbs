@@ -8,27 +8,29 @@
         </div>
     </div>
     <div class="row justify-content-md-center">
-        <div class="my-3" >
-            <a class="btn btn-secondary" href="/profile/personal-info" role="button">My personal information</a>
+        <div class="col-6">
+            <div class="my-3" >
+                <a class="btn btn-secondary" href="/profile/personal-info" role="button">My personal information</a>
+            </div>
+            {{#isOwner user.role}}
+            <div class="my-3">
+                <a class="btn btn-secondary" href="/profile/restaurants" role="button">My restaurants</a>
+            </div>
+            <div class="my-3">
+                <a class="btn btn-secondary" href="/add-restaurant" role="button">Add restaurants</a>
+            </div>
+            {{else}}
+            <div class="my-3">
+                <a class="btn btn-secondary" href="/profile/bookings" role="button">My bookings</a>
+            </div>
+            <div class="my-3">
+                <a class="btn btn-secondary" href="/profile/favourites" role="button">My Favourite restaurants</a>
+            </div>
+            <div class="my-3">
+                <a class="btn btn-secondary" href="/profile/reviews" role="button">My reviews</a>
+            </div>
+            {{/isOwner}}
         </div>
-        {{#isOwner user.role}}
-        <div class="my-3">
-            <a class="btn btn-secondary" href="/profile/restaurants" role="button">My restaurants</a>
-        </div>
-        <div class="my-3">
-            <a class="btn btn-secondary" href="/add-restaurant" role="button">Add restaurants</a>
-        </div>
-        {{else}}
-        <div class="my-3">
-            <a class="btn btn-secondary" href="/profile/bookings" role="button">My bookings</a>
-        </div>
-        <div class="my-3">
-            <a class="btn btn-secondary" href="/profile/favourites" role="button">My Favourite restaurants</a>
-        </div>
-        <div class="my-3">
-            <a class="btn btn-secondary" href="/profile/reviews" role="button">My reviews</a>
-        </div>
-         {{/isOwner}}
     </div>
 </div>
 
