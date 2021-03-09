@@ -32,6 +32,10 @@ footer{
     margin-top:auto; 
   }
 
+.a__custom:hover {
+    color: var(--dark--green-color) !important;
+}
+
 /* ALL VIEWS */
 .top__title{
 background-color: var(--light--green-color);
@@ -94,6 +98,11 @@ text-align: center;
 .nav-item{
     display: flex;
     align-items: center;
+}
+
+.none__style__a{
+    color: black;
+    text-decoration: none;
 }
 /* FORMS */
 .container__form{
