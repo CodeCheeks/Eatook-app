@@ -36,7 +36,10 @@ footer{
     color: var(--dark--green-color) !important;
 }
 
-
+.dark__green{
+    color: var(--dark--green-color) !important;
+    font-weight: bold;
+}
 /* ALL VIEWS */
 .top__title{
 background-color: var(--light--green-color);
@@ -471,6 +474,30 @@ color: var(--dark--green-color);
     padding-top:10px;
     border: 1px solid var(--nav--green-color)
 }
+/* ABOUT VIEW */
+
+.about__wrapper{
+    padding: 10px 50px;
+}
+
+.about__titles{
+    background-color: var(--light--green-color);
+    border-radius: 5px;
+    padding:10px;
+    width: auto;
+}
+
+.about__restaurant__owner{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.about__bottom__sec{
+    display: flex;
+    flex-direction: row;
+}
+
 
 /* FOOTER */
 
@@ -538,6 +565,11 @@ color: var(--dark--green-color);
        justify-content: space-around  !important;
        
    }
+
+   .about__bottom__sec{
+    display: flex;
+    flex-direction: column;
+}
    
 
 }
@@ -560,6 +592,22 @@ color: var(--dark--green-color);
 
     .footer__icons{
         display: none;
+    }
+
+    .about__restaurant__owner{
+        display: flex;
+        flex-direction: column;
+    
+    }
+
+    .about__sec{
+        display:flex;
+        justify-content: center;
+    }
+
+    .about__restaurant__owner{
+        display:flex;
+        justify-content: center;
     }
   }
 
