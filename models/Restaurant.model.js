@@ -135,7 +135,7 @@ restaurantSchema.virtual("reviews", {
 });
 
 restaurantSchema.pre('save', function(next) {
-    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.adress.city}+${this.adress.street}&key=AIzaSyCE7wrxgMjXx0VoOL0oD1jZzoVVB3VLQH8`)
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.adress.city}+${this.adress.street}&key=${process.env.API_KEY_GEO}`)
     .then((response) =>  {
       console.log(response.data.results[0])
       this.location.coordinates[0] = response.data.results[0].geometry.location.lat
