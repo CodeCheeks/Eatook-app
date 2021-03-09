@@ -52,3 +52,15 @@ else if (key === "id"){
     return item.id
     }
 })
+
+hbs.registerHelper('reverse', function (arr) {
+    arr.reverse();
+});
+
+hbs.registerHelper('limit', function (i, options) {
+    return i < 4 ? options.fn() : options.inverse()
+})
+
+hbs.registerHelper('limit2', function (i, options) {
+    return i >= 4 ? options.fn() : options.inverse()
+})

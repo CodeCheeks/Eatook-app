@@ -119,7 +119,6 @@ module.exports.userBookings = (req, res, next) => {
   Booking.find({user: req.user._id})
   .populate('restaurant')
   .then((bookings) => {
-    console.log(bookings)
     res.render("users/user_bookings", {bookings})
   })
   .catch(error => console.log(error))
@@ -135,6 +134,7 @@ module.exports.doDeleteBooking = (req, res, next) => {
 }
 
 module.exports.doUpdateBooking = (req, res, next) => {
+  console.log('updated:--------------------------------------------------')
   console.log(req.body)
   Booking.findByIdAndUpdate(req.params.id, { date: req.body.date, hour: req.body.hour, number: req.body.number })
   .then(() => {
