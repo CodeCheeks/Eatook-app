@@ -136,32 +136,34 @@ module.exports.restaurantDetail = (req,res,next) => {
 }
 
 module.exports.doBooking = (req,res,next) => {
-    User.findOne({ email: req.body.email })
-      .then((user) => {
-        if (user) {
-            Booking.create({
-                restaurant: req.params.id,
-                user: req.user._id,
-                date: req.body.date,
-                hour: req.body.hour,
-                number: req.body.number
-              })
-            .then(book =>{
-                bookingEmail(user.email)
+  User.findOne({ email: req.body.email })
+    .then((user) => {
+      if (user) {
+          Booking.create({
+              restaurant: req.params.id,
+              user: req.user._id,
+              date: req.body.date,
+              hour: req.body.hour,
+              number: req.body.number
+            })
+          .then(book =>{
+              Restaurant.findById(book.restaurant)
+              .then((rest) => {bookingEmail(user.email,rest.name, book.date, book.hour)
                 req.flash('flashMessage', 'Your booking has been successfully processed.')
                 res.redirect('/profile/bookings')
-
-            })
-            .catch(e => next(e))
-        } 
-        else {
-          renderWithErrors({
-            email: 'The email is incorrect'
+                console.log('Here', user.email, rest.name, book.date, book.hour)})
+              
           })
-        }
-      })
-      .catch(e =>  console.log(e))
-    
+          .catch(e => next(e))
+      } 
+      else {
+        renderWithErrors({
+          email: 'The email is incorrect'
+        })
+      }
+    })
+    .catch(e =>  console.log(e))
+  
 }
 
 module.exports.doReview = (req,res,next) => {
