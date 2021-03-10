@@ -1,136 +1,139 @@
+<h4 class='top__title'>REGISTER YOUR RESTAURANT</h4>
 <div class="container__form d-flex justify-content-center">
-    <div class="row justify-content-center">     
-        <form action="{{#if restaurant._id}}/edit-restaurant/{{restaurant._id}}{{else}}/add-restaurant{{/if}}" method="POST" class="add-restaurant-form" enctype="multipart/form-data" id="add__restaurant">
+     
+    <div class="row justify-content-center">   
+        <div class="col-10 col-md-12">  
+            <form action="{{#if restaurant._id}}/edit-restaurant/{{restaurant._id}}{{else}}/add-restaurant{{/if}}" method="POST" class="add-restaurant-form" enctype="multipart/form-data" id="add__restaurant">
 
-            <div class="container mb-4">
-                <div class="row my-1">
-                    <div class="col-sm">
-                        <input type="string" name="adress.city" placeholder="City" class="form-control {{#if error}}is-invalid{{/if}}" value="{{restaurant.adress.city}}" required>
-                    </div>
-                </div>
-                <div class="row my-1">
-                    <div class="col-sm-9">
-                        <input type="string" name="adress.street" placeholder="Street" class="form-control {{#if error}}is-invalid{{/if}}" value="{{restaurant.adress.street}}" required>
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="string" name="adress.number" placeholder="Nº" class="form-control {{#if error}}is-invalid{{/if}}" value="{{restaurant.adress.number}}" required>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="container my-4">
-                <div class="row my-1">
-                    <div class="col-sm">
-                        <input type="string" name="name" placeholder="Restaurant name" class="form-control" value="{{restaurant.name}}" required>
-                    </div>
-                </div>
-         
-                <div class="row my-1">
-                    <div class="col-sm">
-                        <input type="string" name="cuisine" placeholder="Cuisine type" class="form-control" value="{{restaurant.cuisine}}" required>
-                    </div>
-                </div>
-                <div class="row my-1">
-                    <div class="col-sm">
-                        <input type="string" name="priceAverage" placeholder="Price Average" class="form-control" value="{{restaurant.priceAverage}}" required>
-                    </div>
-                    <div class="col-sm">
-                        <input type="number" name="capacity" placeholder="Capacity" class="form-control" value="{{restaurant.capacity}}" required>
-                    </div>
-                </div>
-            </div>
-            
-
-            <div class="container my-2">
-                <div class="row">
-                    <h6>Working days</h6>
-                    <div class="col-sm">
-                        <input type="checkbox" name="timeTable.days" value=" Mon" {{#checkDay restaurant.timeTable.days 'Monday'}}checked{{else}}{{/checkDay}}>
-                        <label for="days">Monday</label><br>
-                        <input type="checkbox" name="timeTable.days" value=" Tue" {{#checkDay restaurant.timeTable.days 'Tuesday'}}checked{{else}}{{/checkDay}}>
-                        <label for="days">Tuesday</label><br>
-                        <input type="checkbox" name="timeTable.days" value=" Wed" {{#checkDay restaurant.timeTable.days 'Wednesday'}}checked{{else}}{{/checkDay}}>
-                        <label for="days">Wednesday</label><br>
-                        <input type="checkbox" name="timeTable.days" value=" Thu" {{#checkDay restaurant.timeTable.days 'Thursday'}}checked{{else}}{{/checkDay}}>
-                        <label for="days">Thursday</label><br>
-                    </div>
-                    <div class="col-sm">
-                        <input type="checkbox" name="timeTable.days" value=" Fri" {{#checkDay restaurant.timeTable.days 'Friday'}}checked{{else}}{{/checkDay}}>
-                        <label for="days">Friday</label><br>
-                        <input type="checkbox" name="timeTable.days" value=" Sat" {{#checkDay restaurant.timeTable.days 'Saturday'}}checked{{else}}{{/checkDay}}>
-                        <label for="days">Saturday</label><br>
-                        <input type="checkbox" name="timeTable.days" value=" Sun" {{#checkDay restaurant.timeTable.days 'Sunday'}}checked{{else}}{{/checkDay}}>
-                        <label for="days">Sunday</label><br>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="container my-2">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label for="timeTable.hours">Open hour:</label>
-                        <select name="timeTable.openhour" id="hour" form="add__restaurant">
-                            <option value="8:00" {{#checkHour restaurant.timeTable.openhour '8:00'}}selected{{else}}{{/checkHour}}>8:00</option>
-                            <option value="9:00" {{#checkHour restaurant.timeTable.openhour '9:00'}}selected{{else}}{{/checkHour}}>9:00</option>
-                            <option value="10:00" {{#checkHour restaurant.timeTable.openhour '10:00'}}selected{{else}}{{/checkHour}}>10:00</option>
-                            <option value="11:00" {{#checkHour restaurant.timeTable.openhour '11:00'}}selected{{else}}{{/checkHour}}>11:00</option>
-                            <option value="12:00" {{#checkHour restaurant.timeTable.openhour '12:00'}}selected{{else}}{{/checkHour}}>12:00</option>
-                            <option value="13:00" {{#checkHour restaurant.timeTable.openhour '13:00'}}selected{{else}}{{/checkHour}}>13:00</option>
-                            <option value="14:00" {{#checkHour restaurant.timeTable.openhour '14:00'}}selected{{else}}{{/checkHour}}>14:00</option>
-                            <option value="15:00" {{#checkHour restaurant.timeTable.openhour '15:00'}}selected{{else}}{{/checkHour}}>15:00</option>
-                            <option value="16:00" {{#checkHour restaurant.timeTable.openhour '16:00'}}selected{{else}}{{/checkHour}}>16:00</option>
-                            <option value="17:00" {{#checkHour restaurant.timeTable.openhour '17:00'}}selected{{else}}{{/checkHour}}>17:00</option>
-                            <option value="18:00" {{#checkHour restaurant.timeTable.openhour '18:00'}}selected{{else}}{{/checkHour}}>18:00</option>
-                            <option value="19:00" {{#checkHour restaurant.timeTable.openhour '19:00'}}selected{{else}}{{/checkHour}}>19:00</option>
-                            <option value="20:00" {{#checkHour restaurant.timeTable.openhour '20:00'}}selected{{else}}{{/checkHour}}>20:00</option>
-                            <option value="21:00" {{#checkHour restaurant.timeTable.openhour '21:00'}}selected{{else}}{{/checkHour}}>21:00</option>
-                            <option value="22:00" {{#checkHour restaurant.timeTable.openhour '22:00'}}selected{{else}}{{/checkHour}}>22:00</option>
-                            <option value="23:00" {{#checkHour restaurant.timeTable.openhour '23:00'}}selected{{else}}{{/checkHour}}>23:00</option>
-                            <option value="24:00" {{#checkHour restaurant.timeTable.openhour '24:00'}}selected{{else}}{{/checkHour}}>24:00</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="timeTable.hours">Close hour:</label>
-                        <select name="timeTable.closehour" id="hour" form="add__restaurant">
-                            <option value="8:00" {{#checkHour restaurant.timeTable.closehour '8:00'}}selected{{else}}{{/checkHour}}>8:00</option>
-                            <option value="9:00" {{#checkHour restaurant.timeTable.closehour '9:00'}}selected{{else}}{{/checkHour}}>9:00</option>
-                            <option value="10:00" {{#checkHour restaurant.timeTable.closehour '10:00'}}selected{{else}}{{/checkHour}}>10:00</option>
-                            <option value="11:00" {{#checkHour restaurant.timeTable.closehour '11:00'}}selected{{else}}{{/checkHour}}>11:00</option>
-                            <option value="12:00" {{#checkHour restaurant.timeTable.closehour '12:00'}}selected{{else}}{{/checkHour}}>12:00</option>
-                            <option value="13:00" {{#checkHour restaurant.timeTable.closehour '13:00'}}selected{{else}}{{/checkHour}}>13:00</option>
-                            <option value="14:00" {{#checkHour restaurant.timeTable.closehour '14:00'}}selected{{else}}{{/checkHour}}>14:00</option>
-                            <option value="15:00" {{#checkHour restaurant.timeTable.closehour '15:00'}}selected{{else}}{{/checkHour}}>15:00</option>
-                            <option value="16:00" {{#checkHour restaurant.timeTable.closehour '16:00'}}selected{{else}}{{/checkHour}}>16:00</option>
-                            <option value="17:00" {{#checkHour restaurant.timeTable.closehour '17:00'}}selected{{else}}{{/checkHour}}>17:00</option>
-                            <option value="18:00" {{#checkHour restaurant.timeTable.closehour '18:00'}}selected{{else}}{{/checkHour}}>18:00</option>
-                            <option value="19:00" {{#checkHour restaurant.timeTable.closehour '19:00'}}selected{{else}}{{/checkHour}}>19:00</option>
-                            <option value="20:00" {{#checkHour restaurant.timeTable.closehour '20:00'}}selected{{else}}{{/checkHour}}>20:00</option>
-                            <option value="21:00" {{#checkHour restaurant.timeTable.closehour '21:00'}}selected{{else}}{{/checkHour}}>21:00</option>
-                            <option value="22:00" {{#checkHour restaurant.timeTable.closehour '22:00'}}selected{{else}}{{/checkHour}}>22:00</option>
-                            <option value="23:00" {{#checkHour restaurant.timeTable.closehour '23:00'}}selected{{else}}{{/checkHour}}>23:00</option>
-                            <option value="24:00" {{#checkHour restaurant.timeTable.closehour '24:00'}}selected{{else}}{{/checkHour}}>24:00</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container my-3">
-                <div class="row">
-                    <div class="col">
-                        <label for="image" class="form-label">Image</label>
-                        <input type="file" name="image" value="{{restaurant.image}}" class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image" >
-                        {{#if errors.image}}
-                        <div class="invalid-feedback">
-                            {{errors.image}}
+                <div class="container mb-4">
+                    <div class="row my-1">
+                        <div class="col-sm">
+                            <input type="string" name="adress.city" placeholder="City" class="form-control" value="{{restaurant.adress.city}}" required>
                         </div>
-                        {{/if}}
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-sm-9">
+                            <input type="string" name="adress.street" placeholder="Street" class="form-control" value="{{restaurant.adress.street}}" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="string" name="adress.number" placeholder="Nº" class="form-control" value="{{restaurant.adress.number}}" required>
+                        </div>
                     </div>
                 </div>
-		    </div>
-            <button type="submit" class="btn btn-secondary mt-2">{{#if restaurant._id}}EDIT RESTAURANT{{else}}CREATE RESTAURANT{{/if}}</button>
-        </form>
-    
+                
+                <div class="container my-4">
+                    <div class="row my-1">
+                        <div class="col-sm">
+                            <input type="string" name="name" placeholder="Restaurant name" class="form-control" value="{{restaurant.name}}" required>
+                        </div>
+                    </div>
+            
+                    <div class="row my-1">
+                        <div class="col-sm">
+                            <input type="string" name="cuisine" placeholder="Cuisine type" class="form-control" value="{{restaurant.cuisine}}" required>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-sm">
+                            <input type="string" name="priceAverage" placeholder="Price Average" class="form-control" value="{{restaurant.priceAverage}}" required>
+                        </div>
+                        <div class="col-sm">
+                            <input type="number" name="capacity" placeholder="Capacity" class="form-control" value="{{restaurant.capacity}}" required>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="container my-2">
+                    <div class="row">
+                        <h6>Working days</h6>
+                        <div class="col-sm">
+                            <input type="checkbox" name="timeTable.days" value=" Mon" {{#checkDay restaurant.timeTable.days 'Monday'}}checked{{else}}{{/checkDay}}>
+                            <label for="days">Monday</label><br>
+                            <input type="checkbox" name="timeTable.days" value=" Tue" {{#checkDay restaurant.timeTable.days 'Tuesday'}}checked{{else}}{{/checkDay}}>
+                            <label for="days">Tuesday</label><br>
+                            <input type="checkbox" name="timeTable.days" value=" Wed" {{#checkDay restaurant.timeTable.days 'Wednesday'}}checked{{else}}{{/checkDay}}>
+                            <label for="days">Wednesday</label><br>
+                            <input type="checkbox" name="timeTable.days" value=" Thu" {{#checkDay restaurant.timeTable.days 'Thursday'}}checked{{else}}{{/checkDay}}>
+                            <label for="days">Thursday</label><br>
+                        </div>
+                        <div class="col-sm">
+                            <input type="checkbox" name="timeTable.days" value=" Fri" {{#checkDay restaurant.timeTable.days 'Friday'}}checked{{else}}{{/checkDay}}>
+                            <label for="days">Friday</label><br>
+                            <input type="checkbox" name="timeTable.days" value=" Sat" {{#checkDay restaurant.timeTable.days 'Saturday'}}checked{{else}}{{/checkDay}}>
+                            <label for="days">Saturday</label><br>
+                            <input type="checkbox" name="timeTable.days" value=" Sun" {{#checkDay restaurant.timeTable.days 'Sunday'}}checked{{else}}{{/checkDay}}>
+                            <label for="days">Sunday</label><br>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container my-2">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="timeTable.hours">Open hour:</label>
+                            <select name="timeTable.openhour" id="hour" form="add__restaurant">
+                                <option value="8:00" {{#checkHour restaurant.timeTable.openhour '8:00'}}selected{{else}}{{/checkHour}}>8:00</option>
+                                <option value="9:00" {{#checkHour restaurant.timeTable.openhour '9:00'}}selected{{else}}{{/checkHour}}>9:00</option>
+                                <option value="10:00" {{#checkHour restaurant.timeTable.openhour '10:00'}}selected{{else}}{{/checkHour}}>10:00</option>
+                                <option value="11:00" {{#checkHour restaurant.timeTable.openhour '11:00'}}selected{{else}}{{/checkHour}}>11:00</option>
+                                <option value="12:00" {{#checkHour restaurant.timeTable.openhour '12:00'}}selected{{else}}{{/checkHour}}>12:00</option>
+                                <option value="13:00" {{#checkHour restaurant.timeTable.openhour '13:00'}}selected{{else}}{{/checkHour}}>13:00</option>
+                                <option value="14:00" {{#checkHour restaurant.timeTable.openhour '14:00'}}selected{{else}}{{/checkHour}}>14:00</option>
+                                <option value="15:00" {{#checkHour restaurant.timeTable.openhour '15:00'}}selected{{else}}{{/checkHour}}>15:00</option>
+                                <option value="16:00" {{#checkHour restaurant.timeTable.openhour '16:00'}}selected{{else}}{{/checkHour}}>16:00</option>
+                                <option value="17:00" {{#checkHour restaurant.timeTable.openhour '17:00'}}selected{{else}}{{/checkHour}}>17:00</option>
+                                <option value="18:00" {{#checkHour restaurant.timeTable.openhour '18:00'}}selected{{else}}{{/checkHour}}>18:00</option>
+                                <option value="19:00" {{#checkHour restaurant.timeTable.openhour '19:00'}}selected{{else}}{{/checkHour}}>19:00</option>
+                                <option value="20:00" {{#checkHour restaurant.timeTable.openhour '20:00'}}selected{{else}}{{/checkHour}}>20:00</option>
+                                <option value="21:00" {{#checkHour restaurant.timeTable.openhour '21:00'}}selected{{else}}{{/checkHour}}>21:00</option>
+                                <option value="22:00" {{#checkHour restaurant.timeTable.openhour '22:00'}}selected{{else}}{{/checkHour}}>22:00</option>
+                                <option value="23:00" {{#checkHour restaurant.timeTable.openhour '23:00'}}selected{{else}}{{/checkHour}}>23:00</option>
+                                <option value="24:00" {{#checkHour restaurant.timeTable.openhour '24:00'}}selected{{else}}{{/checkHour}}>24:00</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="timeTable.hours">Close hour:</label>
+                            <select name="timeTable.closehour" id="hour" form="add__restaurant">
+                                <option value="8:00" {{#checkHour restaurant.timeTable.closehour '8:00'}}selected{{else}}{{/checkHour}}>8:00</option>
+                                <option value="9:00" {{#checkHour restaurant.timeTable.closehour '9:00'}}selected{{else}}{{/checkHour}}>9:00</option>
+                                <option value="10:00" {{#checkHour restaurant.timeTable.closehour '10:00'}}selected{{else}}{{/checkHour}}>10:00</option>
+                                <option value="11:00" {{#checkHour restaurant.timeTable.closehour '11:00'}}selected{{else}}{{/checkHour}}>11:00</option>
+                                <option value="12:00" {{#checkHour restaurant.timeTable.closehour '12:00'}}selected{{else}}{{/checkHour}}>12:00</option>
+                                <option value="13:00" {{#checkHour restaurant.timeTable.closehour '13:00'}}selected{{else}}{{/checkHour}}>13:00</option>
+                                <option value="14:00" {{#checkHour restaurant.timeTable.closehour '14:00'}}selected{{else}}{{/checkHour}}>14:00</option>
+                                <option value="15:00" {{#checkHour restaurant.timeTable.closehour '15:00'}}selected{{else}}{{/checkHour}}>15:00</option>
+                                <option value="16:00" {{#checkHour restaurant.timeTable.closehour '16:00'}}selected{{else}}{{/checkHour}}>16:00</option>
+                                <option value="17:00" {{#checkHour restaurant.timeTable.closehour '17:00'}}selected{{else}}{{/checkHour}}>17:00</option>
+                                <option value="18:00" {{#checkHour restaurant.timeTable.closehour '18:00'}}selected{{else}}{{/checkHour}}>18:00</option>
+                                <option value="19:00" {{#checkHour restaurant.timeTable.closehour '19:00'}}selected{{else}}{{/checkHour}}>19:00</option>
+                                <option value="20:00" {{#checkHour restaurant.timeTable.closehour '20:00'}}selected{{else}}{{/checkHour}}>20:00</option>
+                                <option value="21:00" {{#checkHour restaurant.timeTable.closehour '21:00'}}selected{{else}}{{/checkHour}}>21:00</option>
+                                <option value="22:00" {{#checkHour restaurant.timeTable.closehour '22:00'}}selected{{else}}{{/checkHour}}>22:00</option>
+                                <option value="23:00" {{#checkHour restaurant.timeTable.closehour '23:00'}}selected{{else}}{{/checkHour}}>23:00</option>
+                                <option value="24:00" {{#checkHour restaurant.timeTable.closehour '24:00'}}selected{{else}}{{/checkHour}}>24:00</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container my-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" name="image" value="{{restaurant.image}}" class="form-control {{#if errors.image}}is-invalid{{/if}}" id="image" >
+                            {{#if errors.image}}
+                            <div class="invalid-feedback">
+                                {{errors.image}}
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary mt-2">{{#if restaurant._id}}EDIT RESTAURANT{{else}}CREATE RESTAURANT{{/if}}</button>
+            </form>
+        </div>
     </div>
 </div>
 

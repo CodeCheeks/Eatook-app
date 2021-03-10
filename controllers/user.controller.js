@@ -178,6 +178,9 @@ module.exports.userListRestaurants = (req, res, next) => {
     path: 'restaurants',
     populate: {
       path: 'bookings',
+      populate: {
+        path: 'user',
+      }
     }
   })
   
