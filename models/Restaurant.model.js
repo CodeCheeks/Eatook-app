@@ -17,7 +17,7 @@ const restaurantSchema = new mongoose.Schema(
         adress:{
             country: {
                 type: String,
-                required: true,
+                required: false,
                 lowercase: true
             },
             city: {
@@ -30,11 +30,19 @@ const restaurantSchema = new mongoose.Schema(
                 required: true,
                 lowercase: true
             },
-            zip: {
+            number: {
                 type: String,
                 required: true,
+            },
+            zip: {
+                type: String,
+                required: false,
                 lowercase: true
             }
+        },
+        fullAdress: {
+            type: String,
+            required: false,
         },
         location:{
             type: {
@@ -73,6 +81,11 @@ const restaurantSchema = new mongoose.Schema(
             type: String,
             required: false,
             default: '15,00€'
+        },
+        capacity:{
+            type: Number,
+            required: false,
+            default: 40
         },
         timeTable:{
             days: {
@@ -135,11 +148,12 @@ restaurantSchema.virtual("reviews", {
 });
 
 restaurantSchema.pre('save', function(next) {
-    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.adress.city}+${this.adress.street}&key=${process.env.API_KEY_MAPS}`)
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.adress.city}+${this.adress.street}+${this.adress.number}&key=${process.env.API_KEY_MAPS}`)
     .then((response) =>  {
       console.log(response.data.results[0])
       this.location.coordinates[0] = response.data.results[0].geometry.location.lat
       this.location.coordinates[1] = response.data.results[0].geometry.location.lng
+      this.fullAdress = response.data.results[0].formatted_address
       next()
     })
     .catch(e => console.log(e))

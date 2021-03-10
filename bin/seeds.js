@@ -28,7 +28,9 @@ Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
                 city: faker.address.city(),
                 country: faker.address.country(),
                 zip: faker.address.zipCode(),
+                number: Math.floor(Math.random() * 50)
             },
+            fullAdress: `${faker.address.streetAddress()} ${faker.address.city()} ${faker.address.country()}`,
             contact: {
               phonenumber: faker.phone.phoneNumberFormat(),
               email: faker.internet.email()
@@ -43,8 +45,7 @@ Promise.all([Restaurant.deleteMany(), User.deleteMany()]).then(() => {
               openhour: openhour[Math.floor(Math.random() * openhour.length)],
               closehour: closehour[Math.floor(Math.random() * closehour.length)]
             },
-            owner: u._id
-            
+            owner: u._id,
           })
           .then((restaurant) => {
             u.restaurants.push(restaurant._id)
