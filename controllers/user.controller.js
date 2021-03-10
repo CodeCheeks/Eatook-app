@@ -200,9 +200,9 @@ module.exports.addRestaurant = (req, res, next) => {
 
 module.exports.doAddRestaurant = (req, res, next) => {
   function renderWithErrors(errors) {
-    res.status(400).render('/add-restaurant', {
-      errors: errors,
-      user: req.body
+    res.status(400).render('users/owner/add_restaurant', {
+      error: errors,
+      restaurant: req.body
     })
   }
 
@@ -226,8 +226,10 @@ module.exports.doAddRestaurant = (req, res, next) => {
   .catch(e => {
     if (e instanceof mongoose.Error.ValidationError) {
       renderWithErrors(e.errors)
-    } else {
-      next(e)
+    } 
+    else {
+      console.log("---- Api geocoding error ----")
+      renderWithErrors(e)
     }
   })
 

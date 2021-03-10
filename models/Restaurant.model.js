@@ -156,7 +156,7 @@ restaurantSchema.pre('save', function(next) {
       this.fullAdress = response.data.results[0].formatted_address
       next()
     })
-    .catch(e => console.log(e))
+    .catch(e => next(e))
 })
   
 const Restaurant = mongoose.model('Restaurant',restaurantSchema)
