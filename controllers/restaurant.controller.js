@@ -148,11 +148,10 @@ module.exports.doBooking = (req,res,next) => {
             })
           .then(book =>{
               Restaurant.findById(book.restaurant)
-              .then((rest) => {bookingEmail(user.email,rest.name, book.date, book.hour, book.qr)
+              .then((rest) => {bookingEmail(user.email,rest.name, book.date, book.hour, book.codeQR)
                 req.flash('flashMessage', 'Your booking has been successfully processed.')
                 res.redirect('/profile/bookings')
-                console.log('Here', user.email, rest.name, book.date, book.hour)})
-              
+                })
           })
           .catch(e => next(e))
       } 
