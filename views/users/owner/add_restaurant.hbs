@@ -5,15 +5,15 @@
             <div class="container mb-4">
                 <div class="row my-1">
                     <div class="col-sm">
-                        <input type="string" name="adress.city" placeholder="City" class="form-control" value="{{restaurant.adress.city}}" required>
+                        <input type="string" name="adress.city" placeholder="City" class="form-control {{#if error}}is-invalid{{/if}}" value="{{restaurant.adress.city}}" required>
                     </div>
                 </div>
                 <div class="row my-1">
                     <div class="col-sm-9">
-                        <input type="string" name="adress.street" placeholder="Street" class="form-control" value="{{restaurant.adress.street}}" required>
+                        <input type="string" name="adress.street" placeholder="Street" class="form-control {{#if error}}is-invalid{{/if}}" value="{{restaurant.adress.street}}" required>
                     </div>
                     <div class="col-sm-3">
-                        <input type="string" name="adress.number" placeholder="Nº" class="form-control" value="{{restaurant.adress.number}}" required>
+                        <input type="string" name="adress.number" placeholder="Nº" class="form-control {{#if error}}is-invalid{{/if}}" value="{{restaurant.adress.number}}" required>
                     </div>
                 </div>
             </div>
