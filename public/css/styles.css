@@ -230,7 +230,7 @@ text-align: center;
 
 /* FOOTER */
 
-/* MEDIA QUERIES */
+
 
 
 
@@ -460,6 +460,12 @@ color: var(--dark--green-color);
     padding-top:10px;
     border: 1px solid var(--nav--green-color)
 }
+
+/* MY RESTAURANTS VIEW */
+
+.border__bottom{
+    border-bottom: solid 1px var(--dark--green-color);
+}
 /* ABOUT VIEW */
 
 .about__wrapper{
@@ -586,6 +592,11 @@ color: var(--dark--green-color);
    .about__bottom__sec{
     display: flex;
     flex-direction: column;
+    }
+
+    .manage__restaurants__btns{
+        display: flex;
+        flex-direction: column;
     }
    
 

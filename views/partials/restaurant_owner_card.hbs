@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
-        <div class="row my-3 justify-content-around">
-            <div class=" col-3 ">
+    <div class="row booking__unit">
+        <div class="row my-3 d-flex justify-content-around">
+            <div class=" col-xl-4 ">
                 <div class="card-body">
                     <h4 class="card-title capitalized"><b>{{this.name}}</b></h4>
                     <h6 class="card-text capitalized hide"><b>Adress:</b> 
@@ -9,7 +9,7 @@
                     </h6>
                 </div>
             </div>  
-            <div class=" col-3 ">
+            <div class=" col-xl-4 ">
                 <div class="card-body">
                     <h4 class="card-title capitalized hide"><b>Close restaurant</b></h4>
                      <div class="form-check">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div> 
-             <div class=" col-3 ">
+             <div class=" col-xl-4 ">
                 <div class="card-body ">
                     <h4 class="card-title capitalized manage__restaurants__btns hide"><b>Manage restaurant</b></h4>
                     <div class='manage__restaurants__btns'>
@@ -28,19 +28,18 @@
                 </div>
             </div>  
         </div>
-          <div class="row my-3 justify-content-around">
+          <div class="row my-3 d-flex justify-content-around ">
               {{#each this.bookings as |booking|}}
-              <div class="row">
-                <div class="col-sm-2">
-                    <h5>{{booking.date}}</h5>
+              <div class="row border__bottom">
+                <div class="col-xl-4">
+                    <h5>{{booking.user.firstname}} {{booking.user.lastname}}</h5>
+                    <h5>{{booking.number}} pax</h5>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-xl-4">
+                    <h5>{{booking.date}}</h5>
                     <h5>{{booking.hour}}</h5>
                 </div>
-                <div class="col-sm-2">
-                    <h5>{{booking.number}}</h5>
-                </div>
-                <div class="col-sm-2">
+                <div class="col-xl-4">
                     <h5>{{booking.id}}</h5>
                 </div>
               </div>
@@ -51,7 +50,7 @@
                 
         {{> modal_delete_restaurant}}
 
-        <hr>
+        
     </div>
 </div>
 
