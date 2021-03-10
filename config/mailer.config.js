@@ -37,12 +37,12 @@ module.exports.recoverPassEmail = (email, token) => {
 
 
 //Sends booking email
-module.exports.bookingEmail = (email, restname, date, hour) => {
+module.exports.bookingEmail = (email, restname, date, hour, qr) => {
   transporter.sendMail({
       from: `"Eatook app" <${process.env.NM_USER}>`, 
       to: email, 
       subject: "Booking confirmed",
-      html: bookingTemplate(restname, date, hour)
+      html: bookingTemplate(restname, date, hour, qr)
     })
 }
 
