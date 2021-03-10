@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Restaurant = require("./Restaurant.model");
 const User = require("./User.model");
+const axios = require('axios');
 
 const bookingSchema = new mongoose.Schema(
   {
@@ -25,6 +26,9 @@ const bookingSchema = new mongoose.Schema(
     number: {
         type: Number,
         required: true
+    },
+    codeQR: {
+      type: [String]
     }
   },
   {
@@ -35,6 +39,11 @@ const bookingSchema = new mongoose.Schema(
   }
 );
 
+bookingSchema.pre('save', function(next) {
+  this.codeQR = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${this._id}`
+  next()
+
+})
 const Booking = mongoose.model("Booking", bookingSchema);
 
 module.exports = Booking;
