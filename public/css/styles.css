@@ -22,7 +22,7 @@
     margin: 0;
     padding: 0;
 }
-  
+
 body{
     background: white;
     font-family: "Raleway", sans-serif;
@@ -57,7 +57,7 @@ text-align: center;
 /* NAVBAR */
 
 .main__nav{
-    padding: 7px 0 3px;
+    
     background-color: var(--nav--green-color);
     
 }
@@ -114,7 +114,7 @@ text-align: center;
 /* FORMS */
 .container__form{
     width: 450px;
-    margin: 100px auto;
+    margin: 150px auto;
 }
 
 .container__form__login{
@@ -232,28 +232,7 @@ text-align: center;
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 600px) {
 
-.hide{
-        display: none;
-    }
-
-.container__form{
-    width: 320px;
-    margin: 300px auto;
-}
-
-
-#next__carrousel__home{
-    right: 23%!important;
-}
-
-#prev__carrousel__home{
-    left: 0%!important;
-}
-
-
-}
 
 
 
@@ -433,6 +412,13 @@ text-align: center;
 .map__container{
     margin: 40px auto;
 }
+
+/* USER INFORMATION VIEW */
+
+.user__info__wrapper{
+    
+    
+}
 /* MY BOOKINGS VIEW */
 
 .booking__wrapper{
@@ -534,8 +520,39 @@ color: var(--dark--green-color);
     .h__searchall__btn{
         margin-top: 10px;
     }
+
+    .signup-form{
+        border: none  !important
+    }
 }
 
+@media only screen and (max-width: 600px) {
+
+    .hide{
+        display: none;
+    }
+    .container__form{
+        width: 320px;
+        margin: 300px auto;
+    }
+    #next__carrousel__home{
+        right: 23%!important;
+    }
+    #prev__carrousel__home{
+        left: 0%!important;
+    }
+    
+}
+
+
+
+@media (max-width: 600px){
+
+    .container__form{
+        width: 450px;
+        margin: 130px auto
+    }
+}
 @media (max-width: 800px){
     .booking__wrapper{
         display: flex;
@@ -569,7 +586,7 @@ color: var(--dark--green-color);
    .about__bottom__sec{
     display: flex;
     flex-direction: column;
-}
+    }
    
 
 }
