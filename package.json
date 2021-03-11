@@ -4,7 +4,7 @@
   "description": "\"Ironhack module 2 project\"",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -e hbs,css,js app.js",
+    "dev": "nodemon -e hbs,css,js app.js",
     "seeds": "node bin/seeds.js",
     "seeds2": "node bin/seeds2.js"
   },
