@@ -13,9 +13,7 @@ hbs.registerHelper('isOwner', function (role, options) {
 })
 
 hbs.registerHelper('checkDay', function (data, day, options) {
-    if(data === undefined){
-        return options.inverse()
-    }
+
     return data.includes(day) ? options.fn() : options.inverse()
 })
 
@@ -67,12 +65,8 @@ hbs.registerHelper('limit2', function (i, options) {
 
 
 hbs.registerHelper('hour',(open, close, value, options) => {
-
     let openHour = open.slice(0,2)
     let closeHour = close.slice(0,2)
-
-    console.log(`${openHour} ${closeHour} ${value}`)
-
     if(value >= openHour && value <= closeHour){
        return options.fn() 
     }

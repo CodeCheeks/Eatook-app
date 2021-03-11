@@ -261,10 +261,10 @@ module.exports.doEditRestaurant = (req, res, next) => {
 
   Restaurant.findById({_id: req.params.id})
   .then(restaurant => {
-
+    
     restaurant.name = req.body.name 
     restaurant.cuisine = req.body.cuisine 
-    restaurant.image.push(req.body.image) 
+    req.body.image ? restaurant.image.push(req.body.image) : 1
 
     restaurant.timeTable.days = req.body['timeTable.days']
     restaurant.timeTable.openhour = req.body['timeTable.openhour']
@@ -277,7 +277,8 @@ module.exports.doEditRestaurant = (req, res, next) => {
 
     restaurant.save()
     req.flash('flashMessage', 'Successfully updated restaurant')
-    res.redirect('/profile/restaurants')
+    setTimeout(()=> {res.redirect('/profile/restaurants')},500)
+    
   })
   .catch(e => {
     if (e instanceof mongoose.Error.ValidationError) {
