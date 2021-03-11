@@ -32,9 +32,11 @@
               {{#each this.bookings as |booking|}}
               <div class="row border__bottom align-items-center my-2">
                 <div class="col-xl-3">
-                    <h5>{{booking.user.firstname}} {{booking.user.lastname}}</h5>
+
+                    <a class="none__style__a a__custom" data-bs-toggle="modal" data-bs-target="#email__modal__{{booking.id}}"><h5>{{booking.user.firstname}} {{booking.user.lastname}}</h5></a>
+
                 </div>
-                <div class="col-xl-2">
+                <div class="col-xl-1">
                     <h5>{{booking.number}} pax</h5>
                 </div>
                 <div class="col-xl-2">
@@ -45,14 +47,22 @@
                 </div>
                 <div class="col-xl-3">
                     <h5>{{booking.id}}</h5>
+                    
+                </div>
+                <div class="col-xl-1">
+                    <a data-bs-toggle="modal" data-bs-target="#delete__modal__{{booking.id}}" type="button"><img src="../img/cancel.png" alt=""></a>
+                    
                 </div>
               </div>
+               {{> modal_send_email}}
+               {{> modal_delete_booking}}
               {{/each}}
               
           </div>
 
                 
         {{> modal_delete_restaurant}}
+       
 
         
     </div>

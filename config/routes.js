@@ -60,6 +60,9 @@ router.get("/edit-restaurant/:id", secure.isAuthenticated, secure.checkRole('own
 router.post("/edit-restaurant/:id", secure.isAuthenticated,secure.checkRole('owner'),upload.single('image'), userController.doEditRestaurant)
 router.post("/delete-restaurant/:id", secure.isAuthenticated,secure.checkRole('owner'), userController.doDeleteRestaurant)
 
+router.post("/booking-contact/:id", secure.isAuthenticated,secure.checkRole('owner'), userController.contactBooking)
+
+
 //personal information edit
 router.post("/profile/personal-info/password", secure.isAuthenticated, userController.doChangePass)
 router.post("/profile/personal-info/phonenumber", secure.isAuthenticated, userController.doChangePhone)

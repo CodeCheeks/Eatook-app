@@ -1,0 +1,26 @@
+<div class="modal fade" id="email__modal__{{id}}" tabindex="-1" aria-labelledby="email__modal__{{id}}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal__style">
+        <h5 class="modal-title" id="email__modal__{{id}}">Send email</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" value="{{user.email}}">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <form action="/booking-contact/{{id}}" method="POST">
+          <button class="btn__form btn-success btn-sm d-inline">Send</button>
+        </form>
+        <button type="button" class="btn__form btn-danger btn-sm d-inline" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

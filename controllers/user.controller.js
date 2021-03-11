@@ -129,6 +129,9 @@ module.exports.doDeleteBooking = (req, res, next) => {
   Booking.findByIdAndDelete({_id:req.params.id})
   .then(() => {
     req.flash('flashMessage', 'Your booking has been deleted.')
+    if(req.user.role ==="owner"){
+      res.redirect('/profile/restaurants')
+    }
     res.redirect('/profile/bookings')
 })
   .catch(e => console.log(e))
@@ -298,6 +301,18 @@ module.exports.doDeleteRestaurant =(req, res, next) => {
 })
   .catch(e => console.log(e))
 }
+
+
+
+module.exports.contactBooking =(req, res, next) => {
+
+  console.log("---- send email ----")
+  req.flash('flashMessage', 'Email has been sent.')
+  res.redirect('/profile/restaurants')
+
+}
+
+
 
 
 
