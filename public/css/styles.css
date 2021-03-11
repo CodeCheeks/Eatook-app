@@ -34,6 +34,7 @@ footer{
 
 .a__custom:hover {
     color: var(--dark--green-color) !important;
+    cursor: pointer;
 }
 
 .dark__green{
