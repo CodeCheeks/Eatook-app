@@ -16,17 +16,28 @@
                     <div class="col">
                         <div class="row no-margin">
                             <div class="col booking_time__form">
-                                <span class="form-label">Hour:</span>
+                                <h6 class="form-label">Hour:</h6>
+                                {{!-- <input class="mt-1 form-control" type="time" id="hour" name="hour" required> --}}
                                 <select name="hour" id="hour" form="book__restaurant">
-                                    <option value="19:00">19:00</option>
-                                    <option value="19:30">19:30</option>
-                                    <option value="20:00">20:00</option>
-                                    <option value="20:30">20:30</option>
-                                    <option value="21:00">21:00</option>
-                                    <option value="21:30">21:30</option>
-                                    <option value="22:00">22:00</option>
-                                    <option value="22:30">22:30</option>
-                                    <option value="23:00">23:00</option>
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 12}}<option value="12:00">12:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 12.5}}<option value="12:30">12:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 13}}<option value="13:00">13:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 13.5}}<option value="13:30">13:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 14}}<option value="14:00">14:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 14.5}}<option value="14:30">14:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 15}}<option value="15:00">15:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 15.5}}<option value="15:30">15:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 16}}<option value="16:00">16:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 19}}<option value="19:00">19:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 19.5}}<option value="19:30">19:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 20}}<option value="20:00">20:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 20.5}}<option value="20:30">20:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 21}}<option value="21:00">21:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 21.5}}<option value="21:30">21:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 22}}<option value="22:00">22:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 22.5}}<option value="22:30">22:30</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 23}}<option value="23:00">23:00</option>{{/hour}}
+                                    {{#hour restaurant.timeTable.openhour restaurant.timeTable.closehour 23.5}}<option value="23:30">23:30</option>{{/hour}}
                                 </select>
                             </div>
                         </div>
@@ -43,10 +54,6 @@
                 <div class="form-group">
                     <span class="form-label">Email:</span>
                     <input class="form-control" type="email" name="email" placeholder="Enter your email" value='{{user.email}}'required>
-                </div>
-                <div class="form-group">
-                    <span class="form-label">Phone:</span>
-                    <input class="form-control" type="tel" name="phone" placeholder="Enter your phone number" value='{{user.phonenumber}}' required>
                 </div>
                 <div class="form-btn my-2">
                     {{#if user}}
