@@ -121,8 +121,8 @@ text-align: center;
     margin: 150px auto;
 }
 .container__form__login{
-    width: 450px;
-    margin: 300px auto;
+    
+    margin-bottom: 300px 
 }
 
 .signup,.login{
@@ -550,6 +550,8 @@ color: var(--dark--green-color);
     .signup-form{
         border: none  !important
     }
+
+    
 }
 
 @media only screen and (max-width: 600px) {
@@ -580,6 +582,10 @@ color: var(--dark--green-color);
     }
 
     .signup-form{
+        border: none  !important
+    }
+
+    .login-form{
         border: none  !important
     }
 }
