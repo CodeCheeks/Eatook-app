@@ -13,7 +13,9 @@ hbs.registerHelper('isOwner', function (role, options) {
 })
 
 hbs.registerHelper('checkDay', function (data, day, options) {
-
+    if(data === undefined){
+        return options.inverse()
+    }
     return data.includes(day) ? options.fn() : options.inverse()
 })
 
