@@ -202,6 +202,9 @@ text-align: center;
     cursor: pointer;
 }
 
+.btn-success:hover{
+    background-color:var(--dark--green-color) !important;
+}
 .btn-secondary:hover {
     color: #fff;
     background-color:var(--nav--green-color) !important;
@@ -269,6 +272,13 @@ text-align: center;
 }
 .search__form{
     height: 500px;
+}
+
+
+.btn__google{
+    background-color: var(--nav--green-color);
+    border: solid var(--dark--green-color) 1px;
+    padding-top: 15px;
 }
 
 #next__carrousel__home{

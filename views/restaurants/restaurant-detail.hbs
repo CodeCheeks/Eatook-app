@@ -74,7 +74,7 @@
                 </div> 
             </div>
             <div class='booking__btn__wrapper d-flex flex-column align-items-center my-3'>
-                <button class="btn submit-btn " id="click__button" data-bs-toggle="modal" data-bs-target="#booking__modal">Book Now</button>
+                <button class="btn submit-btn btn-success" id="click__button" data-bs-toggle="modal" data-bs-target="#booking__modal">Book Now</button>
                 
                 <div id="booking__form" class='my-4'>
                 {{> booking_form}}
@@ -87,70 +87,70 @@
     <div class="row justify-content-center map__container">
          <div id="map"></div>
     </div>
-     <h1>Reviews</h1>
-    {{reverse restaurant.reviews}}
-    {{#each restaurant.reviews as |review i|}}
-        {{#limit i}}
-            <div class="row m-4">
-                <div class="row">
-                    <div class="col">
-                        <img src="{{review.user.image}}" height="25px" width="25px"  style="border-radius: 50%;">
-                        <h5 class="d-inline mx-2">{{review.user.firstname}}</h5>
-                    </div>
-                    <div class="col d-flex flex-row-reverse">
-                        <h6 class='rating__wrapper'>⭐ <span id="restaurantRateAvg">{{review.rating}}/5</span></h6>
-                    </div>
-                </div>
-                <div class="row">
-                </div>
-                <p>{{review.comment}}</p>
-            </div>
-        {{else}}
-        {{/limit}}
-    {{/each}}
-    
-    <div class="accordion my-4" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Show more reviews</button></h2>
-            <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    {{#each restaurant.reviews as |review i|}}
-                        {{#limit2 i}}
-                             <div class="row m-4">
-                                <div class="row">
-                                    <div class="col">
-                                        <img src="{{review.user.image}}" height="25px" width="25px"  style="border-radius: 50%;">
-                                        <h5 class="d-inline mx-2">{{review.user.firstname}}</h5>
-                                    </div>
-                                    <div class="col d-flex flex-row-reverse">
-                                        <h6 class='rating__wrapper'>⭐ <span id="restaurantRateAvg">{{review.rating}}/5</span></h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                </div>
-                                <p>{{review.comment}}</p>
-                            </div>
-                            {{else}}
-                        {{/limit2}}
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{#if user}}
-        <div class="row m-4">
-            <div clss="col-sm-6 border">
-                <h3>Add your review</h3>
-                {{> review_form}}
-            </div>
-        </div>
-    {{/if}}
-
     {{#if restaurant.reviews}}
-    <div class="row">
-    </div>
+        <h1>Reviews</h1>
+        {{reverse restaurant.reviews}}
+        {{#each restaurant.reviews as |review i|}}
+            {{#limit i}}
+                <div class="row m-4">
+                    <div class="row">
+                        <div class="col">
+                            <img src="{{review.user.image}}" height="25px" width="25px"  style="border-radius: 50%;">
+                            <h5 class="d-inline mx-2">{{review.user.firstname}}</h5>
+                        </div>
+                        <div class="col d-flex flex-row-reverse">
+                            <h6 class='rating__wrapper'>⭐ <span id="restaurantRateAvg">{{review.rating}}/5</span></h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                    <p>{{review.comment}}</p>
+                </div>
+            {{else}}
+            {{/limit}}
+        {{/each}}
+        
+        <div class="accordion my-4" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Show more reviews</button></h2>
+                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{#each restaurant.reviews as |review i|}}
+                            {{#limit2 i}}
+                                <div class="row m-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <img src="{{review.user.image}}" height="25px" width="25px"  style="border-radius: 50%;">
+                                            <h5 class="d-inline mx-2">{{review.user.firstname}}</h5>
+                                        </div>
+                                        <div class="col d-flex flex-row-reverse">
+                                            <h6 class='rating__wrapper'>⭐ <span id="restaurantRateAvg">{{review.rating}}/5</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                    <p>{{review.comment}}</p>
+                                </div>
+                                {{else}}
+                            {{/limit2}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
     {{/if}}
+
+        {{#if user}}
+            <div class="row m-4">
+                <div clss="col-sm-6 border">
+                    <h3>Add your review</h3>
+                    {{> review_form}}
+                </div>
+            </div>
+        {{/if}}
+
+        
+    
 </div>
 
 <script>const mapPoint = { lat: {{restaurant.location.coordinates.[0]}}, lng: {{restaurant.location.coordinates.[1]}} };</script>
