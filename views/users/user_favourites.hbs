@@ -6,9 +6,17 @@
     </div>
 </div>
 <div class="container ">
-    <div class="favourites__wrapper booking__unit row row-cols-3 row-cols-md-4 g-4">
+    <div class="favourites__wrapper  row row-cols-3 row-cols-md-4 g-4">
         {{#each favourites}}
             {{> favourites_card}}
+
+        {{else}}
+            <div class="container" style="text-align: center;">
+                <h6>No favourites yet</h6>
+            </div>
+
+            <div style="height: 450px;">
+            </div>
         {{/each}}
     </div>
 </div>
