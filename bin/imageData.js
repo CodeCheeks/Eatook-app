@@ -1,6 +1,6 @@
 
 module.exports.cuisine = ["Asian", "Arabian", "Mediterranean", "American", "Chinese", "Italian", "Mexican","Japanese","African","Thai"]
-module.exports.openhour = ["7:00","8:00","12:00","13:00","17:00","18:00","19:00"]
+module.exports.openhour = ["07:00","08:00","12:00","13:00","17:00","18:00","19:00"]
 module.exports.closehour = ["20:00","21:00","22:00","23:00","24:00"]
 module.exports.prices = ["10,00€","12,00€","15,00€","16,00€","18,00€","20,00€","25,00€","32,00€","40,00€","55,00€"]
 module.exports.days = ["Mon, Tue, Wed, Thu, Fri, Sat, Sun","Tue, Wed, Thu, Fri, Sat, Sun","Mon, Tue, Thu, Fri, Sat, Sun","Mon, Tue, Wed, Fri, Sat, Sun","Mon, Tue, Wed, Thu, Sat, Sun","Mon, Tue, Wed, Thu, Fri, Sun","Mon, Tue, Wed, Thu, Fri","Fri, Sat, Sun","Mon, Tue, Wed, Thu"]

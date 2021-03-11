@@ -19,7 +19,7 @@ hbs.registerHelper('checkDay', function (data, day, options) {
     return data.includes(day) ? options.fn() : options.inverse()
 })
 
-// Comprobar si es user
+
 hbs.registerHelper('checkHour', function (data, hour, options) {
     if(data === undefined){
         return options.inverse()
@@ -38,19 +38,19 @@ hbs.registerHelper('average', function (rateArr) {
 })
 
 hbs.registerHelper('randomRestaurant', function (info, key, n) {
-let item = info[n];
-if(key === "name"){
-    return item.name
-}
-else if(key === "image"){
-    return item.image[0]
-}
-else if(key === "cuisine"){
-    return item.cuisine
-}
-else if (key === "id"){
-    return item.id
+    let item = info[n];
+    if(key === "name"){
+        return item.name
     }
+    else if(key === "image"){
+        return item.image[0]
+    }
+    else if(key === "cuisine"){
+        return item.cuisine
+    }
+    else if (key === "id"){
+        return item.id
+        }
 })
 
 hbs.registerHelper('reverse', function (arr) {
@@ -63,4 +63,17 @@ hbs.registerHelper('limit', function (i, options) {
 
 hbs.registerHelper('limit2', function (i, options) {
     return i >= 4 ? options.fn() : options.inverse()
+})
+
+
+hbs.registerHelper('hour',(open, close, value, options) => {
+
+    let openHour = open.slice(0,2)
+    let closeHour = close.slice(0,2)
+
+    console.log(`${openHour} ${closeHour} ${value}`)
+
+    if(value >= openHour && value <= closeHour){
+       return options.fn() 
+    }
 })

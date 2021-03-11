@@ -124,7 +124,6 @@ module.exports.restaurantDetail = (req,res,next) => {
       newRestaurant.disabled = req.user ? newRestaurant.owner.toString() === req.user._id.toString() : true;
       newRestaurant.likedByUser = req.user ? newRestaurant.likes.some((l) => l.user.toString() == req.user._id.toString()): false;
 
-      console.log(newRestaurant)
         res.render("restaurants/restaurant-detail",{
 
           restaurant: {
@@ -139,6 +138,7 @@ module.exports.doBooking = (req,res,next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (user) {
+        console.log(req.body)
           Booking.create({
               restaurant: req.params.id,
               user: req.user._id,
@@ -153,7 +153,7 @@ module.exports.doBooking = (req,res,next) => {
                 res.redirect('/profile/bookings')
                 })
           })
-          .catch(e => next(e))
+          .catch(e => console.log(e))
       } 
       else {
         renderWithErrors({
