@@ -37,7 +37,7 @@
                             <div class="row">
                               <div class="col-10">
                                 <label for="phonenumber"><h4>Phone number</h4></label>
-                                <input type="text" class="form-control mb-3" name="phonenumber" id="phonenumber" placeholder="{{user.phonenumber}}">
+                                <input type="text" class="form-control mb-3" name="phonenumber" id="phonenumber" pattern="[0-9]{9}" placeholder="{{user.phonenumber}}">
                               </div>
                               <div class="col-8 col-md-8 col-lg-2">
                                 <button type="submit" class="btn btn-primary-outline btn-sm pull-xs-right mt-lg-3 my-md-1">Change number</button>
@@ -56,7 +56,7 @@
                             <div class="row">
                               <div class="col-10">
                                 <label for="email"><h4>Email</h4></label>
-                                <input type="email" class="form-control mb-3" name="email" id="email" placeholder="{{user.email}}" required>
+                                <input type="email" class="form-control mb-3  {{#if errors.email}}is-invalid{{/if}}" name="email" id="email" placeholder="{{user.email}}" required>
                               </div>
                               <div class="col-8 col-md-8 col-lg-2">
                                 <button type="submit" class="btn btn-primary-outline btn-sm pull-xs-right mt-lg-3 my-md-1">Change email</button>

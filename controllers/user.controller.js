@@ -91,25 +91,36 @@ module.exports.doChangeEmail = (req,res,next) => {
       errors: errors,
     })
   }
-  User.findOneAndUpdate(
-    {_id: req.user._id},
-    {email: req.body.email, active:false},
-    {new:true})
-  .then((user) => {
-    if(user){
 
-    sendActivationEmail(user.email,user.activationToken)
-    req.logout();
-    res.redirect("/signup/verify-account");
-    
-    
-    console.log(`The email has been updated`)
-    }
-    else{
-      renderWithErrors('There was an error with the new provided email')
-    }
-  })
-  .catch(error => console.log(error))
+  const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if((req.body.email).match(EMAIL_PATTERN)){
+    User.findOneAndUpdate(
+      {_id: req.user._id},
+      {email: req.body.email, active:false},
+      {new:true})
+    .then((user) => {
+      if(user){
+  
+      sendActivationEmail(user.email,user.activationToken)
+      req.logout();
+      res.redirect("/signup/verify-account");
+      
+      
+      console.log(`The email has been updated`)
+      }
+      renderWithErrors({
+        emailRepeat: 'Invalid email'
+      })
+    })
+    .catch(error => console.log(error))
+  }
+  else{
+    renderWithErrors({
+      email: 'Invalid email'
+    })
+  }
+
 }
 
 
