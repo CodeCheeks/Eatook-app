@@ -109,7 +109,6 @@ module.exports.doRecoverPassword = (req,res,next) => {
     })
   }
 
-  console.log(req.params)
   if(req.body.newPassword === req.body.newPassword2){
     User.findOne({activationToken:req.params.token})
       .then((user) => {
@@ -160,42 +159,51 @@ module.exports.doSignup = (req,res,next) => {
         userTemp: req.body
       })
     }
-    console.log(req.body)
-    if(req.body.password === req.body.password2){
-      User.findOne({ email: req.body.email })
-        .then((user) => {
-          if (user) {
-            renderWithErrors({
-              email: 'Email is not valid'
-            })
-          } 
-          else {
-            
-            User.create(req.body)
-              .then((user) => {
-                sendActivationEmail(user.email,user.activationToken)
-                res.redirect("/signup/verify-account");
+
+    const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if((req.body.email).match(EMAIL_PATTERN)){
+      if(req.body.password === req.body.password2){
+        User.findOne({ email: req.body.email })
+          .then((user) => {
+            if (user) {
+              renderWithErrors({
+                email: 'Email is not valid'
               })
-              .catch(e => {
-                if (e instanceof mongoose.Error.ValidationError) {
-                  console.log("error mongoose validation")
-                  renderWithErrors({
-                    pass: 'Password is not valid'
-                  })
-                } else {
-                  next(e)
-                }
-              })
-          }
+            } 
+            else {
+              
+              User.create(req.body)
+                .then((user) => {
+                  sendActivationEmail(user.email,user.activationToken)
+                  res.redirect("/signup/verify-account");
+                })
+                .catch(e => {
+                  if (e instanceof mongoose.Error.ValidationError) {
+                    console.log("error mongoose validation")
+                    renderWithErrors({
+                      pass: 'Password is not valid'
+                    })
+                  } else {
+                    next(e)
+                  }
+                })
+            }
+          })
+          .catch(e =>  console.log(e))
+      }
+      else{
+        renderWithErrors({
+          passMatch: 'Passwords do not match'
         })
-        .catch(e =>  console.log(e))
+      }
     }
     else{
-      console.log()
       renderWithErrors({
-        passMatch: 'Passwords do not match'
+        email: 'Email is not valid'
       })
     }
+
 }
 
 
