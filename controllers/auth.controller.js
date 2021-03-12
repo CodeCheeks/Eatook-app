@@ -157,34 +157,45 @@ module.exports.doSignup = (req,res,next) => {
     function renderWithErrors(errors) {
       res.status(400).render('authentication/signup_form', {
         errors: errors,
-        user: req.body
+        userTemp: req.body
       })
     }
-  
-    User.findOne({ email: req.body.email })
-      .then((user) => {
-        if (user) {
-          renderWithErrors({
-            email: 'The email or username is already in use'
-          })
-        } 
-        else {
-          
-          User.create(req.body)
-            .then((user) => {
-              sendActivationEmail(user.email,user.activationToken)
-              res.redirect("/signup/verify-account");
+    console.log(req.body)
+    if(req.body.password === req.body.password2){
+      User.findOne({ email: req.body.email })
+        .then((user) => {
+          if (user) {
+            renderWithErrors({
+              email: 'Email is not valid'
             })
-            .catch(e => {
-              if (e instanceof mongoose.Error.ValidationError) {
-                renderWithErrors(e.errors)
-              } else {
-                next(e)
-              }
-            })
-        }
+          } 
+          else {
+            
+            User.create(req.body)
+              .then((user) => {
+                sendActivationEmail(user.email,user.activationToken)
+                res.redirect("/signup/verify-account");
+              })
+              .catch(e => {
+                if (e instanceof mongoose.Error.ValidationError) {
+                  console.log("error mongoose validation")
+                  renderWithErrors({
+                    pass: 'Password is not valid'
+                  })
+                } else {
+                  next(e)
+                }
+              })
+          }
+        })
+        .catch(e =>  console.log(e))
+    }
+    else{
+      console.log()
+      renderWithErrors({
+        passMatch: 'Passwords do not match'
       })
-      .catch(e =>  console.log(e))
+    }
 }
 
 

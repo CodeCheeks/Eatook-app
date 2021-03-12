@@ -1,52 +1,45 @@
-<div class="container__form__signup d-flex justify-content-center mt-5">
-    <div class="row justify-content-center">     
+<div class="container__form__signup d-flex justify-content-center mt-2">
+ 
         <form action="/signup" method="POST" class="signup-form">
-            <input type="email" name="email" placeholder="Email Address" class="input {{#if errors.email}}is-invalid{{/if}}" id="email" required><br />
+            <input type="text" name="firstname" placeholder="Firstname" class="input mb-1" value="{{userTemp.firstname}}" id="firstname" required>
+            <input type="text" name="lastname" placeholder="Lastname" class="input mb-1" value="{{userTemp.lastname}}" id="lastname" required>
             {{#if errors.email}}
-                <div class="invalid-feedback">
-                    {{errors.email}}
-                </div>
+                <small class="text-danger">Invalid email</small>
             {{/if}}
+            <input type="email" name="email" placeholder="Email Address" class="{{#if errors.email}} form-control is-invalid{{/if}} input mb-1" value="{{userTemp.email}}" id="email" required>
+            <input type="tel" name="phonenumber" placeholder="Phone number" class="input mb-3" value="{{userTemp.phonenumber}}" id="phonenumber" pattern="[0-9]{9}" required>
 
-            <input type="text" name="firstname" placeholder="Firstname" class="input {{#if errors.firstname}}is-invalid{{/if}}" id="firstname" required>
-            {{#if errors.firstname}}
-                <div class="invalid-feedback">
-                    {{errors.firstname}}
+
+
+
+            <div class="row">
+                {{#if errors.pass}}
+                 <small class="text-danger">Your password must contain at least 1 number, 1 uppercase, 1 lowercase and 8 characters.</small>
+                {{/if}}
+
+                {{#if errors.passMatch}}
+                    <small class="text-danger">Passwords do not match</small>
+                {{/if}}
+                <div class="col">
+                    <input type="password" name="password" placeholder="Password"  class="{{#if errors.pass}}form-control is-invalid{{/if}}{{#if errors.passMatch}}form-control is-invalid{{/if}} input" id="password" required>
                 </div>
-            {{/if}}
-
-            <input type="text" name="lastname" placeholder="Lastname" class="input {{#if errors.lastname}}is-invalid{{/if}}" id="lastname" required>
-            {{#if errors.lastname}}
-                <div class="invalid-feedback">
-                    {{errors.lastname}}
+                <div class="col">
+                    <input type="password" name="password2" placeholder="Repeat Password" class="{{#if errors.pass}}form-control is-invalid{{/if}} {{#if errors.passMatch}}form-control is-invalid{{/if}} input" id="password2" required>
                 </div>
-            {{/if}}
+            </div>
 
-            <input type="text" name="phonenumber" placeholder="Phone number" class="input {{#if errors.phonenumber}}is-invalid{{/if}}" id="phonenumber">
-            {{#if errors.phonenumber}}
-                <div class="invalid-feedback">
-                    {{errors.phonenumber}}
-                </div>
-            {{/if}}
+            
 
-            <input type="password" name="password" placeholder="Password"  class="input {{#if errors.password}}is-invalid{{/if}}" id="password" required>
-            {{#if errors.password}}
-                <div class="invalid-feedback">
-                    {{errors.password}}
-                </div>
-            {{/if}}
-
-            <div class="mb-4">
+            <div class="mb-2">
                 <input type="checkbox" name="role" value="owner">
                 <label for="role" >Restaurant owner</label>
             </div>
             
-            <button type="submit" class="btn btn-secondary mt-2" {{!-- data-bs-toggle="modal" data-bs-target="#register__modal" --}}>CREATE ACCOUNT</button>
+            <button type="submit" class="btn btn-secondary my-2">CREATE ACCOUNT</button>
             <div class="text-center w-100">
-                <p class="text-muted font-weight-bold mt-2">Already Registered? <a href="/login" class="text-primary ml-2">Login</a></p>
+                <p class="text-muted font-weight-bold my-2">Already Registered? <a href="/login" class="text-primary ml-2">Login</a></p>
             </div>
         </form>
-    
-    </div>
+
 </div>
 

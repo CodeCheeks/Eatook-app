@@ -125,6 +125,7 @@ text-align: center;
     margin-bottom: 300px 
 }
 
+
 .signup,.login{
     width: 50%;
     background: #fff;
@@ -143,8 +144,9 @@ text-align: center;
     padding: 40px;
     clear: both;
     width: 100%;
+    max-width: 500px;
     box-sizing: border-box;
-    height: 530px;
+    height: 550px;
     border: #c2c55e 2px solid;
     border-radius: 25px;
 }
