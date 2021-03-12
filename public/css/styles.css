@@ -309,6 +309,10 @@ text-align: center;
     border:1px solid var(--light--green-color);
 }
 
+.h__search__btn{
+    width: 300px;
+}
+
 .rating__wrapper{
     
     padding:5px;
@@ -590,6 +594,9 @@ color: var(--dark--green-color);
 
     .login-form{
         border: none  !important
+    }
+    .h__search__btn{
+        width: 200px;
     }
 }
 @media (max-width: 800px){

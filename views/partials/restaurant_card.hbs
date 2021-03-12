@@ -4,8 +4,7 @@
   <div class="row my-4 justify-content-center">
 
     <div class="col-3 mx-4">
-      
-      <img class="card-img-top restaurant__card__img my-3 hide" src="{{restaurant.image.[0]}}" alt="Restaurant image"  >
+      <a href="/restaurant/{{restaurant.id}}"> <img class="card-img-top restaurant__card__img my-3 hide" src="{{restaurant.image.[0]}}" alt="Restaurant image"></a>
       <div class="btns__restaurant__card">
         <a href="/restaurant/{{restaurant.id}}" class="btn s__details__btn btn-md btn-success">See more</a>
       </div>
@@ -14,7 +13,10 @@
     <div class="col-sm-8 my-4 card__info__wrapper">
         <div class="row mb-2 ">
           <div class="col-sm-11 d-flex justify-content-between m-1">
-            <h4 class="card-title capitalized"><b>{{restaurant.name}}</b><button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4>           
+            <div class="col">
+              <a class="none__style__a a__custom" href="/restaurant/{{restaurant.id}}"><h4 class="card-title capitalized"><b>{{restaurant.name}}</b></a>
+              <button onclick="like(this)" {{#if disabled}}disabled{{/if}} data-restaurantid="{{restaurant.id}}" class="likes {{#unless likedByUser}}unliked{{/unless}}">🍓 <span>{{likeCount}}</span></button></h4>           
+            </div>
             <h3 class="rating__wrapper">⭐ {{#if restaurant.reviews}}<span id="restaurantRateAvg">{{average restaurant.reviews}}/5</span>{{else}}<span>-/5</span>{{/if}}</h3>
           </div>
         </div>
